@@ -29,10 +29,18 @@ const items = [
  {name:'漢字・言葉の素材',repo:'sententaisyo',category:'素材',subject:'国語',grade:'小学生',desc:'国語学習に活用できる言葉や文章の素材。',color:'purple'},
  {name:'発表・面接サポート',repo:'interview-',category:'ツール',subject:'その他',grade:'小学生',desc:'考えを整理して伝えるためのサポートツール。',color:'purple'},
  {name:'しらべ学習ポータル',repo:'sankenbunritu',category:'教材',subject:'社会',grade:'6年生',desc:'憲法や三権分立について整理して学ぶ教材。',color:'orange'}
+ {name:'1年生 さんすうワールド',repo:'1nensasuuworld',category:'教材',subject:'算数',grade:'1年生',desc:'まちづくりを楽しみながら、1年生の算数を学ぶワールド。',color:'blue'},
+ {name:'文章題アドベンチャー',repo:'bunsyo-dai',category:'教材',subject:'算数',grade:'小学生',desc:'文章題の場面を読み取り、式や答えを考える教材。',color:'blue'},
+ {name:'分数・小数計算',repo:'bunsuuseisuukeisan',category:'ツール',subject:'算数',grade:'小学生',desc:'分数や小数の計算をくり返し練習できるツール。',color:'blue'},
+ {name:'数のしくみ',repo:'kazunosikumi',category:'教材',subject:'算数',grade:'小学生',desc:'数の見方や仕組みを考える算数教材。',color:'blue'},
+ {name:'英検5級チャレンジ',repo:'eiken5',category:'教材',subject:'その他',grade:'小学生',desc:'英検5級レベルの英語をクイズ形式で学ぶ教材。',color:'green'},
+ {name:'わり算ランド',repo:'warizanland',category:'ツール',subject:'算数',grade:'小学生',desc:'わり算に親しみながら練習できる学習ゲーム。',color:'blue'},
+ {name:'チェック・確認ツール',repo:'checker',category:'ツール',subject:'その他',grade:'小学生',desc:'学習や活動の確認に使えるシンプルなチェックツール。',color:'purple'},
+
 ];
 const grid=document.querySelector('#grid'), search=document.querySelector('#search'), count=document.querySelector('#count'), resultText=document.querySelector('#resultText'), empty=document.querySelector('#empty');
 let category='all', subject='all';
-function render(){const q=search.value.trim().toLowerCase();const filtered=items.filter(x=>(category==='all'||x.category===category)&&(subject==='all'||x.subject===subject)&&(!q||[x.name,x.desc,x.subject,x.grade].join(' ').toLowerCase().includes(q)));count.textContent=items.length;resultText.textContent=filtered.length+'件';grid.innerHTML=filtered.map(x=>`<article class="card"><div class="card-top"><span class="badge ${x.category}">${x.category}</span><span class="subject-label">${x.subject}</span></div><h3>${x.name}</h3><p>${x.desc}</p><div class="card-foot"><span class="grade">${x.grade}</span><a class="open" href="https://tt-sensei.github.io/${x.repo}/" target="_blank" rel="noopener">サイトを開く ↗</a></div></article>`).join('');empty.hidden=filtered.length!==0}
+function render(){const q=search.value.trim().toLowerCase();const filtered=items.filter(x=>(category==='all'||x.category===category)&&(subject==='all'||x.subject===subject)&&(!q||[x.name,x.repo,x.desc,x.subject,x.grade].join(' ').toLowerCase().includes(q)));count.textContent=items.length;resultText.textContent=filtered.length+'件';grid.innerHTML=filtered.map(x=>`<article class="card"><div class="card-top"><span class="badge ${x.category}">${x.category}</span><span class="subject-label">${x.subject}</span></div><h3>${x.name}</h3><p>${x.desc}</p><div class="card-foot"><span class="grade">${x.grade}</span><a class="open" href="https://tt-sensei.github.io/${x.repo}/" target="_blank" rel="noopener">サイトを開く ↗</a></div></article>`).join('');empty.hidden=filtered.length!==0}
 document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');category=b.dataset.category;render()}));
 document.querySelectorAll('.subject').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.subject').forEach(x=>x.classList.remove('active'));b.classList.add('active');subject=b.dataset.subject;render()}));
 search.addEventListener('input',render);render();
