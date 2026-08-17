@@ -22,7 +22,7 @@ const items = [
  {name:'文字と式マスター',repo:'mojisiki',category:'ツール',subject:'算数',grade:'6年生',desc:'文字を使った式の意味や考え方を練習。',color:'blue'},
  {name:'学習の振り返り',repo:'furikaeri',category:'ツール',subject:'その他',grade:'小学生',desc:'わかる・できる・かかわるの視点で学びを振り返る。',color:'purple'},
  {name:'学級活動の話し合い',repo:'gakkatu',category:'ツール',subject:'その他',grade:'小学生',desc:'学級活動の話し合いを支援するWebツール。',color:'purple'},
- {name:'音のレシピ',repo:'sounds-recipe-',category:'ツール',subject:'その他',grade:'小学生',desc:'授業や活動で使える音の素材を探せるサイト。',color:'pink'},
+ {name:'音のレシピ',repo:'sounds-recipe-',category:'素材',subject:'その他',grade:'小学生',desc:'授業や活動で使える音の素材を探せるサイト。',color:'pink'},
  {name:'くるま図鑑',repo:'kuruma',category:'教材',subject:'その他',grade:'小学生',desc:'くるまをきっかけに調べたり考えたりする教材。',color:'orange'},
  {name:'立体のきほん',repo:'rittaikihon',category:'教材',subject:'算数',grade:'小学生',desc:'立体の見方や特徴を学ぶWeb教材。',color:'blue'},
  {name:'edu-assets バッジ・素材',repo:'edu-assets',category:'素材',subject:'その他',grade:'共通素材',desc:'共通・教科別バッジ、エレメント、コレクション素材。',color:'yellow'},
