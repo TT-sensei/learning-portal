@@ -28,7 +28,7 @@ const items = [
  {name:'edu-assets バッジ・素材',repo:'edu-assets',category:'素材',subject:'その他',grade:'共通素材',desc:'共通・教科別バッジ、エレメント、コレクション素材。',color:'yellow'},
  {name:'漢字・言葉の素材',repo:'sententaisyo',category:'素材',subject:'国語',grade:'小学生',desc:'国語学習に活用できる言葉や文章の素材。',color:'purple'},
  {name:'発表・面接サポート',repo:'interview-',category:'ツール',subject:'その他',grade:'小学生',desc:'考えを整理して伝えるためのサポートツール。',color:'purple'},
- {name:'しらべ学習ポータル',repo:'sankenbunritu',category:'教材',subject:'社会',grade:'6年生',desc:'憲法や三権分立について整理して学ぶ教材。',color:'orange'}
+ {name:'しらべ学習ポータル',repo:'sankenbunritu',category:'教材',subject:'社会',grade:'6年生',desc:'憲法や三権分立について整理して学ぶ教材。',color:'orange'},
  {name:'1年生 さんすうワールド',repo:'1nensasuuworld',category:'教材',subject:'算数',grade:'1年生',desc:'まちづくりを楽しみながら、1年生の算数を学ぶワールド。',color:'blue'},
  {name:'文章題アドベンチャー',repo:'bunsyo-dai',category:'教材',subject:'算数',grade:'小学生',desc:'文章題の場面を読み取り、式や答えを考える教材。',color:'blue'},
  {name:'分数・小数計算',repo:'bunsuuseisuukeisan',category:'ツール',subject:'算数',grade:'小学生',desc:'分数や小数の計算をくり返し練習できるツール。',color:'blue'},
