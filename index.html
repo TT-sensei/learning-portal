@@ -23,7 +23,7 @@
 
   <main class="wrap main">
     <section class="toolbar" aria-label="検索と絞り込み">
-      <label class="search"><span>⌕</span><input id="search" type="search" placeholder="サイト名や内容で検索…" autocomplete="off"></label>
+      <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="サイト名や内容で検索…" autocomplete="off"></label>
       <div class="filters" id="categoryFilters">
         <button class="filter active" data-category="all">すべて</button>
         <button class="filter" data-category="教材">学習サイト</button>
@@ -45,8 +45,8 @@
     <p id="empty" class="empty" hidden>条件に合うものが見つかりませんでした。</p>
 
     <section class="note">
-      <div class="note-icon">✦</div>
-      <div><h3>このポータルについて</h3><p>授業づくりや日々の学習のために作ったWeb教材をまとめています。各サイトはブラウザでそのまま使えます。進み具合は、それぞれのサイト内に保存されます。</p></div>
+      <div class="note-icon" aria-hidden="true">✦</div>
+      <div><h3>このポータルについて</h3><p>授業づくりや日々の学習のために作ったWeb教材をまとめています。各サイトはブラウザでそのまま使えます。進み具合は、それぞれのサイト内に保存されます。<br><a href="https://design.digital.go.jp/" target="_blank" rel="noopener">デジタル庁デザインシステム</a>の考え方を参考に、情報の見つけやすさと使いやすさを大切にしています。</p></div>
     </section>
   </main>
   <footer class="footer wrap"><span>© TT-sensei</span><a href="https://github.com/TT-sensei/learning-portal" target="_blank" rel="noopener">このサイトのソースを見る ↗</a></footer>
