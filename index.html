@@ -4,53 +4,80 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TT-sensei 学びのポータル</title>
-  <meta name="description" content="TT-senseiが作った小学校向けの学習サイト・ツール・素材をまとめたポータルです。">
+  <meta name="description" content="TT-senseiが作った小学校向けの学習サイト・ツール・素材と、GitHubリポジトリをまとめたポータルです。">
+  <link rel="stylesheet" href="https://tt-sensei.github.io/edu-effects/css/edu-effects.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#catalog">一覧へ移動</a>
   <header class="hero">
-    <nav class="nav wrap">
+    <nav class="nav wrap" aria-label="メインナビゲーション">
       <a class="brand" href="./"><span class="brand-mark">T</span><span>TT-sensei<br><small>LEARNING PORTAL</small></span></a>
-      <a class="github-link" href="https://github.com/TT-sensei" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="github-link" href="https://github.com/TT-sensei" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
     <div class="hero-inner wrap">
       <p class="eyebrow">小学校の学びを、もっと身近に。</p>
       <h1>学びのポータル</h1>
-      <p class="lead">授業や家庭学習で使えるサイト・ツール・素材を、教科や目的から見つけられます。</p>
-      <div class="hero-stats"><span><b id="count">0</b> ITEMS</span><span>HTML / CSS / JS</span><span>GitHub Pages</span></div>
+      <p class="lead">授業や家庭学習で使える教材、教室のツール、教材制作の共通素材を、教科や目的から見つけられます。</p>
+      <dl class="hero-stats" aria-label="掲載数">
+        <div><dt>掲載リポジトリ</dt><dd><b id="repoCount">0</b>件</dd></div>
+        <div><dt>公開サイト</dt><dd><b id="siteCount">0</b>件</dd></div>
+        <div><dt>教材制作基盤</dt><dd><b>4</b>種類</dd></div>
+      </dl>
     </div>
   </header>
 
   <main class="wrap main">
-    <section class="toolbar" aria-label="検索と絞り込み">
-      <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="サイト名や内容で検索…" autocomplete="off"></label>
-      <div class="filters" id="categoryFilters">
-        <button class="filter active" data-category="all">すべて</button>
-        <button class="filter" data-category="教材">学習サイト</button>
-        <button class="filter" data-category="ツール">学習ツール</button>
-        <button class="filter" data-category="素材">素材</button>
+    <section class="foundation" aria-labelledby="foundationTitle">
+      <div class="section-head foundation-head">
+        <div><p class="eyebrow">COMMON FOUNDATION</p><h2 id="foundationTitle">教材制作の共通基盤</h2></div>
+        <p>必要なものだけ組み合わせて使えます。</p>
       </div>
-      <div class="subjects" id="subjectFilters">
-        <button class="subject active" data-subject="all">すべての教科</button>
-        <button class="subject" data-subject="国語">国語</button>
-        <button class="subject" data-subject="算数">算数</button>
-        <button class="subject" data-subject="理科">理科</button>
-        <button class="subject" data-subject="社会">社会</button>
-        <button class="subject" data-subject="英語">英語</button>
-        <button class="subject" data-subject="その他">その他</button>
+      <div class="foundation-grid">
+        <article class="foundation-card edu-card edu-card-pad"><span class="foundation-kind">LOGIC</span><h3>edu-components</h3><p>画面遷移・出題・判定・得点・保存・進捗</p><div class="foundation-actions"><a href="https://tt-sensei.github.io/edu-components/" target="_blank" rel="noopener">カタログ</a><a href="https://github.com/TT-sensei/edu-components" target="_blank" rel="noopener">GitHub</a></div></article>
+        <article class="foundation-card edu-card edu-card-pad"><span class="foundation-kind">UI / CSS</span><h3>edu-effects</h3><p>教材UI・正誤・達成・バッジ・画面演出</p><div class="foundation-actions"><a href="https://tt-sensei.github.io/edu-effects/" target="_blank" rel="noopener">カタログ</a><a href="https://github.com/TT-sensei/edu-effects" target="_blank" rel="noopener">GitHub</a></div></article>
+        <article class="foundation-card edu-card edu-card-pad"><span class="foundation-kind">SOUND</span><h3>sounds-recipe-</h3><p>Web Audio APIで使う教材向けサウンド</p><div class="foundation-actions"><a href="https://tt-sensei.github.io/sounds-recipe-/" target="_blank" rel="noopener">カタログ</a><a href="https://github.com/TT-sensei/sounds-recipe-" target="_blank" rel="noopener">GitHub</a></div></article>
+        <article class="foundation-card edu-card edu-card-pad"><span class="foundation-kind">IMAGE</span><h3>edu-assets</h3><p>バッジ・エレメント・コレクション画像</p><div class="foundation-actions"><a href="https://tt-sensei.github.io/edu-assets/" target="_blank" rel="noopener">カタログ</a><a href="https://github.com/TT-sensei/edu-assets" target="_blank" rel="noopener">GitHub</a></div></article>
       </div>
     </section>
 
-    <section class="section-head"><div><p class="eyebrow">COLLECTION</p><h2>つくったもの</h2></div><p id="resultText"></p></section>
-    <section id="grid" class="grid" aria-live="polite"></section>
-    <p id="empty" class="empty" hidden>条件に合うものが見つかりませんでした。</p>
+    <section id="catalog" aria-labelledby="catalogTitle">
+      <div class="section-head catalog-head">
+        <div><p class="eyebrow">ALL REPOSITORIES</p><h2 id="catalogTitle">教材・ツール・素材</h2></div>
+        <p id="resultText" aria-live="polite"></p>
+      </div>
 
-    <section class="note">
-      <div class="note-icon" aria-hidden="true">✦</div>
-      <div><h3>このポータルについて</h3><p>授業づくりや日々の学習のために作ったWeb教材をまとめています。各サイトはブラウザでそのまま使えます。進み具合は、それぞれのサイト内に保存されます。<br><a href="https://design.digital.go.jp/" target="_blank" rel="noopener">デジタル庁デザインシステム</a>の考え方を参考に、情報の見つけやすさと使いやすさを大切にしています。</p></div>
+      <section class="toolbar edu-card" aria-label="検索と絞り込み">
+        <label class="search" for="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="サイト名・内容・リポジトリ名で検索…" autocomplete="off"></label>
+        <div class="filter-row"><span class="filter-label">種類</span><div class="filters" id="categoryFilters">
+          <button class="filter active" type="button" data-category="all">すべて</button>
+          <button class="filter" type="button" data-category="教材">学習サイト</button>
+          <button class="filter" type="button" data-category="ツール">ツール</button>
+          <button class="filter" type="button" data-category="素材">素材・基盤</button>
+        </div></div>
+        <div class="filter-row"><span class="filter-label">教科</span><div class="subjects" id="subjectFilters">
+          <button class="subject active" type="button" data-subject="all">すべて</button>
+          <button class="subject" type="button" data-subject="国語">国語</button>
+          <button class="subject" type="button" data-subject="算数">算数</button>
+          <button class="subject" type="button" data-subject="理科">理科</button>
+          <button class="subject" type="button" data-subject="社会">社会</button>
+          <button class="subject" type="button" data-subject="家庭科">家庭科</button>
+          <button class="subject" type="button" data-subject="英語">英語</button>
+          <button class="subject" type="button" data-subject="その他">その他</button>
+        </div></div>
+        <button id="resetFilters" class="reset-button" type="button" hidden>絞り込みをクリア</button>
+      </section>
+
+      <section id="grid" class="grid" aria-live="polite"></section>
+      <div id="empty" class="empty edu-empty edu-card" hidden><strong>条件に合うものが見つかりませんでした。</strong><p>検索語や絞り込みを変えてみてください。</p></div>
+    </section>
+
+    <section class="note edu-status edu-status-info">
+      <div class="note-icon" aria-hidden="true">i</div>
+      <div><strong>このポータルについて</strong><p>各カードから公開サイトとGitHubリポジトリの両方を開けます。デザインは<a href="https://design.digital.go.jp/" target="_blank" rel="noopener">デジタル庁デザインシステム</a>を参考にし、UIにはedu-effects、絞り込み保存にはedu-componentsを利用しています。</p></div>
     </section>
   </main>
-  <footer class="footer wrap"><span>© TT-sensei</span><a href="https://github.com/TT-sensei/learning-portal" target="_blank" rel="noopener">このサイトのソースを見る ↗</a></footer>
-  <script src="app.js"></script>
+  <footer class="footer wrap"><span>© TT-sensei</span><span><b id="count">0</b> repositories listed</span><a href="https://github.com/TT-sensei/learning-portal" target="_blank" rel="noopener">このサイトのソース <span aria-hidden="true">↗</span></a></footer>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
