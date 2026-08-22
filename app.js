@@ -11,7 +11,7 @@ const items = [
   { name: 'ことばさがしメーカー', repo: 'wordpuzzles-', category: 'ツール', subject: '国語', grade: '教員・小学生', desc: '好きなことばを使って、ことば探し問題を作成。' },
 
   { name: '1年生 さんすうワールド', repo: '1nensasuuworld', category: '教材', subject: '算数', grade: '1年生', desc: 'まちづくりを楽しみながら、1年生の算数を学ぶワールド。' },
-  { name: '九九マジカル', repo: 'magical-kakezan', category: '教材', subject: '算数', grade: '小学生', desc: '九九の学習をゲーム感覚でくり返し練習。' },
+  { name: '掛け算のひっ算', repo: 'magical-kakezan', category: '教材', subject: '算数', grade: '小学生', desc: '掛け算のひっ算の手順を、ゲーム感覚でくり返し練習。' },
   { name: 'わり算バトル', repo: 'warizanbattle', category: '教材', subject: '算数', grade: '小学生', desc: 'わり算の筆算手順を確認しながら取り組む学習ゲーム。' },
   { name: 'わり算ランド', repo: 'warizanland', category: '教材', subject: '算数', grade: '小学生', desc: 'わり算に親しみながら練習できる学習ゲーム。' },
   { name: '小数マスター', repo: 'syousuumaster', category: '教材', subject: '算数', grade: '小学生', desc: '小数のしくみや計算をくり返し練習。' },
