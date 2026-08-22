@@ -1,6 +1,9 @@
 import { StorageManager } from 'https://tt-sensei.github.io/edu-components/index.js';
 
 const items = [
+  { name: 'EDU KIT', repo: 'edu-kit', category: '素材', subject: 'その他', grade: '共通基盤', desc: 'AIと人が教材制作の共通素材を選ぶための統合ハブ。', foundation: true },
+  { name: 'かなどっち？', repo: 'kanadocchi-', category: '教材', subject: '国語', grade: '年長〜1年生', desc: 'は・を・へ、小さいゃゅょ・っ、のばす音を2択で学ぶ教材。' },
+  { name: 'ナビキャラクター', repo: 'navi-character-', category: '素材', subject: 'その他', grade: '共通素材', desc: '6人のナビキャラクター画像とポーズ・表情素材。', foundation: true, site: true },
   { name: 'ことラボ', repo: 'kotorabo', category: '教材', subject: '国語', grade: '小学生', desc: 'ことば・文づくり・つながり・文章を研究する国語ラボ。' },
   { name: 'じしょマスター', repo: 'kokugojiten', category: '教材', subject: '国語', grade: '中学年', desc: 'つめ・はしら・五十音順と、国語辞典のひき方を楽しく練習。' },
   { name: '漢字練習・確認', repo: 'kanjiapp', category: '教材', subject: '国語', grade: '小学生', desc: '学年別の漢字を練習し、確認テストに取り組めるWebアプリ。' },
