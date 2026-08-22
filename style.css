@@ -123,3 +123,13 @@ a { color: var(--blue); text-underline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+
+.nav-characters { margin-bottom: 64px; padding: 24px; border: 1px solid var(--line); background: #fff; }
+.character-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.character-chip { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 110px; padding: 8px; border: 1px solid #e5e7eb; color: var(--ink); background: #fafbfc; text-decoration: none; transition: transform .15s ease, border-color .15s ease; }
+.character-chip:hover { transform: translateY(-3px); border-color: var(--blue); }
+.character-chip img { width: 72px; height: 88px; object-fit: contain; }
+.character-chip span { font-size: 13px; font-weight: 800; }
+@media (max-width: 920px) { .character-row { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 620px) { .nav-characters { padding: 18px; } .character-row { grid-template-columns: repeat(2, 1fr); } .character-chip { min-height: 96px; } .character-chip img { width: 58px; height: 76px; } }
