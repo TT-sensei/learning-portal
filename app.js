@@ -71,6 +71,7 @@ const resultText = document.querySelector('#resultText');
 const empty = document.querySelector('#empty');
 const resetButton = document.querySelector('#resetFilters');
 const saved = storage.load('filters', {});
+let mode = storage.load('mode', 'student');
 let category = saved.category || 'all';
 let subject = saved.subject || 'all';
 
@@ -112,17 +113,41 @@ function saveFilters() {
 
 function render() {
   const query = search.value.trim().toLowerCase();
-  const filtered = items.filter(item =>
-    (category === 'all' || item.category === category) &&
+  const visibleItems = mode === 'student'
+    ? items.filter(item => item.category === '教材' && !item.foundation)
+    : items;
+  const filtered = visibleItems.filter(item =>
+    (mode === 'student' || category === 'all' || item.category === category) &&
     (subject === 'all' || item.subject === subject) &&
     (!query || [item.name, item.repo, item.desc, item.subject, item.grade, item.category].join(' ').toLowerCase().includes(query))
   );
 
   grid.innerHTML = filtered.map(card).join('');
-  resultText.textContent = `${filtered.length}件 / 全${items.length}件`;
+  resultText.textContent = mode === 'student' ? `${filtered.length}つの教材` : `${filtered.length}件 / 全${items.length}件`;
   empty.hidden = filtered.length !== 0;
   resetButton.hidden = category === 'all' && subject === 'all' && !query;
   saveFilters();
+}
+
+function setMode(nextMode) {
+  mode = nextMode;
+  storage.save('mode', mode);
+  document.body.dataset.mode = mode;
+  document.querySelectorAll('.mode-tab').forEach(button => {
+    const active = button.dataset.mode === mode;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-selected', String(active));
+  });
+  document.querySelectorAll('.hero-copy').forEach(copy => { copy.hidden = !copy.classList.contains(`hero-copy-${mode}`); });
+  document.querySelectorAll('.student-only').forEach(el => { el.hidden = mode !== 'student'; });
+  document.querySelectorAll('.teacher-only').forEach(el => { el.hidden = mode !== 'teacher'; });
+  document.querySelector('#catalogEyebrow').textContent = mode === 'student' ? 'LEARNING SITES' : 'ALL REPOSITORIES';
+  document.querySelector('#catalogTitle').textContent = mode === 'student' ? '学習サイトをえらぶ' : '教材・ツール・素材';
+  if (mode === 'student') {
+    category = 'all';
+    activateButtons('.filter', 'category', category);
+  }
+  render();
 }
 
 function activateButtons(selector, dataName, value) {
@@ -148,6 +173,8 @@ document.querySelectorAll('.subject').forEach(button => button.addEventListener(
   render();
 }));
 
+document.querySelectorAll('.mode-tab').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
+
 search.addEventListener('input', render);
 resetButton.addEventListener('click', () => {
   category = 'all';
@@ -159,4 +186,4 @@ resetButton.addEventListener('click', () => {
   render();
 });
 
-render();
+setMode(mode === 'teacher' ? 'teacher' : 'student');
