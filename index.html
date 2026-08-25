@@ -19,9 +19,21 @@
       <a class="github-link" href="https://github.com/TT-sensei" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
     <div class="hero-inner wrap">
-      <p class="eyebrow">小学校の学びを、もっと身近に。</p>
-      <h1>学びのポータル</h1>
-      <p class="lead">授業や家庭学習で使える教材、教室のツール、教材制作の共通素材を、教科や目的から見つけられます。</p>
+      <div class="mode-switch" role="tablist" aria-label="表示するページ">
+        <button class="mode-tab active" type="button" role="tab" aria-selected="true" data-mode="student">子ども向け</button>
+        <button class="mode-tab" type="button" role="tab" aria-selected="false" data-mode="teacher">先生向け</button>
+      </div>
+      <div class="hero-copy hero-copy-student">
+        <p class="eyebrow">NAVI WITH YOUR FRIENDS</p>
+        <h1>きょうの学びを<br><span>えらぼう。</span></h1>
+        <p class="lead">6人のナビキャラといっしょに、やってみたい教科や教材を見つけよう。</p>
+      </div>
+      <div class="hero-copy hero-copy-teacher" hidden>
+        <p class="eyebrow">TEACHER PORTAL</p>
+        <h1>授業と学級を<br><span>支える道具箱。</span></h1>
+        <p class="lead">学習教材、教室ツール、共通素材を、目的や教科からすぐに見つけられます。</p>
+      </div>
+      <div class="student-hero-art" aria-hidden="true"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/group-studying.webp" alt=""></div>
       <dl class="hero-stats" aria-label="掲載数">
         <div><dt>掲載リポジトリ</dt><dd><b id="repoCount">0</b>件</dd></div>
         <div><dt>公開サイト</dt><dd><b id="siteCount">0</b>件</dd></div>
@@ -31,7 +43,7 @@
   </header>
 
   <main class="wrap main">
-    <section class="foundation" aria-labelledby="foundationTitle">
+    <section class="foundation teacher-only" aria-labelledby="foundationTitle">
       <div class="section-head foundation-head">
         <div><p class="eyebrow">COMMON FOUNDATION</p><h2 id="foundationTitle">教材制作の共通基盤</h2></div>
         <p>必要なものだけ組み合わせて使えます。</p>
@@ -46,7 +58,7 @@
     </section>
 
 
-    <section class="nav-characters" aria-labelledby="navCharactersTitle">
+    <section class="nav-characters student-only" aria-labelledby="navCharactersTitle">
       <div class="section-head">
         <div><p class="eyebrow">NAVIGATION CHARACTERS</p><h2 id="navCharactersTitle">6人のナビキャラと学ぶ</h2></div>
         <p>教材の中でも、そっと学びを応援します。</p>
@@ -58,13 +70,13 @@
 
     <section id="catalog" aria-labelledby="catalogTitle">
       <div class="section-head catalog-head">
-        <div><p class="eyebrow">ALL REPOSITORIES</p><h2 id="catalogTitle">教材・ツール・素材</h2></div>
+        <div><p class="eyebrow" id="catalogEyebrow">LEARNING SITES</p><h2 id="catalogTitle">学習サイトをえらぶ</h2></div>
         <p id="resultText" aria-live="polite"></p>
       </div>
 
       <section class="toolbar edu-card" aria-label="検索と絞り込み">
         <label class="search" for="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="サイト名・内容・リポジトリ名で検索…" autocomplete="off"></label>
-        <div class="filter-row"><span class="filter-label">種類</span><div class="filters" id="categoryFilters">
+        <div class="filter-row teacher-only"><span class="filter-label">種類</span><div class="filters" id="categoryFilters">
           <button class="filter active" type="button" data-category="all">すべて</button>
           <button class="filter" type="button" data-category="教材">学習サイト</button>
           <button class="filter" type="button" data-category="ツール">ツール</button>
@@ -87,7 +99,7 @@
       <div id="empty" class="empty edu-empty edu-card" hidden><strong>条件に合うものが見つかりませんでした。</strong><p>検索語や絞り込みを変えてみてください。</p></div>
     </section>
 
-    <section class="note edu-status edu-status-info">
+    <section class="note edu-status edu-status-info teacher-only">
       <div class="note-icon" aria-hidden="true">i</div>
       <div><strong>このポータルについて</strong><p>各カードから公開サイトとGitHubリポジトリの両方を開けます。デザインは<a href="https://design.digital.go.jp/" target="_blank" rel="noopener">デジタル庁デザインシステム</a>を参考にし、UIにはedu-effects、絞り込み保存にはedu-componentsを利用しています。</p></div>
     </section>
