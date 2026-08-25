@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TT-sensei 学びのポータル</title>
   <meta name="description" content="TT-senseiが作った小学校向けの学習サイト・ツール・素材と、GitHubリポジトリをまとめたポータルです。">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#13538a">
+  <link rel="apple-touch-icon" href="https://tt-sensei.github.io/edu-assets/assets/web/badges/common/mastery/badge.webp">
   <link rel="stylesheet" href="https://tt-sensei.github.io/edu-effects/css/edu-effects.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -90,6 +93,13 @@
     </section>
   </main>
   <footer class="footer wrap"><span>© TT-sensei</span><span><b id="count">0</b> repositories listed</span><a href="https://github.com/TT-sensei/learning-portal" target="_blank" rel="noopener">このサイトのソース <span aria-hidden="true">↗</span></a></footer>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
+    }
+  </script>
   <script type="module" src="app.js"></script>
 </body>
 </html>
