@@ -1,0 +1,26 @@
+{
+  "name": "TT-sensei 学びのポータル",
+  "short_name": "学びのポータル",
+  "description": "TT-senseiの小学校向け学習サイト・ツール・素材をまとめたポータル",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#13538a",
+  "lang": "ja",
+  "id": "./",
+  "icons": [
+    {
+      "src": "https://tt-sensei.github.io/edu-assets/assets/web/badges/common/mastery/badge.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "https://tt-sensei.github.io/edu-assets/assets/web/badges/common/mastery/badge.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}
