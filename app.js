@@ -12,10 +12,10 @@ const items = [
   { name: 'インタビュー学習', repo: 'interviews-', category: '教材', subject: '国語', grade: '小学生', desc: '質問づくりや記録に使えるデジタルワークシート。' },
   { name: 'ことばさがしメーカー', repo: 'wordpuzzles-', category: 'ツール', subject: '国語', grade: '教員・小学生', desc: '好きなことばを使って、ことば探し問題を作成。' },
 
-  { name: '1年生 さんすうワールド', repo: '1nensasuuworld', category: '教材', subject: '算数', grade: '1年生', desc: 'まちづくりを楽しみながら、1年生の算数を学ぶワールド。' },
+  { name: 'すうじのぼうけん', repo: '1nensasuuworld', category: '教材', subject: '算数', grade: '1年生', desc: '1〜10の数、10の合成、数の分解、たし算、ひき算、文章問題を、ファンタジー世界の冒険とモンスター・バトルで学ぶ。' },
   { name: '掛け算のひっ算', repo: 'magical-kakezan', category: '教材', subject: '算数', grade: '3〜4年生中心', desc: '2桁×1桁、2桁×2桁、3桁×2桁の筆算を、繰り上がりを意識しながらレベル別に練習する。' },
   { name: '九九ファンタジーバトル', repo: 'kuku-battle-', category: '教材', subject: '算数', grade: '2年生中心', desc: '九九1〜9の段を、のぼり・くだり・ランダムで練習。誤答記録、九九マップ、特訓、モンスター図鑑で定着を目指す。' },
-  { name: 'わり算バトル', repo: 'warizanbattle', category: '教材', subject: '算数', grade: '4〜6年生', desc: 'わり算の筆算を「たてる・かける・ひく・おろす」の順番で進め、手順と計算を身につける。' },
+  { name: 'わり算バトル', repo: 'warizanbattle', category: '教材', subject: '算数', grade: '4〜6年生', desc: 'ファンタジー世界でモンスターと戦いながら、わり算の筆算を「たてる・かける・ひく・おろす」の順番で練習する。' },
   { name: 'わりわりアイランド', repo: 'warizanland', category: '教材', subject: '算数', grade: '4年生中心', desc: 'あまりのないわり算・あまりのあるわり算・わる数とあまりの関係を、時間チャレンジで練習する。' },
   { name: '小数マスター', repo: 'syousuumaster', category: '教材', subject: '算数', grade: '小学生', desc: '小数のしくみや計算をくり返し練習。' },
   { name: '約分クラッシュ', repo: 'yakubuncrash', category: '教材', subject: '算数', grade: '小学生', desc: '分数の約分をすばやく判断するゲーム。' },
