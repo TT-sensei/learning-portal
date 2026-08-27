@@ -133,17 +133,21 @@ function card(item) {
   const siteAction = item.site === false
     ? '<span class="repo-only">公開サイト準備中</span>'
     : `<a class="edu-btn edu-btn-primary card-link" href="${siteUrl(item)}" target="_blank" rel="noopener">サイトを開く <span aria-hidden="true">↗</span></a>`;
-  return `<article class="card edu-card edu-card-hover">
+  const githubAction = mode === 'teacher'
+    ? `<a class="edu-btn edu-btn-secondary card-link" href="${repoUrl(item)}" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>`
+    : '';
+  const repoMeta = mode === 'teacher' ? `<code>${item.repo}</code>` : '';
+  return `<article class="card edu-card edu-card-hover" data-subject="${item.subject}">
     <div class="card-top">
       <span class="edu-badge category-badge category-${item.category}">${item.category}</span>
       <span class="subject-label">${item.subject}</span>
     </div>
     <h3>${item.name}</h3>
     <p>${item.desc}</p>
-    <div class="card-meta"><span class="grade">対象：${item.grade}</span><code>${item.repo}</code></div>
-    <div class="card-actions">
+    <div class="card-meta"><span class="grade">対象：${item.grade}</span>${repoMeta}</div>
+    <div class="card-actions${mode === 'student' ? ' card-actions-student' : ''}">
       ${siteAction}
-      <a class="edu-btn edu-btn-secondary card-link" href="${repoUrl(item)}" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+      ${githubAction}
     </div>
   </article>`;
 }
