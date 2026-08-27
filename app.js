@@ -64,6 +64,46 @@ const items = [
   { name: 'edu-assets', repo: 'edu-assets', category: '素材', subject: 'その他', grade: '共通基盤', desc: '共通・教科別バッジ、エレメント、コレクション画像。', foundation: true }
 ];
 
+const SUBJECT_ORDER = ['国語', '算数', '理科', '社会', '家庭科', '英語', 'その他'];
+const CATEGORY_ORDER_FOR_TEACHERS = ['素材', 'ツール', '教材'];
+
+function orderIndex(order, value) {
+  const index = order.indexOf(value);
+  return index === -1 ? order.length : index;
+}
+
+function gradeRank(grade) {
+  if (grade.includes('年長')) return 0;
+  const firstNumber = grade.match(/\d+/);
+  return firstNumber ? Number(firstNumber[0]) : 99;
+}
+
+function compareItems(a, b) {
+  if (mode === 'teacher') {
+    const categoryDifference =
+      orderIndex(CATEGORY_ORDER_FOR_TEACHERS, a.category) -
+      orderIndex(CATEGORY_ORDER_FOR_TEACHERS, b.category);
+    if (categoryDifference !== 0) return categoryDifference;
+
+    // 素材の中では、共通基盤・NAVI素材を先にまとめる。
+    const foundationDifference = Number(Boolean(b.foundation)) - Number(Boolean(a.foundation));
+    if (foundationDifference !== 0) return foundationDifference;
+  }
+
+  const subjectDifference =
+    orderIndex(SUBJECT_ORDER, a.subject) -
+    orderIndex(SUBJECT_ORDER, b.subject);
+  if (subjectDifference !== 0) return subjectDifference;
+
+  const gradeDifference = gradeRank(a.grade) - gradeRank(b.grade);
+  if (gradeDifference !== 0) return gradeDifference;
+
+  const gradeTextDifference = a.grade.localeCompare(b.grade, 'ja');
+  if (gradeTextDifference !== 0) return gradeTextDifference;
+
+  return a.name.localeCompare(b.name, 'ja');
+}
+
 const storage = new StorageManager('learning-portal');
 const grid = document.querySelector('#grid');
 const search = document.querySelector('#search');
@@ -117,7 +157,8 @@ function render() {
   const visibleItems = mode === 'student'
     ? items.filter(item => item.category === '教材' && !item.foundation)
     : items;
-  const filtered = visibleItems.filter(item =>
+  const orderedItems = [...visibleItems].sort(compareItems);
+  const filtered = orderedItems.filter(item =>
     (mode === 'student' || category === 'all' || item.category === category) &&
     (subject === 'all' || item.subject === subject) &&
     (!query || [item.name, item.repo, item.desc, item.subject, item.grade, item.category].join(' ').toLowerCase().includes(query))
