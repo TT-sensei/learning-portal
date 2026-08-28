@@ -289,7 +289,7 @@ body[data-mode="student"] .learning-scenes {
 }
 .scene-filter {
   display: grid;
-  grid-template-rows: 96px auto;
+  grid-template-rows: 108px auto;
   min-width: 0;
   padding: 0;
   overflow: hidden;
@@ -306,10 +306,9 @@ body[data-mode="student"] .learning-scenes {
 .scene-filter:hover { transform: translateY(-3px); border-color: #73b3c8; box-shadow: 0 7px 0 rgb(51 119 147 / 12%); }
 .scene-filter:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .scene-filter.active { border-color: var(--blue); box-shadow: 0 0 0 3px rgb(34 118 168 / 16%), 0 5px 0 rgb(51 119 147 / 10%); }
-.scene-filter img { width: 100%; height: 96px; object-fit: contain; background: #f4fbfe; }
-.scene-filter span { display: grid; gap: 1px; padding: 9px 12px 11px; }
+.scene-filter img { width: 100%; height: 108px; object-fit: contain; background: #f4fbfe; }
+.scene-filter span { display: block; padding: 10px 12px 12px; }
 .scene-filter b { color: #18577e; font-size: 15px; }
-.scene-filter small { color: var(--muted); font-size: 12px; line-height: 1.45; }
 
 .card-labels { display: flex; align-items: center; justify-content: flex-end; gap: 6px; min-width: 0; }
 .new-label { padding: 3px 7px; border-radius: 999px; color: #9a431a; background: #fff0d8; font-size: 10px; font-weight: 900; letter-spacing: .06em; }
@@ -322,8 +321,8 @@ body[data-mode="student"] .learning-scenes {
   body[data-mode="student"] .hero-inner { grid-template-columns: 1fr; gap: 16px; }
   body[data-mode="student"] .student-hero-art { width: min(74%, 280px); }
   .learning-scenes { padding: 18px; }
-  .scene-filter { grid-template-rows: 84px auto; }
-  .scene-filter img { height: 84px; }
+  .scene-filter { grid-template-rows: 96px auto; }
+  .scene-filter img { height: 96px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .scene-filter { transition: none; }
