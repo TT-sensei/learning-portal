@@ -23,20 +23,8 @@
         <button class="mode-tab active" type="button" role="tab" aria-selected="true" data-mode="student">子ども向け</button>
         <button class="mode-tab" type="button" role="tab" aria-selected="false" data-mode="teacher">先生向け</button>
       </div>
-      <div class="student-fun-layer student-only" aria-hidden="true">
-        <span class="portal-spark portal-spark-a">✦</span>
-        <span class="portal-spark portal-spark-b">✧</span>
-        <span class="portal-spark portal-spark-c">✦</span>
-        <span class="portal-spark portal-spark-d">✧</span>
-        <span class="portal-spark portal-spark-e">✦</span>
-        <img class="fun-character fun-riku" src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/characters/riku/fullbody/pointing.webp" alt="">
-        <img class="fun-character fun-sora" src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/characters/sora/fullbody/jumping.webp" alt="">
-        <img class="fun-character fun-kai" src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/characters/kai/fullbody/reading.webp" alt="">
-        <img class="fun-character fun-saku" src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/characters/saku/fullbody/twirling.webp" alt="">
-        <img class="fun-character fun-tsuki" src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/characters/tsuki/fullbody/jumping.webp" alt="">
-        <img class="fun-character fun-nami" src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/characters/nami/fullbody/reading.webp" alt="">
-      </div>
-      <div class="hero-copy hero-copy-student">
+      <div class="hero-main">
+        <div class="hero-copy hero-copy-student">
         <p class="eyebrow">NAVI WITH YOUR FRIENDS</p>
         <h1>きょうの学びを<br><span>えらぼう。</span></h1>
         <p class="lead">6人のナビキャラといっしょに、やってみたい教科や教材を見つけよう。</p>
@@ -46,12 +34,15 @@
         <h1>授業と学級を<br><span>支える道具箱。</span></h1>
         <p class="lead">学習教材、教室ツール、NAVIキャラ素材を、目的や教科からすぐに見つけられます。</p>
       </div>
-      <div class="student-hero-art" aria-hidden="true"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/group-studying.webp" alt=""></div>
       <dl class="hero-stats" aria-label="掲載数">
         <div><dt>掲載リポジトリ</dt><dd><b id="repoCount">0</b>件</dd></div>
         <div><dt>公開サイト</dt><dd><b id="siteCount">0</b>件</dd></div>
         <div><dt>共通基盤</dt><dd><b>6</b>種類</dd></div>
       </dl>
+      </div>
+      <div class="student-hero-art student-only" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-pair-consulting.webp" alt="">
+      </div>
     </div>
   </header>
 
@@ -72,13 +63,16 @@
     </section>
 
 
-    <section class="nav-characters student-only" aria-labelledby="navCharactersTitle">
+    <section class="learning-scenes student-only" aria-labelledby="learningScenesTitle">
       <div class="section-head">
-        <div><p class="eyebrow">NAVIGATION CHARACTERS</p><h2 id="navCharactersTitle">6人のナビキャラと学ぶ</h2></div>
-        <p>教材の中でも、そっと学びを応援します。</p>
+        <div><p class="eyebrow">CHOOSE A SUBJECT</p><h2 id="learningScenesTitle">学びの場面からえらぼう</h2></div>
+        <p>気になる教科をえらぶと、教材をしぼりこめます。</p>
       </div>
-      <div class="character-row">
-        <div class="character-chip"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/characters/nami/reference.jpeg" alt="なみのナビキャラ"><span>なみ</span></div><div class="character-chip"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/characters/saku/reference.jpeg" alt="さくのナビキャラ"><span>さく</span></div><div class="character-chip"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/characters/tsuki/reference.jpeg" alt="つきのナビキャラ"><span>つき</span></div><div class="character-chip"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/characters/kai/reference.jpeg" alt="かいのナビキャラ"><span>かい</span></div><div class="character-chip"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/characters/sora/reference.jpeg" alt="そらのナビキャラ"><span>そら</span></div><div class="character-chip"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/characters/riku/reference.jpeg" alt="りくのナビキャラ"><span>りく</span></div>
+      <div class="learning-scene-grid">
+        <button class="scene-filter" type="button" data-scene-subject="国語" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-japanese-discussion.webp" alt=""><span><b>国語</b><small>読む・伝え合う</small></span></button>
+        <button class="scene-filter" type="button" data-scene-subject="算数" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-math-diagram.webp" alt=""><span><b>算数</b><small>図を使って考える</small></span></button>
+        <button class="scene-filter" type="button" data-scene-subject="理科" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-science-experiment.webp" alt=""><span><b>理科</b><small>ためして確かめる</small></span></button>
+        <button class="scene-filter" type="button" data-scene-subject="社会" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-social-map.webp" alt=""><span><b>社会</b><small>地図から調べる</small></span></button>
       </div>
     </section>
 
