@@ -3,6 +3,7 @@ import { StorageManager } from 'https://tt-sensei.github.io/edu-components/index
 const items = [
   { name: 'EDU KIT', repo: 'edu-kit', category: '素材', subject: 'その他', grade: '共通基盤', desc: 'AIと人が教材制作の共通素材を選ぶための統合ハブ。', foundation: true },
   { name: 'かなどっち？', repo: 'kanadocchi-', category: '教材', subject: '国語', grade: '年長〜1年生', desc: 'は・を・へ、小さいゃゅょ・っ、のばす音を2択で学ぶ教材。' },
+  { name: 'こそあど！', repo: 'kosoado', category: '教材', subject: '国語', grade: '3〜4年生', desc: '場面にいる話し手・聞き手・ものや場所の関係から、「これ・それ・あれ・どれ」などの指示語を考える。', new: true },
   { name: 'NAVIキャラクター素材サイト', repo: 'navi-character-', category: '素材', subject: 'その他', grade: '先生向け・共通素材', desc: '6人のナビキャラの通常・日常・学習・ファンタジー画像と、モンスター素材を確認できる素材サイト。', foundation: true, site: true },
   { name: 'ことラボ', repo: 'kotorabo', category: '教材', subject: '国語', grade: '1〜6年生', desc: 'ことば→文→文と文→文章の4LABで、語彙・文づくり・つながり・文章表現を段階的に学ぶ。' },
   { name: 'ことのは ― 敬語のたしなみ ―', repo: 'keigo-kotonoha', category: '教材', subject: '国語', grade: '5〜6年生', desc: '学校生活の場面で、相手に応じた敬語を選び、敬語の使い方をジャッジしながら学ぶ。' },
@@ -140,7 +141,7 @@ function card(item) {
   return `<article class="card edu-card edu-card-hover" data-subject="${item.subject}">
     <div class="card-top">
       <span class="edu-badge category-badge category-${item.category}">${item.category}</span>
-      <span class="subject-label">${item.subject}</span>
+      <span class="card-labels"><span class="subject-label">${item.subject}</span>${item.new ? '<span class="new-label">NEW</span>' : ''}</span>
     </div>
     <h3>${item.name}</h3>
     <p>${item.desc}</p>
@@ -172,6 +173,7 @@ function render() {
   resultText.textContent = mode === 'student' ? `${filtered.length}つの教材` : `${filtered.length}件 / 全${items.length}件`;
   empty.hidden = filtered.length !== 0;
   resetButton.hidden = category === 'all' && subject === 'all' && !query;
+  activateSceneFilters();
   saveFilters();
 }
 
@@ -196,6 +198,14 @@ function setMode(nextMode) {
   render();
 }
 
+function activateSceneFilters() {
+  document.querySelectorAll('.scene-filter').forEach(button => {
+    const active = subject === button.dataset.sceneSubject;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+}
+
 function activateButtons(selector, dataName, value) {
   document.querySelectorAll(selector).forEach(button => {
     const active = button.dataset[dataName] === value;
@@ -215,6 +225,12 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
 
 document.querySelectorAll('.subject').forEach(button => button.addEventListener('click', () => {
   subject = button.dataset.subject;
+  activateButtons('.subject', 'subject', subject);
+  render();
+}));
+
+document.querySelectorAll('.scene-filter').forEach(button => button.addEventListener('click', () => {
+  subject = button.dataset.sceneSubject;
   activateButtons('.subject', 'subject', subject);
   render();
 }));
