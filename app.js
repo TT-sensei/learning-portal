@@ -1,5 +1,30 @@
 import { StorageManager } from 'https://tt-sensei.github.io/edu-components/index.js';
 
+const NAVI_LEARNING_SCENE_BASE = 'https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/';
+const HERO_LEARNING_SCENES = [
+  'group-learning-japanese-reading.webp',
+  'group-learning-japanese-discussion.webp',
+  'group-learning-math-diagram.webp',
+  'group-learning-math-shapes.webp',
+  'group-learning-science-observation.webp',
+  'group-learning-science-experiment.webp',
+  'group-learning-social-map.webp',
+  'group-learning-social-sources.webp',
+  'group-learning-pair-consulting.webp',
+  'group-learning-pair-exchange.webp'
+];
+let currentHeroLearningScene = '';
+
+function setRandomHeroLearningScene() {
+  const image = document.querySelector('.student-hero-art img');
+  if (!image) return;
+
+  const candidates = HERO_LEARNING_SCENES.filter(scene => scene !== currentHeroLearningScene);
+  const nextScene = candidates[Math.floor(Math.random() * candidates.length)];
+  currentHeroLearningScene = nextScene;
+  image.src = NAVI_LEARNING_SCENE_BASE + nextScene;
+}
+
 const items = [
   { name: 'EDU KIT', repo: 'edu-kit', category: '素材', subject: 'その他', grade: '共通基盤', desc: 'AIと人が教材制作の共通素材を選ぶための統合ハブ。', foundation: true },
   { name: 'かなどっち？', repo: 'kanadocchi-', category: '教材', subject: '国語', grade: '年長〜1年生', desc: 'は・を・へ、小さいゃゅょ・っ、のばす音を2択で学ぶ教材。' },
@@ -192,6 +217,7 @@ function setMode(nextMode) {
   document.querySelector('#catalogEyebrow').textContent = mode === 'student' ? 'LEARNING SITES' : 'ALL REPOSITORIES';
   document.querySelector('#catalogTitle').textContent = mode === 'student' ? '学習サイトをえらぶ' : '教材・ツール・素材';
   if (mode === 'student') {
+    setRandomHeroLearningScene();
     category = 'all';
     activateButtons('.filter', 'category', category);
   }
