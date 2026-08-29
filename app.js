@@ -37,6 +37,7 @@ const items = [
   { name: '漢字読みファンタジー', repo: 'kanjirensyu', category: '教材', subject: '国語', grade: '小学生', desc: 'ファンタジー世界を進みながら、漢字の読みを答えて楽しく練習する教材。' },
   { name: 'ローマ字ファンタジー', repo: 'typing', category: '教材', subject: '国語', grade: '小学生', desc: 'ローマ字を見てかなやことばを入力。NAVI Fantasyとモンスター・バトルで、ローマ字の読み書きとキーボード入力を練習する。', new: true },
   { name: 'ひらがな・カタカナ', repo: 'hiraganakatakana', category: '教材', subject: '国語', grade: '1年生', desc: 'ひらがなとカタカナを楽しく練習するサイト。' },
+  { name: 'ことばのしらべ', repo: 'kotobanosirabe', category: '教材', subject: '国語', grade: '小学生', desc: 'ことばを調べながら、語彙や言葉への興味を広げる国語教材。', new: true },
   { name: 'インタビュー学習', repo: 'interviews-', category: '教材', subject: '国語', grade: '小学生', desc: '質問づくりや記録に使えるデジタルワークシート。' },
   { name: 'ことばさがしメーカー', repo: 'wordpuzzles-', category: 'ツール', subject: '国語', grade: '教員・小学生', desc: '好きなことばを使って、ことば探し問題を作成。' },
 
@@ -63,6 +64,7 @@ const items = [
   { name: 'しわけくんEX', repo: 'sententaisyo', category: '教材', subject: '算数', grade: '6年生', desc: '線対称・点対称を見分け、対称の軸の本数など図形の性質をゲーム感覚で学ぶ。' },
   { name: 'ならべる？えらぶ？', repo: 'narabikumiawase', category: '教材', subject: '算数', grade: '小学生', desc: '順列と組み合わせの考え方を、場面を比べながら学ぶ。' },
   { name: '町のデータ探偵団', repo: 'detakatuyou', category: '教材', subject: '算数', grade: '6年生', desc: '5つの事件を解決しながら、散らばり・平均値・中央値・最頻値・度数分布表・ヒストグラムを学ぶ。' },
+  { name: 'P.E. kit', repo: 'P.E.-kit', category: '教材', subject: 'その他', grade: '小学生', desc: '体育の学びに使える教材をまとめたキット。', new: true },
 
   { name: '理科ラボ 3年', repo: 'rika3nen', category: '教材', subject: '理科', grade: '3年生', desc: '生き物・植物・昆虫・風とゴム・音・光・電気・磁石などを、くらべて気づき、予想してためす。' },
   { name: '理科ラボ 4年', repo: 'rika4nen', category: '教材', subject: '理科', grade: '4年生', desc: '季節・体の動き・天気・雨水・月と星・電気・空気と水・温度を、関係を見つけて考える。' },
@@ -86,6 +88,8 @@ const items = [
   { name: 'チェック・確認ツール', repo: 'checker', category: 'ツール', subject: 'その他', grade: '小学生', desc: '学習や活動の確認に使えるシンプルなチェックツール。' },
   { name: '時数確認くん', repo: 'jisukakuninkun', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '学校の週案などの授業時数を集計・確認する教員向けツール。' },
   { name: 'わくわく指名メーカー', repo: 'wakuwaku-shimei', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'ルーレット・あみだくじ・カード・ビンゴ・グループ分けなど、教室で使える指名・抽選ツール。' },
+  { name: '自学サポート', repo: 'jigaku-supports', category: 'ツール', subject: 'その他', grade: '先生・小学生', desc: '自学のテーマ探しや学びを支えるためのサポートツール。', new: true },
+  { name: 'プリントメーカー', repo: 'print-maker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '授業や学習で使うプリントを作成するためのツール。', new: true },
 
   { name: 'edu-components', repo: 'edu-components', category: '素材', subject: 'その他', grade: '共通基盤', desc: '画面遷移、出題、判定、得点、保存、進捗を担うロジック部品集。', foundation: true },
   { name: 'edu-effects', repo: 'edu-effects', category: '素材', subject: 'その他', grade: '共通基盤', desc: '教材UI、CSS、正誤・達成・バッジ演出のカタログ。', foundation: true },
