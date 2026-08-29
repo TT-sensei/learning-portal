@@ -37,7 +37,7 @@ const items = [
   { name: '漢字読みファンタジー', repo: 'kanjirensyu', category: '教材', subject: '国語', grade: '小学生', desc: 'ファンタジー世界を進みながら、漢字の読みを答えて楽しく練習する教材。' },
   { name: 'ローマ字ファンタジー', repo: 'typing', category: '教材', subject: '国語', grade: '小学生', desc: 'ローマ字を見てかなやことばを入力。NAVI Fantasyとモンスター・バトルで、ローマ字の読み書きとキーボード入力を練習する。', new: true },
   { name: 'ひらがな・カタカナ', repo: 'hiraganakatakana', category: '教材', subject: '国語', grade: '1年生', desc: 'ひらがなとカタカナを楽しく練習するサイト。' },
-  { name: 'ことばのしらべ', repo: 'kotobanosirabe', category: '教材', subject: '国語', grade: '小学生', desc: 'ことばを調べながら、語彙や言葉への興味を広げる国語教材。', new: true },
+  { name: 'ことばのしらべ', repo: 'kotobanosirabe', category: '教材', subject: '国語', grade: '小学生', desc: 'ことわざ、慣用句、四字熟語、への興味を広げ理解を深める国語教材。', new: true },
   { name: 'インタビュー学習', repo: 'interviews-', category: '教材', subject: '国語', grade: '小学生', desc: '質問づくりや記録に使えるデジタルワークシート。' },
   { name: 'ことばさがしメーカー', repo: 'wordpuzzles-', category: 'ツール', subject: '国語', grade: '教員・小学生', desc: '好きなことばを使って、ことば探し問題を作成。' },
 
