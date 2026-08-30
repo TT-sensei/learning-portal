@@ -88,7 +88,7 @@ const items = [
   { name: 'チェック・確認ツール', repo: 'checker', category: 'ツール', subject: 'その他', grade: '小学生', desc: '学習や活動の確認に使えるシンプルなチェックツール。' },
   { name: '時数確認くん', repo: 'jisukakuninkun', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '学校の週案などの授業時数を集計・確認する教員向けツール。' },
   { name: 'わくわく指名メーカー', repo: 'wakuwaku-shimei', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'ルーレット・あみだくじ・カード・ビンゴ・グループ分けなど、教室で使える指名・抽選ツール。' },
-  { name: '自学サポート', repo: 'jigaku-supports', category: 'ツール', subject: 'その他', grade: '先生・小学生', desc: '自学のテーマ探しや学びを支えるためのサポートツール。', new: true },
+  { name: '自学サポート', repo: 'jigaku-supports', category: 'ツール', subject: 'その他', grade: '先生・小学生', desc: '自学のテーマ探しや学びを支えるためのサポートツール。', new: true, student: true, featured: true },
   { name: 'プリントメーカー', repo: 'print-maker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '授業や学習で使うプリントを作成するためのツール。', new: true },
 
   { name: 'edu-components', repo: 'edu-components', category: '素材', subject: 'その他', grade: '共通基盤', desc: '画面遷移、出題、判定、得点、保存、進捗を担うロジック部品集。', foundation: true },
@@ -112,6 +112,11 @@ function gradeRank(grade) {
 }
 
 function compareItems(a, b) {
+  if (mode === 'student') {
+    const featuredDifference = Number(Boolean(b.featured)) - Number(Boolean(a.featured));
+    if (featuredDifference !== 0) return featuredDifference;
+  }
+
   if (mode === 'teacher') {
     const categoryDifference =
       orderIndex(CATEGORY_ORDER_FOR_TEACHERS, a.category) -
@@ -192,7 +197,7 @@ function saveFilters() {
 function render() {
   const query = search.value.trim().toLowerCase();
   const visibleItems = mode === 'student'
-    ? items.filter(item => item.category === '教材' && !item.foundation)
+    ? items.filter(item => (item.category === '教材' || item.student) && !item.foundation)
     : items;
   const orderedItems = [...visibleItems].sort(compareItems);
   const filtered = orderedItems.filter(item =>
@@ -202,7 +207,7 @@ function render() {
   );
 
   grid.innerHTML = filtered.map(card).join('');
-  resultText.textContent = mode === 'student' ? `${filtered.length}つの教材` : `${filtered.length}件 / 全${items.length}件`;
+  resultText.textContent = mode === 'student' ? `${filtered.length}つの学びのサイト` : `${filtered.length}件 / 全${items.length}件`;
   empty.hidden = filtered.length !== 0;
   resetButton.hidden = category === 'all' && subject === 'all' && !query;
   activateSceneFilters();
@@ -222,7 +227,7 @@ function setMode(nextMode) {
   document.querySelectorAll('.student-only').forEach(el => { el.hidden = mode !== 'student'; });
   document.querySelectorAll('.teacher-only').forEach(el => { el.hidden = mode !== 'teacher'; });
   document.querySelector('#catalogEyebrow').textContent = mode === 'student' ? 'LEARNING SITES' : 'ALL REPOSITORIES';
-  document.querySelector('#catalogTitle').textContent = mode === 'student' ? '学習サイトをえらぶ' : '教材・ツール・素材';
+  document.querySelector('#catalogTitle').textContent = mode === 'student' ? '学びのサイトをえらぶ' : '教材・ツール・素材';
   if (mode === 'student') {
     setRandomHeroLearningScene();
     category = 'all';
