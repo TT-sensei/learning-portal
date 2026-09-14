@@ -46,19 +46,39 @@ function syncPortalExtras(){
   const grid=document.querySelector('#grid');
   const resultText=document.querySelector('#resultText');
   if(!grid||!resultText) return;
+
   ADDITIONAL_ITEMS.forEach(item=>{
     if(extraMatches(item)&&!grid.querySelector(`[data-repo="${CSS.escape(item.repo)}"]`)) grid.appendChild(makeExtraCard(item));
   });
+
   const baseVisible=grid.querySelectorAll('.card:not([data-extra="true"])').length;
   const extraVisible=grid.querySelectorAll('.card[data-extra="true"]').length;
   const mode=document.body.dataset.mode;
-  if(mode==='student') resultText.textContent=`${baseVisible+extraVisible}つの学びのサイト`;
-  else { const total=Number(document.querySelector('#count')?.textContent||0); if(Number.isFinite(total)) resultText.textContent=`${baseVisible+extraVisible}件 / 全${total+ADDITIONAL_ITEMS.length}件`; }
+
+  // app.js が設定した元の件数を初回だけ保存し、追加分を一度だけ加算する。
+  if(window.__portalBaseRepoCount==null){
+    const count=Number(document.querySelector('#count')?.textContent||0);
+    window.__portalBaseRepoCount=Number.isFinite(count)?count:0;
+  }
+  const total=window.__portalBaseRepoCount+ADDITIONAL_ITEMS.length;
+  const repoCount=document.querySelector('#repoCount');
+  const footerCount=document.querySelector('#count');
+  if(repoCount) repoCount.textContent=total;
+  if(footerCount) footerCount.textContent=total;
+
+  if(mode==='student'){
+    resultText.textContent=`${baseVisible+extraVisible}つの学びのサイト`;
+  }else{
+    resultText.textContent=`${baseVisible+extraVisible}件 / 全${total}件`;
+  }
 }
 
 const grid=document.querySelector('#grid');
 if(grid){
-  const portalExtrasObserver=new MutationObserver(()=>{ clearTimeout(window.__portalExtrasTimer); window.__portalExtrasTimer=setTimeout(syncPortalExtras,0); });
+  const portalExtrasObserver=new MutationObserver(()=>{
+    clearTimeout(window.__portalExtrasTimer);
+    window.__portalExtrasTimer=setTimeout(syncPortalExtras,0);
+  });
   portalExtrasObserver.observe(grid,{childList:true});
 }
 window.addEventListener('load',syncPortalExtras);
