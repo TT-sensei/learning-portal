@@ -12,6 +12,23 @@ const ADDITIONAL_ITEMS = [
   {name:'看護目標メーカー',repo:'kangomokuhyo',category:'ツール',subject:'その他',grade:'先生向け',desc:'看護目標を作成・整理するための先生向けツール。'}
 ];
 
+const FAVORITES_KEY='tt-sensei-learning-portal-favorites-v1';
+
+function getFavorites(){
+  try{
+    const value=JSON.parse(localStorage.getItem(FAVORITES_KEY)||'[]');
+    return new Set(Array.isArray(value)?value.filter(Boolean):[]);
+  }catch(e){
+    return new Set();
+  }
+}
+
+function saveFavorites(favorites){
+  try{
+    localStorage.setItem(FAVORITES_KEY,JSON.stringify([...favorites]));
+  }catch(e){}
+}
+
 function extraMatches(item){
   const mode=document.body.dataset.mode;
   const category=document.querySelector('.filter.active')?.dataset.category||'all';
@@ -22,6 +39,86 @@ function extraMatches(item){
   if(subject!=='all'&&item.subject!==subject) return false;
   if(query&&![item.name,item.repo,item.desc,item.subject,item.grade,item.category].join(' ').toLowerCase().includes(query)) return false;
   return true;
+}
+
+function makeFavoriteButton(repo){
+  const button=document.createElement('button');
+  button.type='button';
+  button.className='portal-favorite';
+  button.dataset.repo=repo;
+  button.setAttribute('aria-label','お気に入りに登録');
+  return button;
+}
+
+function updateFavoriteButton(button,isFavorite){
+  button.textContent=isFavorite?'★':'☆';
+  button.setAttribute('aria-pressed',String(isFavorite));
+  button.setAttribute('aria-label',isFavorite?'お気に入りから外す':'お気に入りに登録');
+  button.title=isFavorite?'お気に入りから外す':'お気に入りに登録';
+  button.classList.toggle('is-favorite',isFavorite);
+}
+
+function decorateFavorite(card){
+  if(!card||card.dataset.favoriteDecorated==='true') return;
+  const repo=card.dataset.repo;
+  if(!repo) return;
+  const top=card.querySelector('.card-top');
+  if(!top) return;
+
+  const button=makeFavoriteButton(repo);
+  const labels=top.querySelector('.card-labels');
+  if(labels){
+    labels.appendChild(button);
+  }else{
+    top.appendChild(button);
+  }
+
+  updateFavoriteButton(button,getFavorites().has(repo));
+  card.dataset.favoriteDecorated='true';
+}
+
+function sortFavorites(){
+  const grid=document.querySelector('#grid');
+  if(!grid) return;
+  const favorites=getFavorites();
+  const cards=[...grid.querySelectorAll('.card')];
+  const sorted=[...cards].sort((a,b)=>{
+    const af=favorites.has(a.dataset.repo)?1:0;
+    const bf=favorites.has(b.dataset.repo)?1:0;
+    return bf-af;
+  });
+  let changed=false;
+  sorted.forEach((card,index)=>{
+    if(grid.children[index]!==card){
+      changed=true;
+      grid.appendChild(card);
+    }
+  });
+  return changed;
+}
+
+function decorateAndSortFavorites(){
+  const grid=document.querySelector('#grid');
+  if(!grid) return;
+  grid.querySelectorAll('.card').forEach(decorateFavorite);
+  sortFavorites();
+}
+
+function extraFavoriteEvent(event){
+  const button=event.target.closest('.portal-favorite');
+  if(!button) return;
+  event.preventDefault();
+  event.stopPropagation();
+  const favorites=getFavorites();
+  const repo=button.dataset.repo;
+  if(favorites.has(repo)){
+    favorites.delete(repo);
+  }else{
+    favorites.add(repo);
+  }
+  saveFavorites(favorites);
+  document.querySelectorAll(`.portal-favorite[data-repo="${CSS.escape(repo)}"]`).forEach(btn=>updateFavoriteButton(btn,favorites.has(repo)));
+  sortFavorites();
 }
 
 function makeExtraCard(item){
@@ -71,16 +168,45 @@ function syncPortalExtras(){
   }else{
     resultText.textContent=`${baseVisible+extraVisible}件 / 全${total}件`;
   }
+
+  decorateAndSortFavorites();
 }
 
 const grid=document.querySelector('#grid');
 if(grid){
+  grid.addEventListener('click',extraFavoriteEvent);
   const portalExtrasObserver=new MutationObserver(()=>{
     clearTimeout(window.__portalExtrasTimer);
     window.__portalExtrasTimer=setTimeout(syncPortalExtras,0);
   });
   portalExtrasObserver.observe(grid,{childList:true});
 }
+
+const favoriteStyle=document.createElement('style');
+favoriteStyle.textContent=`
+  .card-top { position: relative; }
+  .portal-favorite {
+    flex: 0 0 auto;
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    margin-left: auto;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--muted);
+    background: #fff;
+    cursor: pointer;
+    font: 700 22px/1 Arial, sans-serif;
+  }
+  .portal-favorite:hover { color: var(--blue-dark); background: var(--info-bg); }
+  .portal-favorite:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .portal-favorite.is-favorite { color: #c98200; border-color: #d9b66a; background: #fff8df; }
+  .card-labels { display: inline-flex; align-items: center; gap: 8px; }
+`;
+document.head.appendChild(favoriteStyle);
+
 window.addEventListener('load',syncPortalExtras);
 setTimeout(syncPortalExtras,0);
 setTimeout(syncPortalExtras,250);
