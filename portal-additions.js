@@ -9,7 +9,7 @@ const ADDITIONAL_ITEMS = [
   {name:'公式の使い分け',repo:'kousiki-siwake',category:'教材',subject:'算数',grade:'5〜6年生',desc:'問題場面から、どの公式を使えばよいかを考える力を育てる算数教材。'},
   {name:'倍・約数メイズ',repo:'bai-yaku-maze',category:'教材',subject:'算数',grade:'4〜6年生',desc:'倍数・約数の見方を、迷路や選択問題で繰り返し練習する算数教材。'},
   {name:'都道府県マスター',repo:'todoufuken',category:'教材',subject:'社会',grade:'4〜6年生',desc:'都道府県の名前や位置などを確かめながら、社会科の基礎知識を身につける教材。'},
-  {name:'漢語・語句の目標',repo:'kangomokuhyo',category:'教材',subject:'国語',grade:'小学生',desc:'国語で扱う語句や漢語を意識しながら学ぶための教材。'}
+  {name:'看護目標メーカー',repo:'kangomokuhyo',category:'ツール',subject:'その他',grade:'先生向け',desc:'看護目標を作成・整理するための先生向けツール。'}
 ];
 
 function extraMatches(item){
