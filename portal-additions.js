@@ -59,8 +59,11 @@ function syncPortalExtras(){
   else { const total=Number(document.querySelector('#count')?.textContent||0); if(Number.isFinite(total)) resultText.textContent=`${baseVisible+extraVisible}件 / 全${total+ADDITIONAL_ITEMS.length}件`; }
 }
 
-const portalExtrasObserver=new MutationObserver(()=>{ clearTimeout(window.__portalExtrasTimer); window.__portalExtrasTimer=setTimeout(syncPortalExtras,0); });
-portalExtrasObserver.observe(document.body,{childList:true,subtree:true});
+const grid=document.querySelector('#grid');
+if(grid){
+  const portalExtrasObserver=new MutationObserver(()=>{ clearTimeout(window.__portalExtrasTimer); window.__portalExtrasTimer=setTimeout(syncPortalExtras,0); });
+  portalExtrasObserver.observe(grid,{childList:true});
+}
 window.addEventListener('load',syncPortalExtras);
 setTimeout(syncPortalExtras,0);
 setTimeout(syncPortalExtras,250);
