@@ -24,9 +24,7 @@ function getFavorites(){
 }
 
 function saveFavorites(favorites){
-  try{
-    localStorage.setItem(FAVORITES_KEY,JSON.stringify([...favorites]));
-  }catch(e){}
+  try{localStorage.setItem(FAVORITES_KEY,JSON.stringify([...favorites]));}catch(e){}
 }
 
 function extraMatches(item){
@@ -58,20 +56,27 @@ function updateFavoriteButton(button,isFavorite){
   button.classList.toggle('is-favorite',isFavorite);
 }
 
+function getCardRepo(card){
+  if(card.dataset.repo) return card.dataset.repo;
+  const link=card.querySelector('a.card-link[href*="tt-sensei.github.io/"]');
+  if(!link) return '';
+  const match=link.href.match(/tt-sensei\.github\.io\/([^/?#]+)/);
+  return match ? match[1] : '';
+}
+
 function decorateFavorite(card){
-  if(!card||card.dataset.favoriteDecorated==='true') return;
-  const repo=card.dataset.repo;
+  if(!card) return;
+  const repo=getCardRepo(card);
   if(!repo) return;
+  card.dataset.repo=repo;
+  if(card.dataset.favoriteDecorated==='true') return;
   const top=card.querySelector('.card-top');
   if(!top) return;
 
   const button=makeFavoriteButton(repo);
   const labels=top.querySelector('.card-labels');
-  if(labels){
-    labels.appendChild(button);
-  }else{
-    top.appendChild(button);
-  }
+  if(labels) labels.appendChild(button);
+  else top.appendChild(button);
 
   updateFavoriteButton(button,getFavorites().has(repo));
   card.dataset.favoriteDecorated='true';
@@ -83,8 +88,8 @@ function sortFavorites(){
   const favorites=getFavorites();
   const cards=[...grid.querySelectorAll('.card')];
   const sorted=[...cards].sort((a,b)=>{
-    const af=favorites.has(a.dataset.repo)?1:0;
-    const bf=favorites.has(b.dataset.repo)?1:0;
+    const af=favorites.has(getCardRepo(a))?1:0;
+    const bf=favorites.has(getCardRepo(b))?1:0;
     return bf-af;
   });
   sorted.forEach((card,index)=>{
@@ -144,26 +149,8 @@ function syncPortalExtras(){
   const extraVisible=grid.querySelectorAll('.card[data-extra="true"]').length;
   const mode=document.body.dataset.mode;
 
-  // 既存ポータルの基準値を一度だけ取得。公開サイトとリポジトリは同数として管理する。
-  if(window.__portalBaseRepoCount==null){
-    const repoCount=Number(document.querySelector('#repoCount')?.textContent||0);
-    const footerCount=Number(document.querySelector('#count')?.textContent||0);
-    const base=Number.isFinite(repoCount)&&repoCount>0?repoCount:footerCount;
-    window.__portalBaseRepoCount=Number.isFinite(base)?base:0;
-  }
-  const total=window.__portalBaseRepoCount+ADDITIONAL_ITEMS.length;
-  const repoCount=document.querySelector('#repoCount');
-  const siteCount=document.querySelector('#siteCount');
-  const footerCount=document.querySelector('#count');
-  if(repoCount) repoCount.textContent=total;
-  if(siteCount) siteCount.textContent=total;
-  if(footerCount) footerCount.textContent=total;
-
-  if(mode==='student'){
-    resultText.textContent=`${baseVisible+extraVisible}つの学びのサイト`;
-  }else{
-    resultText.textContent=`${baseVisible+extraVisible}件 / 全${total}件`;
-  }
+  if(mode==='student') resultText.textContent=`${baseVisible+extraVisible}つの学びのサイト`;
+  else resultText.textContent=`${baseVisible+extraVisible}件 / 全${(Number(document.querySelector('#repoCount')?.textContent)||0)}件`;
 
   decorateAndSortFavorites();
 }
