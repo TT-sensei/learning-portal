@@ -7,7 +7,6 @@ const ADDITIONAL_ITEMS = [
   {name:'給食タイマー',repo:'kyushoku-timer',category:'ツール',subject:'その他',grade:'小学生',desc:'準備、もぐもぐ5分、時計、歯みがき3分をまとめた学校生活向けタイマー。'},
   {name:'自学サポート',repo:'jigaku-supports',category:'ツール',subject:'その他',grade:'小学生・先生向け',desc:'毎日の自学を、目的・内容・方法から考えやすくする学習サポート。'},
   {name:'プリント工房',repo:'print-maker',category:'ツール',subject:'その他',grade:'先生向け',desc:'授業や家庭学習で使うプリントづくりを支える先生向けツール。'},
-  {name:'体育キット',repo:'P.E.-kit',category:'教材',subject:'その他',grade:'小学生',desc:'体育の学習で使える教材や活動をまとめたキット。'},
   {name:'ファイル工房',repo:'pdf-kit',category:'ツール',subject:'その他',grade:'先生向け',desc:'PDF・画像の分割・結合・変換など、授業で使うファイル作業をまとめて行えるツール。'},
   {name:'公式の使い分け',repo:'kousiki-siwake',category:'教材',subject:'算数',grade:'5〜6年生',desc:'問題場面から、どの公式を使えばよいかを考える力を育てる算数教材。'},
   {name:'倍・約数メイズ',repo:'bai-yaku-maze',category:'教材',subject:'算数',grade:'4〜6年生',desc:'倍数・約数の見方を、迷路や選択問題で繰り返し練習する算数教材。'},
