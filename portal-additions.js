@@ -87,14 +87,9 @@ function sortFavorites(){
     const bf=favorites.has(b.dataset.repo)?1:0;
     return bf-af;
   });
-  let changed=false;
   sorted.forEach((card,index)=>{
-    if(grid.children[index]!==card){
-      changed=true;
-      grid.appendChild(card);
-    }
+    if(grid.children[index]!==card) grid.appendChild(card);
   });
-  return changed;
 }
 
 function decorateAndSortFavorites(){
@@ -111,11 +106,8 @@ function extraFavoriteEvent(event){
   event.stopPropagation();
   const favorites=getFavorites();
   const repo=button.dataset.repo;
-  if(favorites.has(repo)){
-    favorites.delete(repo);
-  }else{
-    favorites.add(repo);
-  }
+  if(favorites.has(repo)) favorites.delete(repo);
+  else favorites.add(repo);
   saveFavorites(favorites);
   document.querySelectorAll(`.portal-favorite[data-repo="${CSS.escape(repo)}"]`).forEach(btn=>updateFavoriteButton(btn,favorites.has(repo)));
   sortFavorites();
@@ -152,15 +144,19 @@ function syncPortalExtras(){
   const extraVisible=grid.querySelectorAll('.card[data-extra="true"]').length;
   const mode=document.body.dataset.mode;
 
-  // app.js が設定した元の件数を初回だけ保存し、追加分を一度だけ加算する。
+  // 既存ポータルの基準値を一度だけ取得。公開サイトとリポジトリは同数として管理する。
   if(window.__portalBaseRepoCount==null){
-    const count=Number(document.querySelector('#count')?.textContent||0);
-    window.__portalBaseRepoCount=Number.isFinite(count)?count:0;
+    const repoCount=Number(document.querySelector('#repoCount')?.textContent||0);
+    const footerCount=Number(document.querySelector('#count')?.textContent||0);
+    const base=Number.isFinite(repoCount)&&repoCount>0?repoCount:footerCount;
+    window.__portalBaseRepoCount=Number.isFinite(base)?base:0;
   }
   const total=window.__portalBaseRepoCount+ADDITIONAL_ITEMS.length;
   const repoCount=document.querySelector('#repoCount');
+  const siteCount=document.querySelector('#siteCount');
   const footerCount=document.querySelector('#count');
   if(repoCount) repoCount.textContent=total;
+  if(siteCount) siteCount.textContent=total;
   if(footerCount) footerCount.textContent=total;
 
   if(mode==='student'){
