@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#17324d">
-  <meta name="description" content="デジタル教科書の公式ログイン先を、教科ごとにまとめて開くためのランチャー。">
+  <meta name="description" content="デジタル教科書の公式ログイン先を、ビューアごと・教科ごとに分かりやすく開くためのランチャー。">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="apple-touch-icon" href="https://tt-sensei.github.io/edu-assets/assets/web/badges/common/mastery/badge.webp">
   <link rel="stylesheet" href="https://tt-sensei.github.io/edu-effects/css/edu-effects.css">
@@ -31,8 +31,8 @@
     <section class="hero-panel edu-card deco-minimal" aria-labelledby="pageTitle">
       <div class="hero-copy">
         <p class="eyebrow">OFFICIAL LOGIN LAUNCHER</p>
-        <h1 id="pageTitle">教科をえらんで、<br><span>デジタル教科書へ。</span></h1>
-        <p class="lead">学校で使うデジタル教科書の公式ログイン先を、教科ごとにまとめて開けます。</p>
+        <h1 id="pageTitle">ビューアをえらんで、<br><span>教科書へ。</span></h1>
+        <p class="lead">学校で使うデジタル教科書を、ビューアごとにまとめています。どの教科がどこにあるかも、ここですぐ分かります。</p>
       </div>
       <div class="hero-navi" aria-hidden="true">
         <img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-pair-consulting.webp" alt="">
@@ -42,59 +42,51 @@
     <section class="notice edu-status edu-status-info" aria-label="大切なお知らせ">
       <span class="notice-icon" aria-hidden="true">i</span>
       <div>
-        <strong>ログイン情報は、このサイトに保存しません。</strong>
-        <p>このページは公式ログイン先へ移動するだけのランチャーです。ID・パスワードの入力や保存は、各公式サイト側で行ってください。</p>
+        <strong>このサイトは公式ログイン先へのランチャーです。</strong>
+        <p>ID・パスワードはこのサイトでは入力・保存しません。各ビューアの公式サイトでログインしてください。</p>
       </div>
     </section>
 
-    <section aria-labelledby="myBooksTitle">
+    <section aria-labelledby="viewerTitle">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">MY SUBJECTS</p>
-          <h2 id="myBooksTitle">教科からひらく</h2>
+          <p class="eyebrow">VIEWER FIRST</p>
+          <h2 id="viewerTitle">デジタル教科書の入口</h2>
         </div>
-        <div class="heading-actions teacher-only">
-          <button id="addLinkButton" class="primary-button" type="button">＋ 教科を登録</button>
-        </div>
+        <button id="addLinkButton" class="primary-button teacher-only" type="button">＋ 教科を登録</button>
       </div>
+      <p class="section-note">上のビューアから公式サイトへ入り、その下で「どの教科がどこにあるか」を確認できます。</p>
 
-      <div id="recentPanel" class="recent-panel" hidden>
-        <div class="subsection-heading"><span>最近ひらいた</span><small id="recentText"></small></div>
-        <div id="recentGrid" class="recent-grid"></div>
-      </div>
+      <div id="viewerMap" class="viewer-map" aria-live="polite"></div>
 
-      <div id="linkGrid" class="link-grid" aria-live="polite"></div>
       <div id="emptyState" class="empty-state edu-card" hidden>
-        <div class="empty-icon" aria-hidden="true">+</div>
+        <div class="empty-icon" aria-hidden="true">＋</div>
         <strong>まだ教科が登録されていません。</strong>
-        <p>先生モードで「教科を登録」すると、ここに入口を作れます。</p>
+        <p>先生モードで、使っている教科とビューアの組み合わせを登録してください。</p>
         <button id="emptyAddButton" class="primary-button teacher-only" type="button">教科を登録する</button>
       </div>
     </section>
 
-    <section class="teacher-only teacher-panel edu-card" aria-labelledby="viewerListTitle">
-      <div class="section-heading compact">
-        <div>
-          <p class="eyebrow">VIEWER DIRECTORY</p>
-          <h2 id="viewerListTitle">公式ビューア一覧</h2>
-        </div>
-        <span class="source-chip">令和8年度基準</span>
+    <section id="recentPanel" class="recent-panel" hidden aria-labelledby="recentTitle">
+      <div class="subsection-heading">
+        <div><span id="recentTitle">最近ひらいた教科</span><small>すぐに続きから</small></div>
+        <small id="recentText"></small>
       </div>
-      <p class="section-note">下の「教科に登録」から、使っているビューアを教科の入口に登録できます。公式ログインURLは後から変更できます。</p>
-      <div id="viewerGrid" class="viewer-grid"></div>
+      <div id="recentGrid" class="recent-grid"></div>
     </section>
 
-    <section class="teacher-only utilities-panel" aria-labelledby="settingsTitle">
+    <section class="teacher-only teacher-panel edu-card" aria-labelledby="settingsTitle">
       <div class="section-heading compact">
         <div>
           <p class="eyebrow">DEVICE SETTINGS</p>
           <h2 id="settingsTitle">この端末の設定</h2>
         </div>
       </div>
+      <div class="teacher-settings-copy">教科の対応表はこの端末に保存されます。別の端末へ移すときは、設定を書き出してください。</div>
       <div class="utility-grid">
         <button id="exportButton" class="utility-button" type="button"><span>↓</span><span><strong>設定を書き出す</strong><small>バックアップ用JSON</small></span></button>
         <button id="importButton" class="utility-button" type="button"><span>↑</span><span><strong>設定を読み込む</strong><small>バックアップJSONから復元</small></span></button>
-        <button id="resetButton" class="utility-button danger" type="button"><span>↺</span><span><strong>設定を初期化</strong><small>登録内容をすべて消す</small></span></button>
+        <button id="resetButton" class="utility-button danger" type="button"><span>↺</span><span><strong>設定を初期化</strong><small>登録・お気に入り・履歴を消す</small></span></button>
       </div>
       <input id="importFile" type="file" accept="application/json,.json" hidden>
     </section>
@@ -121,7 +113,7 @@
       <label class="field"><span>ビューア</span><select id="platformInput" required></select></label>
       <label class="field"><span>表示名 <small>（任意）</small></span><input id="labelInput" type="text" maxlength="40" placeholder="例：国語　光村図書"></label>
       <div id="customUrlWrap" class="field" hidden><span>ログインURL</span><input id="customUrlInput" type="url" inputmode="url" placeholder="https://..."></div>
-      <label class="check-field"><input id="favoriteInput" type="checkbox"><span>ホームでお気に入りとして優先表示</span></label>
+      <label class="check-field"><input id="favoriteInput" type="checkbox"><span>この教科を上の方に表示</span></label>
       <p class="dialog-note">ログインURLは公式サイトへのリンクです。ID・パスワードは登録しないでください。</p>
       <div class="dialog-actions">
         <button id="deleteLinkButton" class="secondary-button danger teacher-only" type="button" hidden>削除</button>
