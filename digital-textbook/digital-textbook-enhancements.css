@@ -1,0 +1,47 @@
+/* デジタル教科書ランチャー追加UI：教科と教科書会社を同時に見分ける */
+.platform-card{position:relative;overflow:hidden}
+.platform-card::before{content:"";display:block;height:4px;background:var(--platform-accent,#91a3b2)}
+.platform-head{border-top:0;background:linear-gradient(180deg,#fff 0%,var(--platform-soft,#fbfdfe) 100%)}
+.viewer-mark{background:var(--platform-soft,#edf4f8);color:var(--platform-accent,#214f70)}
+.platform-manaviewer{--platform-accent:#7b4c68;--platform-soft:#f7eef3}
+.platform-cho{--platform-accent:#47735b;--platform-soft:#eef7f1}
+.platform-lentrance{--platform-accent:#276fbf;--platform-soft:#edf4fb}
+.platform-mirai{--platform-accent:#b06638;--platform-soft:#fbf2eb}
+.platform-tsubasa{--platform-accent:#72644a;--platform-soft:#f5f2ec}
+.platform-esviewer{--platform-accent:#5d65a2;--platform-soft:#f0f1fa}
+.platform-custom{--platform-accent:#687988;--platform-soft:#f1f4f6}
+
+.subject-row{position:relative;cursor:pointer;transition:background-color .16s ease,border-color .16s ease,box-shadow .16s ease}
+.subject-row::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:11px 0 0 11px;background:var(--subject-accent,#8293a2);pointer-events:none}
+.subject-row:hover{background:#fff;border-color:#cad9e3;box-shadow:0 2px 8px rgba(23,50,77,.06)}
+.subject-row:focus-visible{outline:3px solid #4a90c2;outline-offset:2px}
+.subject-row .subject-main,.subject-row .subject-actions{position:relative;z-index:1}
+.subject-row .subject-badge{background:var(--subject-soft,#eef3f6);color:var(--subject-accent,#35566d)}
+.subject-copy strong{position:relative;color:#2a4860}
+.subject-copy strong::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 6px 1px 0;background:var(--publisher-accent,#8293a2)}
+.subject-copy small{color:#8191a0}
+
+.subject-国語{--subject-accent:#8b4457;--subject-soft:#f8edf1}
+.subject-算数{--subject-accent:#3d7c59;--subject-soft:#edf7f0}
+.subject-理科{--subject-accent:#2f7f82;--subject-soft:#ebf6f6}
+.subject-社会{--subject-accent:#b46a35;--subject-soft:#fbf1e9}
+.subject-英語{--subject-accent:#356eaf;--subject-soft:#edf4fb}
+.subject-音楽{--subject-accent:#7958a5;--subject-soft:#f3eef8}
+.subject-図工{--subject-accent:#b45179;--subject-soft:#faeef4}
+.subject-家庭{--subject-accent:#866a42;--subject-soft:#f7f2ea}
+.subject-体育-保健{--subject-accent:#ad4e46;--subject-soft:#faeeee}
+.subject-道徳{--subject-accent:#5d6477;--subject-soft:#f0f2f5}
+.subject-その他{--subject-accent:#71808d;--subject-soft:#f1f4f6}
+
+/* 子ども側では「ひらく」ボタンを押す必要をなくし、カード自体を入口にする。 */
+.row-launch{display:none}
+.subject-row{min-height:58px;padding-top:10px;padding-bottom:10px}
+
+@media (max-width:680px){
+  .platform-card::before{height:5px}
+  .subject-row{min-height:62px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .subject-row{transition:none}
+}
