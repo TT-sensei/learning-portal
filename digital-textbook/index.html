@@ -9,6 +9,7 @@
   <link rel="apple-touch-icon" href="https://tt-sensei.github.io/edu-assets/assets/web/badges/common/mastery/badge.webp">
   <link rel="stylesheet" href="https://tt-sensei.github.io/edu-effects/css/edu-effects.css">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./digital-textbook-enhancements.css">
   <title>デジタル教科書ランチャー｜TT-sensei</title>
 </head>
 <body>
@@ -127,6 +128,7 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script type="module" src="./app.js"></script>
+  <script src="./digital-textbook-enhancements.js" defer></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
