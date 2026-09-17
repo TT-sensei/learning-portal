@@ -361,7 +361,7 @@ function setTeacherMode(active) {
   teacherMode = Boolean(active);
   document.body.classList.toggle('teacher-mode', teacherMode);
   teacherModeButton.setAttribute('aria-pressed', String(teacherMode));
-  teacherModeButton.textContent = teacherMode ? '先生モードを終了' : '先生モード';
+  teacherModeButton.textContent = teacherMode ? '登録を終了' : '登録';
 }
 
 function showToast(message) {
@@ -433,24 +433,22 @@ function resetSettings() {
 }
 
 viewerMap.addEventListener('click', (event) => {
-  const actionTarget = event.target.closest('[data-action]');
-  if (actionTarget) {
-    const id = actionTarget.dataset.id;
-    const link = state.links.find((item) => item.id === id);
-    if (!link) return;
-    const action = actionTarget.dataset.action;
-    if (action === 'open') openLink(link);
-    else if (action === 'favorite') toggleFavorite(id);
-    else if (action === 'edit') openDialog(null, link);
-    else if (action === 'move-up') moveLink(id, -1);
-    else if (action === 'move-down') moveLink(id, 1);
+  const target = event.target.closest('[data-action], [data-platform]');
+  if (!target) return;
+  if (target.matches('[data-platform]') && !target.closest('.subject-row')) {
+    openDialog(target.dataset.platform);
     return;
   }
-
-  const platformTarget = event.target.closest('[data-platform]');
-  if (platformTarget && platformTarget.classList.contains('register-here')) {
-    openDialog(platformTarget.dataset.platform);
-  }
+  const id = target.dataset.id;
+  if (!id) return;
+  const action = target.dataset.action;
+  const link = state.links.find((item) => item.id === id);
+  if (!link) return;
+  if (action === 'open') openLink(link);
+  else if (action === 'favorite') toggleFavorite(id);
+  else if (action === 'edit') openDialog(null, link);
+  else if (action === 'move-up') moveLink(id, -1);
+  else if (action === 'move-down') moveLink(id, 1);
 });
 
 $('#addLinkButton').addEventListener('click', () => openDialog());
@@ -469,9 +467,7 @@ $('#importFile').addEventListener('change', (event) => {
   event.target.value = '';
 });
 $('#resetButton').addEventListener('click', resetSettings);
-dialog.addEventListener('click', (event) => {
-  if (event.target === dialog) closeDialog();
-});
+dialog.addEventListener('click', (event) => { if (event.target === dialog) closeDialog(); });
 
 populatePlatformSelect();
 setTeacherMode(false);
