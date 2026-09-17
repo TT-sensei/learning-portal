@@ -35,11 +35,19 @@
 
 /* 子ども側では「ひらく」ボタンを押す必要をなくし、カード自体を入口にする。 */
 .row-launch{display:none}
-.subject-row{min-height:58px;padding-top:10px;padding-bottom:10px}
+.subject-row{min-height:62px;padding-top:10px;padding-bottom:10px}
+
+/* 教科を主役にする。教科書会社は補足情報として控えめに表示する。 */
+.subject-row .subject-badge{min-width:72px;height:44px;padding:5px 9px;border-radius:11px;font-size:18px;letter-spacing:-.04em}
+.subject-row .subject-copy strong{font-size:10px;font-weight:700;color:#536b7d}
+.subject-row .subject-copy strong::before{width:5px;height:5px;margin-right:5px}
+.subject-row .subject-copy small{margin-top:3px;font-size:9px;color:#97a3ad}
 
 @media (max-width:680px){
   .platform-card::before{height:5px}
-  .subject-row{min-height:62px}
+  .subject-row{min-height:68px}
+  .subject-row .subject-badge{min-width:78px;height:48px;font-size:19px}
+  .subject-row .subject-copy strong{font-size:10px}
 }
 
 @media (prefers-reduced-motion:reduce){
