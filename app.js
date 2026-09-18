@@ -101,7 +101,7 @@ const items = [
 { name: '1問1答', repo: '1mon-1tou', category: '教材', subject: 'その他', grade: '小学生', desc: 'NAVIとナビアンの世界観で、1問1答の学習と誤答記録・特訓・再挑戦をつなぐ学習アプリ。', new: true },
 { name: '給食タイマー', repo: 'kyushoku-timer', category: 'ツール', subject: 'その他', grade: '小学生', desc: '準備、もぐもぐ5分、時計、歯みがき3分をまとめた学校生活向けタイマー。', new: true },
 { name: 'ファイル工房', repo: 'pdf-kit', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'PDF・画像の分割・結合・変換など、授業で使うファイル作業をまとめて行えるツール。', new: true },
-{ name: '公式の使い分け', repo: 'kousiki-siwake', category: '教材', subject: '算数', grade: '5〜6年生', desc: '問題場面から、どの公式を使えばよいかを考える力を育てる算数教材。', new: true },
+{ name: '公式の使い分け', repo: 'kousiki-siwake', category: '教材', subject: '算数', grade: '5〜6年生', desc: '図形の問題場面から、面積や体積など、どの公式を使えばよいかを考える力を育てる算数教材。', new: true },
 { name: '倍・約数メイズ', repo: 'bai-yaku-maze', category: '教材', subject: '算数', grade: '4〜6年生', desc: '倍数・約数の見方を、迷路や選択問題で繰り返し練習する算数教材。', new: true },
 { name: '看護目標メーカー', repo: 'kangomokuhyo', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '看護目標を作成・整理するための先生向けツール。', new: true },
 { name: '音読スナップ', repo: 'ondoku', category: '教材', subject: '国語', grade: '小学生', desc: '音読するページを端末に登録し、写真を見ながら録音・記録できる音読支援アプリ。', new: true },
