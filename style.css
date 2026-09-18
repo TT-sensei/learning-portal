@@ -327,3 +327,106 @@ body[data-mode="student"] .learning-scenes {
 @media (prefers-reduced-motion: reduce) {
   .scene-filter { transition: none; }
 }
+/* Student subject chooser refinement */
+body[data-mode="student"] .learning-scenes {
+  position: relative;
+  padding: 28px;
+  overflow: hidden;
+}
+body[data-mode="student"] .learning-scenes::before {
+  position: absolute;
+  top: -90px;
+  left: -70px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.72);
+  content: "";
+  pointer-events: none;
+}
+body[data-mode="student"] .learning-scenes .section-head,
+body[data-mode="student"] .learning-scenes .learning-scene-grid {
+  position: relative;
+  z-index: 1;
+}
+body[data-mode="student"] .learning-scenes .section-head > p::before {
+  content: "① ";
+  color: #2276a8;
+  font-weight: 900;
+}
+body[data-mode="student"] .scene-filter {
+  position: relative;
+  min-height: 165px;
+  grid-template-rows: 112px auto;
+  border-color: #d9e8ed;
+}
+body[data-mode="student"] .scene-filter::after {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(34,118,168,.12);
+  content: "";
+}
+body[data-mode="student"] .scene-filter:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 9px 0 rgba(51,119,147,.12), 0 12px 26px rgba(32,95,119,.08);
+}
+body[data-mode="student"] .scene-filter.active {
+  transform: translateY(-2px);
+}
+body[data-mode="student"] .scene-filter span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 53px;
+  padding: 10px 14px 11px;
+}
+body[data-mode="student"] .scene-filter b {
+  font-size: 17px;
+  letter-spacing: .04em;
+}
+body[data-mode="student"] .scene-count {
+  flex: 0 0 auto;
+  color: #5f7683;
+  font-size: 11px;
+  font-weight: 800;
+}
+body[data-mode="student"] .scene-filter[data-scene-subject="国語"] { border-bottom: 5px solid #e47786; }
+body[data-mode="student"] .scene-filter[data-scene-subject="算数"] { border-bottom: 5px solid #efa43b; }
+body[data-mode="student"] .scene-filter[data-scene-subject="理科"] { border-bottom: 5px solid #66b982; }
+body[data-mode="student"] .scene-filter[data-scene-subject="社会"] { border-bottom: 5px solid #6f91df; }
+
+body[data-mode="student"] .catalog-head #resultText {
+  color: #6b7c85;
+  font-weight: 800;
+}
+.portal-favorite {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  margin-left: 2px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--muted);
+  background: #fff;
+  cursor: pointer;
+  font: 700 20px/1 Arial, sans-serif;
+}
+.portal-favorite:hover { color: #c98200; background: #fff8df; }
+.portal-favorite:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.portal-favorite.is-favorite { color: #c98200; border-color: #d9b66a; background: #fff8df; }
+
+@media (max-width: 620px) {
+  body[data-mode="student"] .learning-scenes { padding: 18px; }
+  body[data-mode="student"] .scene-filter { min-height: 148px; grid-template-rows: 92px auto; }
+  body[data-mode="student"] .scene-filter span { min-height: 50px; padding-inline: 12px; }
+  body[data-mode="student"] .scene-filter img { height: 92px; }
+}
