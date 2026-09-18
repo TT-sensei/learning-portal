@@ -94,7 +94,20 @@ const items = [
   { name: 'edu-components', repo: 'edu-components', category: '素材', subject: 'その他', grade: '共通基盤', desc: '画面遷移、出題、判定、得点、保存、進捗を担うロジック部品集。', foundation: true },
   { name: 'edu-effects', repo: 'edu-effects', category: '素材', subject: 'その他', grade: '共通基盤', desc: '教材UI、CSS、正誤・達成・バッジ演出のカタログ。', foundation: true },
   { name: '音のレシピ', repo: 'sounds-recipe-', category: '素材', subject: 'その他', grade: '共通基盤', desc: 'Web Audio APIで使える教材向けサウンドレシピ。', foundation: true },
-  { name: 'edu-assets', repo: 'edu-assets', category: '素材', subject: 'その他', grade: '共通基盤', desc: '共通・教科別バッジ、エレメント、コレクション画像。', foundation: true }
+  { name: 'edu-assets', repo: 'edu-assets', category: '素材', subject: 'その他', grade: '共通基盤', desc: '共通・教科別バッジ、エレメント、コレクション画像。', foundation: true },
+{ name: '角度ハンター ― ナビアンをつかまえろ', repo: 'kakudo-hunter', category: '教材', subject: '算数', grade: '4〜6年生', desc: '0°の線との開きから角度を見つけるハンターモードと、分度器を使うモードで角度の大きさを身につける。', new: true },
+{ name: '読書レコード', repo: 'dokusho-record', category: '教材', subject: 'その他', grade: '小学生', desc: '本を記録し、月・年ごとの読書冊数や目標などを見える化する読書記録ツール。', new: true },
+{ name: 'キャリア探究ナビ', repo: 'careergakuahu', category: '教材', subject: 'その他', grade: '6年生', desc: '「自分らしく社会とかかわるために」を軸に、15時間のキャリア探究を進める学習ガイド。', new: true },
+{ name: '1問1答', repo: '1mon-1tou', category: '教材', subject: 'その他', grade: '小学生', desc: 'NAVIとナビアンの世界観で、1問1答の学習と誤答記録・特訓・再挑戦をつなぐ学習アプリ。', new: true },
+{ name: '給食タイマー', repo: 'kyushoku-timer', category: 'ツール', subject: 'その他', grade: '小学生', desc: '準備、もぐもぐ5分、時計、歯みがき3分をまとめた学校生活向けタイマー。', new: true },
+{ name: 'ファイル工房', repo: 'pdf-kit', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'PDF・画像の分割・結合・変換など、授業で使うファイル作業をまとめて行えるツール。', new: true },
+{ name: '公式の使い分け', repo: 'kousiki-siwake', category: '教材', subject: '算数', grade: '5〜6年生', desc: '問題場面から、どの公式を使えばよいかを考える力を育てる算数教材。', new: true },
+{ name: '倍・約数メイズ', repo: 'bai-yaku-maze', category: '教材', subject: '算数', grade: '4〜6年生', desc: '倍数・約数の見方を、迷路や選択問題で繰り返し練習する算数教材。', new: true },
+{ name: '看護目標メーカー', repo: 'kangomokuhyo', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '看護目標を作成・整理するための先生向けツール。', new: true },
+{ name: '音読スナップ', repo: 'ondoku', category: '教材', subject: '国語', grade: '小学生', desc: '音読するページを端末に登録し、写真を見ながら録音・記録できる音読支援アプリ。', new: true },
+{ name: 'ものさしハンター', repo: 'nagasa-hunter', category: '教材', subject: '算数', grade: '3〜6年生', desc: 'ものさしを使わず、長さを目で見て当てながら、1cm・1mmの長さの感覚を身につける学習アプリ。', new: true },
+{ name: '勤務管理', repo: 'kinmukanri', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '出勤・退勤、勤務時間、時間外、早出、月別集計などを端末内で管理する学校向けツール。', new: true },
+{ name: 'デジタル教科書ランチャー', repo: 'digital-textbook-launcher', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '教科を入口に、登録したデジタル教科書の公式ログイン先をすぐ開けるランチャー。', new: true }
 ];
 
 const SUBJECT_ORDER = ['国語', '算数', '理科', '社会', '家庭科', '英語', 'その他'];
