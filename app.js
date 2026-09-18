@@ -180,7 +180,49 @@ function repoUrl(item) {
   return `https://github.com/TT-sensei/${item.repo}`;
 }
 
+const FAVORITES_KEY = 'tt-sensei-learning-portal-favorites-v2';
+
+function getFavorites() {
+  try {
+    const value = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+    return new Set(Array.isArray(value) ? value.filter(Boolean) : []);
+  } catch (error) {
+    return new Set();
+  }
+}
+
+function toggleFavorite(repo) {
+  const favorites = getFavorites();
+  if (favorites.has(repo)) favorites.delete(repo);
+  else favorites.add(repo);
+  try {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+  } catch (error) {}
+  updateFavoriteButtons(repo, favorites.has(repo));
+  sortFavorites();
+}
+
+function updateFavoriteButtons(repo, active) {
+  document.querySelectorAll('.portal-favorite').forEach(button => {
+    if (button.dataset.repo !== repo) return;
+    button.textContent = active ? '★' : '☆';
+    button.setAttribute('aria-pressed', String(active));
+    button.setAttribute('aria-label', active ? 'お気に入りから外す' : 'お気に入りに登録');
+    button.title = active ? 'お気に入りから外す' : 'お気に入りに登録';
+    button.classList.toggle('is-favorite', active);
+  });
+}
+
+function sortFavorites() {
+  const favorites = getFavorites();
+  const cards = [...grid.querySelectorAll('.card')];
+  cards.sort((a, b) => (favorites.has(b.dataset.repo) ? 1 : 0) - (favorites.has(a.dataset.repo) ? 1 : 0));
+  cards.forEach(card => grid.appendChild(card));
+}
+
 function card(item) {
+  const isFavorite = getFavorites().has(item.repo);
+  const favoriteLabel = isFavorite ? 'お気に入りから外す' : 'お気に入りに登録';
   const siteAction = item.site === false
     ? '<span class="repo-only">公開サイト準備中</span>'
     : `<a class="edu-btn edu-btn-primary card-link" href="${siteUrl(item)}" target="_blank" rel="noopener">サイトを開く <span aria-hidden="true">↗</span></a>`;
@@ -188,10 +230,10 @@ function card(item) {
     ? `<a class="edu-btn edu-btn-secondary card-link" href="${repoUrl(item)}" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>`
     : '';
   const repoMeta = mode === 'teacher' ? `<code>${item.repo}</code>` : '';
-  return `<article class="card edu-card edu-card-hover" data-subject="${item.subject}">
+  return `<article class="card edu-card edu-card-hover" data-subject="${item.subject}" data-repo="${item.repo}">
     <div class="card-top">
       <span class="edu-badge category-badge category-${item.category}">${item.category}</span>
-      <span class="card-labels"><span class="subject-label">${item.subject}</span>${item.new ? '<span class="new-label">NEW</span>' : ''}</span>
+      <span class="card-labels"><span class="subject-label">${item.subject}</span>${item.new ? '<span class="new-label">NEW</span>' : ''}<button class="portal-favorite${isFavorite ? ' is-favorite' : ''}" type="button" data-repo="${item.repo}" aria-pressed="${isFavorite}" aria-label="${favoriteLabel}" title="${favoriteLabel}">${isFavorite ? '★' : '☆'}</button></span>
     </div>
     <h3>${item.name}</h3>
     <p>${item.desc}</p>
@@ -207,6 +249,16 @@ function saveFilters() {
   storage.save('filters', { category, subject, query: search.value.trim() });
 }
 
+function updateSceneCounts(visibleItems) {
+  document.querySelectorAll('.scene-filter').forEach(button => {
+    const subjectName = button.dataset.sceneSubject;
+    const countElement = button.querySelector('.scene-count');
+    if (!countElement) return;
+    const count = visibleItems.filter(item => item.subject === subjectName).length;
+    countElement.textContent = `${count}つ`;
+  });
+}
+
 function render() {
   const query = search.value.trim().toLowerCase();
   const visibleItems = mode === 'student'
@@ -220,6 +272,8 @@ function render() {
   );
 
   grid.innerHTML = filtered.map(card).join('');
+  sortFavorites();
+  updateSceneCounts(visibleItems);
   resultText.textContent = mode === 'student' ? `${filtered.length}つの学びのサイト` : `${filtered.length}件 / 全${items.length}件`;
   empty.hidden = filtered.length !== 0;
   resetButton.hidden = category === 'all' && subject === 'all' && !query;
@@ -267,6 +321,14 @@ function activateButtons(selector, dataName, value) {
 
 activateButtons('.filter', 'category', category);
 activateButtons('.subject', 'subject', subject);
+
+grid.addEventListener('click', event => {
+  const button = event.target.closest('.portal-favorite');
+  if (!button) return;
+  event.preventDefault();
+  event.stopPropagation();
+  toggleFavorite(button.dataset.repo);
+});
 
 document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
   category = button.dataset.category;
