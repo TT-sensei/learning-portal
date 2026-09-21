@@ -95,6 +95,11 @@ const items = [
   { name: 'edu-effects', repo: 'edu-effects', category: '素材', subject: 'その他', grade: '共通基盤', desc: '教材UI、CSS、正誤・達成・バッジ演出のカタログ。', foundation: true },
   { name: '音のレシピ', repo: 'sounds-recipe-', category: '素材', subject: 'その他', grade: '共通基盤', desc: 'Web Audio APIで使える教材向けサウンドレシピ。', foundation: true },
   { name: 'edu-assets', repo: 'edu-assets', category: '素材', subject: 'その他', grade: '共通基盤', desc: '共通・教科別バッジ、エレメント、コレクション画像。', foundation: true },
+
+{ name: 'たし算の筆算', repo: 'tashizan-hissan', category: '教材', subject: '算数', grade: '2〜3年生', desc: 'たし算の筆算を、くり上がりの判断とくらいごとの操作に分けて練習する算数教材。', new: true },
+{ name: 'ひき算の筆算', repo: 'hikizan-hissan', category: '教材', subject: '算数', grade: '2〜3年生', desc: 'ひき算の筆算を、くり下がりの判断とくらいごとの操作に分けて練習する算数教材。', new: true },
+{ name: '社会科ゲームブック', repo: 'shakai-gamebook', category: '教材', subject: '社会', grade: '5年生中心', desc: '読む・考える・選ぶ・結果を見る流れで、米づくりや自動車づくりを体験的に学ぶ社会科ゲームブック。', new: true },
+{ name: 'WORLD QUEST', repo: 'world-quest', category: '教材', subject: '社会', grade: '5〜6年生', desc: '国旗・地域・文化・食・自然など、いろいろな入口から世界の国を知る学習クイズ。', new: true },
 { name: '角度ハンター ― ナビアンをつかまえろ', repo: 'kakudo-hunter', category: '教材', subject: '算数', grade: '4〜6年生', desc: '0°の線との開きから角度を見つけるハンターモードと、分度器を使うモードで角度の大きさを身につける。', new: true },
 { name: '読書レコード', repo: 'dokusho-record', category: '教材', subject: 'その他', grade: '小学生', desc: '本を記録し、月・年ごとの読書冊数や目標などを見える化する読書記録ツール。', new: true },
 { name: 'キャリア探究ナビ', repo: 'careergakuahu', category: '教材', subject: 'その他', grade: '6年生', desc: '「自分らしく社会とかかわるために」を軸に、15時間のキャリア探究を進める学習ガイド。', new: true },
