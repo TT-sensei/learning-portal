@@ -1,4 +1,4 @@
-{"result":{"content":":root {
+:root {
   --ink: #1a1a1c;
   --muted: #4b5563;
   --line: #c8ccd0;
@@ -128,20 +128,20 @@ a { color: var(--blue); text-underline-offset: 3px; }
 [hidden] { display: none !important; }
 
 /* Portal split: the student side is the welcoming front door. */
-body[data-mode=\"student\"] {
+body[data-mode="student"] {
   --paper: #fffaf0;
   --blue: #2276a8;
   --blue-dark: #18577e;
   --info-bg: #e7f6ff;
 }
-body[data-mode=\"student\"] .hero {
+body[data-mode="student"] .hero {
   position: relative;
   overflow: hidden;
   border-top: 0;
   border-bottom: 0;
   background: linear-gradient(135deg, #fff7d9 0%, #e5f7ff 68%, #e7f5e7 100%);
 }
-body[data-mode=\"student\"] .hero::after {
+body[data-mode="student"] .hero::after {
   position: absolute;
   right: -8%;
   bottom: -70px;
@@ -149,10 +149,10 @@ body[data-mode=\"student\"] .hero::after {
   height: 220px;
   border-radius: 50%;
   background: #fff0b8;
-  content: \"\";
+  content: "";
   opacity: .65;
 }
-body[data-mode=\"student\"] .nav { border-bottom-color: rgb(34 118 168 / 16%); }
+body[data-mode="student"] .nav { border-bottom-color: rgb(34 118 168 / 16%); }
 .mode-switch {
   position: relative;
   z-index: 2;
@@ -177,29 +177,29 @@ body[data-mode=\"student\"] .nav { border-bottom-color: rgb(34 118 168 / 16%); }
 .mode-tab.active { color: #fff; background: var(--blue-dark); box-shadow: 0 3px 8px rgb(24 87 126 / 20%); }
 .hero-inner { position: relative; min-height: 390px; }
 .hero-copy { position: relative; z-index: 2; max-width: 650px; }
-body[data-mode=\"student\"] .hero-copy h1 { font-size: clamp(42px, 7vw, 70px); letter-spacing: -.07em; }
-body[data-mode=\"student\"] .hero-copy h1 span { color: #ef8d39; }
-body[data-mode=\"teacher\"] .hero-copy h1 span { color: var(--blue); }
+body[data-mode="student"] .hero-copy h1 { font-size: clamp(42px, 7vw, 70px); letter-spacing: -.07em; }
+body[data-mode="student"] .hero-copy h1 span { color: #ef8d39; }
+body[data-mode="teacher"] .hero-copy h1 span { color: var(--blue); }
 .student-hero-art { position: absolute; right: 0; bottom: -12px; z-index: 1; width: min(42%, 430px); pointer-events: none; }
 .student-hero-art img { display: block; width: 100%; filter: drop-shadow(0 12px 12px rgb(25 88 118 / 12%)); }
-body[data-mode=\"teacher\"] .student-hero-art { display: none; }
-body[data-mode=\"student\"] .hero-stats { position: relative; z-index: 2; margin-top: 24px; }
-body[data-mode=\"student\"] .hero-stats div { border-left-color: #efb646; }
-body[data-mode=\"student\"] .hero-stats b { color: #d87924; }
-body[data-mode=\"student\"] .catalog-head h2 { color: #18577e; }
-body[data-mode=\"student\"] .toolbar { border: 0; border-radius: 18px; box-shadow: 0 8px 24px rgb(32 95 119 / 8%); }
-body[data-mode=\"student\"] .grid { gap: 18px; }
-body[data-mode=\"student\"] .card { border: 2px solid #d9e8ed; border-top: 6px solid #58a7bd; border-radius: 18px; background: #fff; box-shadow: 0 5px 0 rgb(34 118 168 / 7%); }
-body[data-mode=\"student\"] .card:hover { transform: translateY(-3px); border-color: #58a7bd; box-shadow: 0 9px 0 rgb(34 118 168 / 10%); }
-body[data-mode=\"student\"] .card h3 { color: #18577e; }
-body[data-mode=\"student\"] .card-link { border-radius: 10px; }
-body[data-mode=\"student\"] .nav-characters { border: 0; border-radius: 24px; background: #fff; box-shadow: 0 8px 24px rgb(32 95 119 / 8%); }
-body[data-mode=\"student\"] .character-chip { border: 0; border-radius: 16px; background: #f3fbff; }
+body[data-mode="teacher"] .student-hero-art { display: none; }
+body[data-mode="student"] .hero-stats { position: relative; z-index: 2; margin-top: 24px; }
+body[data-mode="student"] .hero-stats div { border-left-color: #efb646; }
+body[data-mode="student"] .hero-stats b { color: #d87924; }
+body[data-mode="student"] .catalog-head h2 { color: #18577e; }
+body[data-mode="student"] .toolbar { border: 0; border-radius: 18px; box-shadow: 0 8px 24px rgb(32 95 119 / 8%); }
+body[data-mode="student"] .grid { gap: 18px; }
+body[data-mode="student"] .card { border: 2px solid #d9e8ed; border-top: 6px solid #58a7bd; border-radius: 18px; background: #fff; box-shadow: 0 5px 0 rgb(34 118 168 / 7%); }
+body[data-mode="student"] .card:hover { transform: translateY(-3px); border-color: #58a7bd; box-shadow: 0 9px 0 rgb(34 118 168 / 10%); }
+body[data-mode="student"] .card h3 { color: #18577e; }
+body[data-mode="student"] .card-link { border-radius: 10px; }
+body[data-mode="student"] .nav-characters { border: 0; border-radius: 24px; background: #fff; box-shadow: 0 8px 24px rgb(32 95 119 / 8%); }
+body[data-mode="student"] .character-chip { border: 0; border-radius: 16px; background: #f3fbff; }
 
 @media (max-width: 760px) {
   .student-hero-art { right: -36px; width: 52%; opacity: .9; }
   .hero-inner { min-height: 480px; }
-  body[data-mode=\"student\"] .hero-copy { max-width: 75%; }
+  body[data-mode="student"] .hero-copy { max-width: 75%; }
 }
 
 @media (max-width: 620px) {
@@ -207,19 +207,19 @@ body[data-mode=\"student\"] .character-chip { border: 0; border-radius: 16px; ba
   .mode-tab { padding-inline: 14px; }
   .student-hero-art { right: -20px; bottom: 0; width: 58%; }
   .hero-inner { min-height: 500px; }
-  body[data-mode=\"student\"] .hero-copy { max-width: 100%; }
-  body[data-mode=\"student\"] .hero-copy h1 { font-size: 48px; }
+  body[data-mode="student"] .hero-copy { max-width: 100%; }
+  body[data-mode="student"] .hero-copy h1 { font-size: 48px; }
 }
 
 
 /* Portal subject color system */
-.card[data-subject=\"国語\"] { --subject-color: #e47786; --subject-soft: #fff0f2; --subject-ink: #a34252; }
-.card[data-subject=\"算数\"] { --subject-color: #efa43b; --subject-soft: #fff5df; --subject-ink: #a26309; }
-.card[data-subject=\"理科\"] { --subject-color: #66b982; --subject-soft: #ebf8ee; --subject-ink: #2f7a4a; }
-.card[data-subject=\"社会\"] { --subject-color: #6f91df; --subject-soft: #eef3ff; --subject-ink: #3d5fa9; }
-.card[data-subject=\"家庭科\"] { --subject-color: #c982c5; --subject-soft: #fff0fb; --subject-ink: #914a8d; }
-.card[data-subject=\"英語\"] { --subject-color: #51b6b0; --subject-soft: #e9f9f7; --subject-ink: #257b77; }
-.card[data-subject=\"その他\"] { --subject-color: #998bd0; --subject-soft: #f3f0ff; --subject-ink: #65559d; }
+.card[data-subject="国語"] { --subject-color: #e47786; --subject-soft: #fff0f2; --subject-ink: #a34252; }
+.card[data-subject="算数"] { --subject-color: #efa43b; --subject-soft: #fff5df; --subject-ink: #a26309; }
+.card[data-subject="理科"] { --subject-color: #66b982; --subject-soft: #ebf8ee; --subject-ink: #2f7a4a; }
+.card[data-subject="社会"] { --subject-color: #6f91df; --subject-soft: #eef3ff; --subject-ink: #3d5fa9; }
+.card[data-subject="家庭科"] { --subject-color: #c982c5; --subject-soft: #fff0fb; --subject-ink: #914a8d; }
+.card[data-subject="英語"] { --subject-color: #51b6b0; --subject-soft: #e9f9f7; --subject-ink: #257b77; }
+.card[data-subject="その他"] { --subject-color: #998bd0; --subject-soft: #f3f0ff; --subject-ink: #65559d; }
 
 .card[data-subject] { border-top-color: var(--subject-color); }
 .card[data-subject]:hover { border-top-color: var(--subject-color); }
@@ -230,27 +230,27 @@ body[data-mode=\"student\"] .character-chip { border: 0; border-radius: 16px; ba
   background: var(--subject-soft);
   font-weight: 800;
 }
-body[data-mode=\"student\"] .card[data-subject] {
+body[data-mode="student"] .card[data-subject] {
   background: linear-gradient(180deg, var(--subject-soft) 0%, #fff 42%);
 }
-body[data-mode=\"student\"] .card[data-subject]:hover {
+body[data-mode="student"] .card[data-subject]:hover {
   border-color: var(--subject-color);
   box-shadow: 0 10px 0 color-mix(in srgb, var(--subject-color) 18%, transparent);
 }
-body[data-mode=\"student\"] .card-actions-student {
+body[data-mode="student"] .card-actions-student {
   grid-template-columns: 1fr;
 }
-body[data-mode=\"student\"] .card-actions-student .card-link {
+body[data-mode="student"] .card-actions-student .card-link {
   border-color: var(--subject-color);
   background: var(--subject-color);
   box-shadow: 0 3px 0 color-mix(in srgb, var(--subject-color) 35%, #fff);
 }
-body[data-mode=\"student\"] .card-actions-student .card-link:hover {
+body[data-mode="student"] .card-actions-student .card-link:hover {
   filter: brightness(.95) saturate(1.08);
 }
 
 /* Student portal: scenes support selection; they never sit over copy. */
-body[data-mode=\"student\"] .hero-inner {
+body[data-mode="student"] .hero-inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(240px, 380px);
   gap: 28px 42px;
@@ -259,7 +259,7 @@ body[data-mode=\"student\"] .hero-inner {
   isolation: isolate;
 }
 .hero-main { position: relative; z-index: 2; min-width: 0; }
-body[data-mode=\"student\"] .student-hero-art {
+body[data-mode="student"] .student-hero-art {
   position: static;
   z-index: 1;
   width: 100%;
@@ -270,13 +270,13 @@ body[data-mode=\"student\"] .student-hero-art {
   pointer-events: none;
   filter: drop-shadow(0 16px 18px rgb(25 88 118 / 16%));
 }
-body[data-mode=\"student\"] .student-hero-art img { display: block; width: 100%; }
+body[data-mode="student"] .student-hero-art img { display: block; width: 100%; }
 
 .learning-scenes {
   margin-bottom: 64px;
   padding: 24px;
 }
-body[data-mode=\"student\"] .learning-scenes {
+body[data-mode="student"] .learning-scenes {
   border: 2px solid #d9e8ed;
   border-radius: 24px;
   background: linear-gradient(135deg, #fffdf4 0%, #f1fbff 56%, #f7f4ff 100%);
@@ -314,12 +314,12 @@ body[data-mode=\"student\"] .learning-scenes {
 .new-label { padding: 3px 7px; border-radius: 999px; color: #9a431a; background: #fff0d8; font-size: 10px; font-weight: 900; letter-spacing: .06em; }
 
 @media (max-width: 920px) {
-  body[data-mode=\"student\"] .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(210px, 32%); gap: 22px; }
+  body[data-mode="student"] .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(210px, 32%); gap: 22px; }
   .learning-scene-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
-  body[data-mode=\"student\"] .hero-inner { grid-template-columns: 1fr; gap: 16px; }
-  body[data-mode=\"student\"] .student-hero-art { width: min(74%, 280px); }
+  body[data-mode="student"] .hero-inner { grid-template-columns: 1fr; gap: 16px; }
+  body[data-mode="student"] .student-hero-art { width: min(74%, 280px); }
   .learning-scenes { padding: 18px; }
   .scene-filter { grid-template-rows: 96px auto; }
   .scene-filter img { height: 96px; }
@@ -328,12 +328,12 @@ body[data-mode=\"student\"] .learning-scenes {
   .scene-filter { transition: none; }
 }
 /* Student subject chooser refinement */
-body[data-mode=\"student\"] .learning-scenes {
+body[data-mode="student"] .learning-scenes {
   position: relative;
   padding: 28px;
   overflow: hidden;
 }
-body[data-mode=\"student\"] .learning-scenes::before {
+body[data-mode="student"] .learning-scenes::before {
   position: absolute;
   top: -90px;
   left: -70px;
@@ -341,26 +341,26 @@ body[data-mode=\"student\"] .learning-scenes::before {
   height: 210px;
   border-radius: 50%;
   background: rgba(255,255,255,.72);
-  content: \"\";
+  content: "";
   pointer-events: none;
 }
-body[data-mode=\"student\"] .learning-scenes .section-head,
-body[data-mode=\"student\"] .learning-scenes .learning-scene-grid {
+body[data-mode="student"] .learning-scenes .section-head,
+body[data-mode="student"] .learning-scenes .learning-scene-grid {
   position: relative;
   z-index: 1;
 }
-body[data-mode=\"student\"] .learning-scenes .section-head > p::before {
-  content: \"① \";
+body[data-mode="student"] .learning-scenes .section-head > p::before {
+  content: "① ";
   color: #2276a8;
   font-weight: 900;
 }
-body[data-mode=\"student\"] .scene-filter {
+body[data-mode="student"] .scene-filter {
   position: relative;
   min-height: 165px;
   grid-template-rows: 112px auto;
   border-color: #d9e8ed;
 }
-body[data-mode=\"student\"] .scene-filter::after {
+body[data-mode="student"] .scene-filter::after {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -369,16 +369,16 @@ body[data-mode=\"student\"] .scene-filter::after {
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 0 0 3px rgba(34,118,168,.12);
-  content: \"\";
+  content: "";
 }
-body[data-mode=\"student\"] .scene-filter:hover {
+body[data-mode="student"] .scene-filter:hover {
   transform: translateY(-5px) scale(1.01);
   box-shadow: 0 9px 0 rgba(51,119,147,.12), 0 12px 26px rgba(32,95,119,.08);
 }
-body[data-mode=\"student\"] .scene-filter.active {
+body[data-mode="student"] .scene-filter.active {
   transform: translateY(-2px);
 }
-body[data-mode=\"student\"] .scene-filter span {
+body[data-mode="student"] .scene-filter span {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -386,22 +386,22 @@ body[data-mode=\"student\"] .scene-filter span {
   min-height: 53px;
   padding: 10px 14px 11px;
 }
-body[data-mode=\"student\"] .scene-filter b {
+body[data-mode="student"] .scene-filter b {
   font-size: 17px;
   letter-spacing: .04em;
 }
-body[data-mode=\"student\"] .scene-count {
+body[data-mode="student"] .scene-count {
   flex: 0 0 auto;
   color: #5f7683;
   font-size: 11px;
   font-weight: 800;
 }
-body[data-mode=\"student\"] .scene-filter[data-scene-subject=\"国語\"] { border-bottom: 5px solid #e47786; }
-body[data-mode=\"student\"] .scene-filter[data-scene-subject=\"算数\"] { border-bottom: 5px solid #efa43b; }
-body[data-mode=\"student\"] .scene-filter[data-scene-subject=\"理科\"] { border-bottom: 5px solid #66b982; }
-body[data-mode=\"student\"] .scene-filter[data-scene-subject=\"社会\"] { border-bottom: 5px solid #6f91df; }
+body[data-mode="student"] .scene-filter[data-scene-subject="国語"] { border-bottom: 5px solid #e47786; }
+body[data-mode="student"] .scene-filter[data-scene-subject="算数"] { border-bottom: 5px solid #efa43b; }
+body[data-mode="student"] .scene-filter[data-scene-subject="理科"] { border-bottom: 5px solid #66b982; }
+body[data-mode="student"] .scene-filter[data-scene-subject="社会"] { border-bottom: 5px solid #6f91df; }
 
-body[data-mode=\"student\"] .catalog-head #resultText {
+body[data-mode="student"] .catalog-head #resultText {
   color: #6b7c85;
   font-weight: 800;
 }
@@ -425,9 +425,8 @@ body[data-mode=\"student\"] .catalog-head #resultText {
 .portal-favorite.is-favorite { color: #c98200; border-color: #d9b66a; background: #fff8df; }
 
 @media (max-width: 620px) {
-  body[data-mode=\"student\"] .learning-scenes { padding: 18px; }
-  body[data-mode=\"student\"] .scene-filter { min-height: 148px; grid-template-rows: 92px auto; }
-  body[data-mode=\"student\"] .scene-filter span { min-height: 50px; padding-inline: 12px; }
-  body[data-mode=\"student\"] .scene-filter img { height: 92px; }
+  body[data-mode="student"] .learning-scenes { padding: 18px; }
+  body[data-mode="student"] .scene-filter { min-height: 148px; grid-template-rows: 92px auto; }
+  body[data-mode="student"] .scene-filter span { min-height: 50px; padding-inline: 12px; }
+  body[data-mode="student"] .scene-filter img { height: 92px; }
 }
-","encoding":"utf-8","sha":"a4720cb67b0b1766d0aaa3c2071c45b0573b830e","display_url":"https://github.com/TT-sensei/learning-portal/blob/main/style.css","display_title":"style.css"}}
