@@ -43,6 +43,7 @@ const items = [
 
   { name: 'すうじのぼうけん', repo: '1nensasuuworld', category: '教材', subject: '算数', grade: '1年生', desc: '1〜10の数、10の合成、数の分解、たし算、ひき算、文章問題を、ファンタジー世界の冒険とモンスター・バトルで学ぶ。' },
   { name: '掛け算のひっ算', repo: 'magical-kakezan', category: '教材', subject: '算数', grade: '3〜4年生中心', desc: '2桁×1桁、2桁×2桁、3桁×2桁の筆算を、繰り上がりを意識しながらレベル別に練習する。' },
+  { name: 'たしひきファンタジーバトル', repo: 'tashi-hiki', category: '教材', subject: '算数', grade: '1年生中心', desc: 'たし算・ひき算を、問題→バトル→特訓→再挑戦の流れでくり返し練習するファンタジー教材。', new: true },
   { name: '九九ファンタジーバトル', repo: 'kuku-battle-', category: '教材', subject: '算数', grade: '2年生中心', desc: '九九1〜9の段を、のぼり・くだり・ランダムで練習。誤答記録、九九マップ、特訓、モンスター図鑑で定着を目指す。' },
   { name: '割り算筆算バトル', repo: 'warizanbattle', category: '教材', subject: '算数', grade: '4〜6年生', desc: 'ファンタジー世界でモンスターと戦いながら、割り算の筆算を「たてる・かける・ひく・おろす」の順番で練習する。' },
   { name: '割り算ファンタジーバトル', repo: 'warizanland', category: '教材', subject: '算数', grade: '4年生中心', desc: 'ファンタジー世界の冒険とバトルを楽しみながら、あまりのない割り算・あまりのある割り算を練習する。' },
@@ -88,8 +89,9 @@ const items = [
   { name: 'チェック・確認ツール', repo: 'checker', category: 'ツール', subject: 'その他', grade: '小学生', desc: '学習や活動の確認に使えるシンプルなチェックツール。' },
   { name: '時数確認くん', repo: 'jisukakuninkun', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '学校の週案などの授業時数を集計・確認する教員向けツール。' },
   { name: 'わくわく指名メーカー', repo: 'wakuwaku-shimei', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'ルーレット・あみだくじ・カード・ビンゴ・グループ分けなど、教室で使える指名・抽選ツール。' },
-  { name: '自学サポート', repo: 'jigaku-supports', category: 'ツール', subject: 'その他', grade: '先生・小学生', desc: '自学のテーマ探しや学びを支えるためのサポートツール。', new: true, student: true, featured: true },
   { name: 'プリントメーカー', repo: 'print-maker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '授業や学習で使うプリントを作成するためのツール。', new: true },
+  { name: '計算バトル・ファンタジー', repo: 'keisan-fantasy', category: 'ツール', subject: '算数', grade: '小学生', desc: 'たんじゅんな計算とひっ算バトルを、ひとつの入口から選べる計算学習ランチャー。', new: true },
+  { name: 'ピクセルアートメーカー', repo: 'pixel-art-maker', category: '教材', subject: 'その他', grade: '小学生', desc: 'タブレットでマスを選びながら、ピクセルアートをつくって表現する学習サイト。', new: true },
 
   { name: 'edu-components', repo: 'edu-components', category: '素材', subject: 'その他', grade: '共通基盤', desc: '画面遷移、出題、判定、得点、保存、進捗を担うロジック部品集。', foundation: true },
   { name: 'edu-effects', repo: 'edu-effects', category: '素材', subject: 'その他', grade: '共通基盤', desc: '教材UI、CSS、正誤・達成・バッジ演出のカタログ。', foundation: true },
