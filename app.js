@@ -268,7 +268,7 @@ function render() {
   grid.innerHTML = filtered.map(card).join('');
   sortFavorites();
   updateSceneCounts(visibleItems);
-  resultText.textContent = mode === 'student' ? `${filtered.length}つの学びのサイト` : `${filtered.length}件 / 全${items.length}件`;
+  resultText.textContent = mode === 'student' ? `${filtered.length}つの学びのサイト` : `${filtered.length}件 / 全${visibleItems.length}件`;
   empty.hidden = filtered.length !== 0;
   resetButton.hidden = category === 'all' && subject === 'all' && !query;
   activateSceneFilters();
