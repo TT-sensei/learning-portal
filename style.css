@@ -86,7 +86,7 @@ a { color: var(--blue); text-underline-offset: 3px; }
 .card-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 12px; border-top: 1px solid #e5e7eb; }
 .grade { color: var(--muted); font-size: 12px; }
 .card code { max-width: 55%; overflow: hidden; color: #596274; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
-.card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+.card-actions { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 14px; }
 .card-link { min-height: 44px; padding: 8px 10px; border-radius: 2px; font-size: 13px; white-space: nowrap; }
 .empty { padding: 48px 20px; border-radius: 0; box-shadow: none; }
 .empty p { margin: 6px 0 0; }
