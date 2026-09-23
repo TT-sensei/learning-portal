@@ -71,8 +71,6 @@ const items = [
   { name: '理科ラボ 4年', repo: 'rika4nen', category: '教材', subject: '理科', grade: '4年生', desc: '季節・体の動き・天気・雨水・月と星・電気・空気と水・温度を、関係を見つけて考える。' },
   { name: '理科ラボ 5年', repo: 'rika5nen', category: '教材', subject: '理科', grade: '5年生', desc: '植物、メダカ・人、天気、流れる水、物のとけ方、電磁石、ふりこを、実験準備と考察まで学ぶ。' },
   { name: '理科ラボ 6年', repo: 'rika6nen', category: '教材', subject: '理科', grade: '6年生', desc: '燃え方、体のはたらき、生物と環境、月と太陽、大地、てこ、電気、水溶液を知識・準備・考察で学ぶ。' },
-  { name: '顕微鏡メモ', repo: 'kenbikyo', category: '素材', subject: '理科', grade: 'GitHubのみ', desc: '顕微鏡に関する制作準備用リポジトリ。', site: false },
-
   { name: 'れきし探偵団', repo: 'rekisijinbutu', category: '教材', subject: '社会', grade: '6年生中心', desc: '歴史人物と、縄文から戦後までのくらし・文化・遺跡を4択クイズで学ぶ。' },
   { name: '3年生 社会', repo: '3nensyakai', category: '教材', subject: '社会', grade: '3年生', desc: '身近な地域や社会の仕組みを学ぶWeb教材。' },
   { name: '都道府県マスター', repo: 'todoufuken', category: '教材', subject: '社会', grade: '3〜6年生', desc: '地図パズル・県庁所在地・地域の特色の3つから、47都道府県をつなげて学ぶ。', new: true },
@@ -176,9 +174,8 @@ let category = saved.category || 'all';
 let subject = saved.subject || 'all';
 
 search.value = saved.query || '';
-count.textContent = items.length;
+count.textContent = items.filter(item => item.site !== false).length;
 document.querySelector('#siteCount').textContent = items.filter(item => item.site !== false).length;
-document.querySelector('#repoCount').textContent = items.length;
 
 function siteUrl(item) {
   return `https://tt-sensei.github.io/${item.repo}/`;
@@ -227,10 +224,7 @@ function sortFavorites() {
 function card(item) {
   const isFavorite = getFavorites().has(item.repo);
   const favoriteLabel = isFavorite ? 'お気に入りから外す' : 'お気に入りに登録';
-  const siteAction = item.site === false
-    ? '<span class="repo-only">公開サイト準備中</span>'
-    : `<a class="edu-btn edu-btn-primary card-link" href="${siteUrl(item)}" target="_blank" rel="noopener">サイトを開く <span aria-hidden="true">↗</span></a>`;
-  const repoMeta = mode === 'teacher' ? `<code>${item.repo}</code>` : '';
+  const siteAction = `<a class="edu-btn edu-btn-primary card-link" href="${siteUrl(item)}" target="_blank" rel="noopener">サイトを開く <span aria-hidden="true">↗</span></a>`;
   return `<article class="card edu-card edu-card-hover" data-subject="${item.subject}" data-repo="${item.repo}">
     <div class="card-top">
       <span class="edu-badge category-badge category-${item.category}">${item.category}</span>
@@ -238,7 +232,7 @@ function card(item) {
     </div>
     <h3>${item.name}</h3>
     <p>${item.desc}</p>
-    <div class="card-meta"><span class="grade">対象：${item.grade}</span>${repoMeta}</div>
+    <div class="card-meta"><span class="grade">対象：${item.grade}</span></div>
     <div class="card-actions${mode === 'student' ? ' card-actions-student' : ''}">
       ${siteAction}
     </div>
@@ -262,13 +256,13 @@ function updateSceneCounts(visibleItems) {
 function render() {
   const query = search.value.trim().toLowerCase();
   const visibleItems = mode === 'student'
-    ? items.filter(item => (item.category === '教材' || item.student) && !item.foundation)
-    : items;
+    ? items.filter(item => (item.category === '教材' || item.student) && !item.foundation && item.site !== false)
+    : items.filter(item => item.site !== false);
   const orderedItems = [...visibleItems].sort(compareItems);
   const filtered = orderedItems.filter(item =>
     (mode === 'student' || category === 'all' || item.category === category) &&
     (subject === 'all' || item.subject === subject) &&
-    (!query || [item.name, item.repo, item.desc, item.subject, item.grade, item.category].join(' ').toLowerCase().includes(query))
+    (!query || [item.name, item.desc, item.subject, item.grade, item.category].join(' ').toLowerCase().includes(query))
   );
 
   grid.innerHTML = filtered.map(card).join('');
@@ -293,7 +287,7 @@ function setMode(nextMode) {
   document.querySelectorAll('.hero-copy').forEach(copy => { copy.hidden = !copy.classList.contains(`hero-copy-${mode}`); });
   document.querySelectorAll('.student-only').forEach(el => { el.hidden = mode !== 'student'; });
   document.querySelectorAll('.teacher-only').forEach(el => { el.hidden = mode !== 'teacher'; });
-  document.querySelector('#catalogEyebrow').textContent = mode === 'student' ? 'LEARNING SITES' : 'ALL REPOSITORIES';
+  document.querySelector('#catalogEyebrow').textContent = mode === 'student' ? 'LEARNING SITES' : 'PUBLISHED SITES';
   document.querySelector('#catalogTitle').textContent = mode === 'student' ? '学びのサイトをえらぶ' : '教材・ツール・素材';
   if (mode === 'student') {
     setRandomHeroLearningScene();
