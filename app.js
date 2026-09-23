@@ -184,10 +184,6 @@ function siteUrl(item) {
   return `https://tt-sensei.github.io/${item.repo}/`;
 }
 
-function repoUrl(item) {
-  return `https://github.com/TT-sensei/${item.repo}`;
-}
-
 const FAVORITES_KEY = 'tt-sensei-learning-portal-favorites-v2';
 
 function getFavorites() {
@@ -234,9 +230,6 @@ function card(item) {
   const siteAction = item.site === false
     ? '<span class="repo-only">公開サイト準備中</span>'
     : `<a class="edu-btn edu-btn-primary card-link" href="${siteUrl(item)}" target="_blank" rel="noopener">サイトを開く <span aria-hidden="true">↗</span></a>`;
-  const githubAction = mode === 'teacher'
-    ? `<a class="edu-btn edu-btn-secondary card-link" href="${repoUrl(item)}" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>`
-    : '';
   const repoMeta = mode === 'teacher' ? `<code>${item.repo}</code>` : '';
   return `<article class="card edu-card edu-card-hover" data-subject="${item.subject}" data-repo="${item.repo}">
     <div class="card-top">
@@ -248,7 +241,6 @@ function card(item) {
     <div class="card-meta"><span class="grade">対象：${item.grade}</span>${repoMeta}</div>
     <div class="card-actions${mode === 'student' ? ' card-actions-student' : ''}">
       ${siteAction}
-      ${githubAction}
     </div>
   </article>`;
 }
@@ -311,6 +303,12 @@ function setMode(nextMode) {
   render();
 }
 
+function scrollToCatalog() {
+  const catalog = document.querySelector('#catalog');
+  if (!catalog) return;
+  catalog.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 function activateSceneFilters() {
   document.querySelectorAll('.scene-filter').forEach(button => {
     const active = subject === button.dataset.sceneSubject;
@@ -348,12 +346,14 @@ document.querySelectorAll('.subject').forEach(button => button.addEventListener(
   subject = button.dataset.subject;
   activateButtons('.subject', 'subject', subject);
   render();
+  scrollToCatalog();
 }));
 
 document.querySelectorAll('.scene-filter').forEach(button => button.addEventListener('click', () => {
   subject = button.dataset.sceneSubject;
   activateButtons('.subject', 'subject', subject);
   render();
+  scrollToCatalog();
 }));
 
 document.querySelectorAll('.mode-tab').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
