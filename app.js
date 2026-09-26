@@ -72,7 +72,7 @@ const items = [
   { name: '理科ラボ 5年', repo: 'rika5nen', category: '教材', subject: '理科', grade: '5年生', desc: '植物、メダカ・人、天気、流れる水、物のとけ方、電磁石、ふりこを、実験準備と考察まで学ぶ。' },
   { name: '理科ラボ 6年', repo: 'rika6nen', category: '教材', subject: '理科', grade: '6年生', desc: '燃え方、体のはたらき、生物と環境、月と太陽、大地、てこ、電気、水溶液を知識・準備・考察で学ぶ。' },
   { name: 'れきし探偵団', repo: 'rekisijinbutu', category: '教材', subject: '社会', grade: '6年生中心', desc: '歴史人物と、縄文から戦後までのくらし・文化・遺跡を4択クイズで学ぶ。' },
-  { name: '3年生 社会', repo: '3nensyakai', category: '教材', subject: '社会', grade: '3年生', desc: '身近な地域や社会の仕組みを学ぶWeb教材。' },
+  { name: '3年生 社会', repo: '3nensyakai', category: '教材', subject: '社会', grade: '3年生', desc: '身近な地域や社会の仕組みを学ぶWeb教材。', site: false },
   { name: '都道府県マスター', repo: 'todoufuken', category: '教材', subject: '社会', grade: '3〜6年生', desc: '地図パズル・県庁所在地・地域の特色の3つから、47都道府県をつなげて学ぶ。', new: true },
   { name: '公民くん', repo: 'kouminkun', category: '教材', subject: '社会', grade: '6年生', desc: '日本国憲法、基本的人権、三権分立、選挙、地方自治、税金を解説・問題・活用ゲームで学ぶ。' },
   { name: '三権分立・公民学習', repo: 'sankenbunritu', category: '教材', subject: '社会', grade: '6年生', desc: '現代社会や三権分立を調べ、マイノートに整理する学習サイト。' },
