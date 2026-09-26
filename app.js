@@ -103,6 +103,7 @@ const items = [
 { name: '社会科ゲームブック', repo: 'shakai-gamebook', category: '教材', subject: '社会', grade: '5年生中心', desc: '読む・考える・選ぶ・結果を見る流れで、米づくりや自動車づくりを体験的に学ぶ社会科ゲームブック。', new: true },
 { name: 'WORLD QUEST', repo: 'world-quest', category: '教材', subject: '社会', grade: '5〜6年生', desc: '国旗・地域・文化・食・自然など、いろいろな入口から世界の国を知る学習クイズ。', new: true },
 { name: '角度ハンター ― ナビアンをつかまえろ', repo: 'kakudo-hunter', category: '教材', subject: '算数', grade: '4〜6年生', desc: '0°の線との開きから角度を見つけるハンターモードと、分度器を使うモードで角度の大きさを身につける。', new: true },
+{ name: 'コアバトル', repo: 'core-numberbattle', category: '教材', subject: '算数', grade: '小学生', desc: '4つの数字から足し算・引き算をして、コアの数字にピッタリをねらうゲーム風の計算。', new: true },
 { name: '読書レコード', repo: 'dokusho-record', category: '教材', subject: 'その他', grade: '小学生', desc: '本を記録し、月・年ごとの読書冊数や目標などを見える化する読書記録ツール。', new: true },
 { name: 'キャリア探究ナビ', repo: 'careergakuahu', category: '教材', subject: 'その他', grade: '6年生', desc: '「自分らしく社会とかかわるために」を軸に、15時間のキャリア探究を進める学習ガイド。', new: true },
 { name: '1問1答', repo: '1mon-1tou', category: '教材', subject: 'その他', grade: '小学生', desc: 'NAVIとナビアンの世界観で、1問1答の学習と誤答記録・特訓・再挑戦をつなぐ学習アプリ。', new: true },
