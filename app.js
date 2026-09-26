@@ -57,6 +57,7 @@ const items = [
   { name: 'ことばの森・立式の旅', repo: 'bunsyo-dai', category: '教材', subject: '算数', grade: '1〜3年生', desc: '文章を読んで数量の関係をつかみ、自分で式をたてる教材。1回7問、式をたてる→答えを出す二段階で立式を練習し、旅のお宝バッジも集める。' },
   { name: '数のしくみ', repo: 'kazunosikumi', category: '教材', subject: '算数', grade: '2・3年生', desc: '2・3年生向けに、数の見方や仕組みを考えながら学ぶ算数教材。' },
   { name: '文字と式マスター', repo: 'mojisiki', category: '教材', subject: '算数', grade: '6年生', desc: '文字を使った式の意味や考え方を練習。' },
+  { name: 'おもさを はかろう', repo: 'omosa-hakari', category: '教材', subject: '算数', grade: '3年生中心', desc: 'はかりの目盛を見て、針が示す重さを読み取る算数教材。重さの単位と目盛の読み方を練習する。' },
   { name: '円の面積', repo: 'enmenseki', category: '教材', subject: '算数', grade: '6年生', desc: '円の面積を段階的に学ぶアドベンチャー。' },
   { name: 'めんせき・たいせきラボ', repo: 'taiseki', category: '教材', subject: '算数', grade: '5〜6年生', desc: '面積から体積へ、公式図鑑・底面×高さ・複合図形パズル・立体ドリルで学ぶ。' },
   { name: '単位研究所', repo: 'tanilabo', category: '教材', subject: '算数', grade: '3〜6年生', desc: '長さ・水のかさ・重さ・時間・面積・体積を、数と単位をセットで考えながら6つのラボで研究する。', new: true },
