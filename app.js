@@ -66,7 +66,8 @@ const items = [
   { name: 'しわけくんEX', repo: 'sententaisyo', category: '教材', subject: '算数', grade: '6年生', desc: '線対称・点対称を見分け、対称の軸の本数など図形の性質をゲーム感覚で学ぶ。' },
   { name: 'ならべる？えらぶ？', repo: 'narabikumiawase', category: '教材', subject: '算数', grade: '小学生', desc: '順列と組み合わせの考え方を、場面を比べながら学ぶ。' },
   { name: '町のデータ探偵団', repo: 'detakatuyou', category: '教材', subject: '算数', grade: '6年生', desc: '5つの事件を解決しながら、散らばり・平均値・中央値・最頻値・度数分布表・ヒストグラムを学ぶ。' },
-  { name: 'P.E. kit', repo: 'P.E.-kit', category: '教材', subject: 'その他', grade: '小学生', desc: '体育の学びに使える教材をまとめたキット。', new: true },
+  { name: 'P.E. kit', repo: 'P.E.-kit', category: '教材', subject: '体育', grade: '小学生', desc: '体育の学びに使える教材をまとめたキット。', new: true },
+  { name: '持久走チャレンジ', repo: 'jikyusou', category: '教材', subject: '体育', grade: '小学生', desc: '1周の距離をもとに走った周数や距離を記録し、目標達成やメダル、証書で自分の積み重ねを見える化する持久走記録アプリ。', new: true },
 
   { name: '理科ラボ 3年', repo: 'rika3nen', category: '教材', subject: '理科', grade: '3年生', desc: '生き物・植物・昆虫・風とゴム・音・光・電気・磁石などを、くらべて気づき、予想してためす。' },
   { name: '理科ラボ 4年', repo: 'rika4nen', category: '教材', subject: '理科', grade: '4年生', desc: '季節・体の動き・天気・雨水・月と星・電気・空気と水・温度を、関係を見つけて考える。' },
@@ -118,7 +119,7 @@ const items = [
 { name: 'デジタル教科書ランチャー', repo: 'digital-textbook-launcher', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '教科を入口に、登録したデジタル教科書の公式ログイン先をすぐ開けるランチャー。', new: true }
 ];
 
-const SUBJECT_ORDER = ['国語', '算数', '理科', '社会', '家庭科', '英語', 'その他'];
+const SUBJECT_ORDER = ['国語', '算数', '理科', '社会', '家庭科', '体育', '英語', '図工', 'その他'];
 const CATEGORY_ORDER_FOR_TEACHERS = ['素材', 'ツール', '教材'];
 
 function orderIndex(order, value) {
