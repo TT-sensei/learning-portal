@@ -315,7 +315,7 @@ function setMode(nextMode) {
   document.querySelectorAll('.student-only').forEach(el => { el.hidden = mode !== 'student'; });
   document.querySelectorAll('.teacher-only').forEach(el => { el.hidden = mode !== 'teacher'; });
   document.querySelector('#catalogEyebrow').textContent = mode === 'student' ? 'LEARNING SITES' : 'PUBLISHED SITES';
-  document.querySelector('#catalogTitle').textContent = mode === 'student' ? '学びのサイトをえらぶ' : '教材・ツール・素材';
+  document.querySelector('#catalogTitle').innerHTML = mode === 'student' ? '<ruby>学習<rt>がくしゅう</rt></ruby>サイトをえらぶ' : '教材・ツール・素材';
   if (mode === 'student') {
     setRandomHeroLearningScene();
     category = 'all';
