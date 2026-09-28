@@ -121,6 +121,30 @@ const items = [
 
 const SUBJECT_ORDER = ['国語', '算数', '理科', '社会', '家庭科', '体育', '英語', '図工', 'その他'];
 const CATEGORY_ORDER_FOR_TEACHERS = ['素材', 'ツール', '教材'];
+const STUDENT_TITLE_HIRAGANA = {
+  'ことのは ― 敬語のたしなみ ―': 'ことのは ― けいごのたしなみ ―',
+  'じしょマスター': 'じしょマスター',
+  '漢字マスター書取り練習': '漢字マスターかきとり練習',
+  '漢字読みファンタジー': '漢字よみファンタジー',
+  'ことばのしらべ': 'ことばのしらべ',
+  '都道府県マスター': 'とどうふけんマスター',
+  '公民くん': 'こうみんくん',
+  '三権分立・公民学習': 'さんけんぶんりつ・こうみんがくしゅう',
+  '日光 修学旅行事前学習': '日光 しゅうがくりょこう事前学習',
+  'おもさを はかろう': 'おもさを はかろう',
+  'めんせき・たいせきラボ': 'めんせき・たいせきラボ',
+  '単位研究所': 'たんい研究所',
+  '分数のかけ算・わり算': 'ぶんすうのかけ算・わり算',
+  '公式の使い分け': '公式の使い分け',
+  '角度ハンター ― ナビアンをつかまえろ': 'かくどハンター ― ナビアンをつかまえろ',
+  '社会科ゲームブック': '社会科ゲームブック'
+};
+
+function studentTitle(item) {
+  if (mode !== 'student') return item.name;
+  return STUDENT_TITLE_HIRAGANA[item.name] || item.name;
+}
+
 
 function orderIndex(order, value) {
   const index = order.indexOf(value);
@@ -233,7 +257,7 @@ function card(item) {
       <span class="edu-badge category-badge category-${item.category}">${item.category}</span>
       <span class="card-labels"><span class="subject-label">${item.subject}</span>${item.new ? '<span class="new-label">NEW</span>' : ''}<button class="portal-favorite${isFavorite ? ' is-favorite' : ''}" type="button" data-repo="${item.repo}" aria-pressed="${isFavorite}" aria-label="${favoriteLabel}" title="${favoriteLabel}">${isFavorite ? '★' : '☆'}</button></span>
     </div>
-    <h3>${item.name}</h3>
+    <h3>${studentTitle(item)}</h3>
     <p>${item.desc}</p>
     <div class="card-meta"><span class="grade">対象：${item.grade}</span></div>
     <div class="card-actions${mode === 'student' ? ' card-actions-student' : ''}">
