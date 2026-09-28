@@ -135,16 +135,75 @@ const STUDENT_TITLE_HIRAGANA = {
   'めんせき・たいせきラボ': 'めんせき・たいせきラボ',
   '単位研究所': 'たんい研究所',
   '分数のかけ算・わり算': 'ぶんすうのかけ算・わり算',
-  '公式の使い分け': '公式の使い分け',
-  '角度ハンター ― ナビアンをつかまえろ': 'かくどハンター ― ナビアンをつかまえろ',
-  '社会科ゲームブック': '社会科ゲームブック'
+  '角度ハンター ― ナビアンをつかまえろ': 'かくどハンター ― ナビアンをつかまえろ'
 };
 
-function studentTitle(item) {
-  if (mode !== 'student') return item.name;
-  return STUDENT_TITLE_HIRAGANA[item.name] || item.name;
+const STUDENT_TITLE_RUBY = {
+  '自学サポート': { '自学': 'じがく' },
+  '漢字マスター書取り練習': { '漢字': 'かんじ', '書取り': 'かきとり', '練習': 'れんしゅう' },
+  '漢字読みファンタジー': { '漢字': 'かんじ', '読み': 'よみ' },
+  '掛け算のひっ算': { '掛け算': 'かけざん' },
+  '割り算筆算バトル': { '割り算': 'わりざん', '筆算': 'ひっさん' },
+  '小数マスター': { '小数': 'しょうすう' },
+  '約分クラッシュ': { '約分': 'やくぶん' },
+  '約分スラッシュ': { '約分': 'やくぶん' },
+  '分数のかけ算・わり算': { '分数': 'ぶんすう' },
+  '円の面積': { '面積': 'めんせき' },
+  'めんせき・たいせきラボ': { 'ラボ': 'らぼ' },
+  '単位研究所': { '単位': 'たんい' },
+  '都道府県マスター': { '都道府県': 'とどうふけん' },
+  '公民くん': { '公民': 'こうみん' },
+  '三権分立・公民学習': { '三権分立': 'さんけんぶんりつ', '公民': 'こうみん', '学習': 'がくしゅう' },
+  '日光 修学旅行事前学習': { '修学旅行': 'しゅうがくりょこう', '事前学習': 'じぜんがくしゅう' },
+  '公式の使い分け': { '公式': 'こうしき' },
+  '角度ハンター ― ナビアンをつかまえろ': { '角度': 'かくど' },
+  '社会科ゲームブック': { '社会科': 'しゃかいか' },
+  '水産業': { '水産業': 'すいさんぎょう' },
+  '自動車づくり': { '自動車': 'じどうしゃ' },
+  '運輸・物流': { '運輸': 'うんゆ', '物流': 'ぶつりゅう' }
+};
+
+function escapeText(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
 }
 
+function addRuby(text, readings) {
+  let output = escapeText(text);
+  for (const [word, reading] of Object.entries(readings || {})) {
+    const escapedWord = escapeText(word);
+    output = output.replaceAll(escapedWord, `<ruby>${escapedWord}<rt>${escapeText(reading)}</rt></ruby>`);
+  }
+  return output;
+}
+
+function studentTitle(item) {
+  if (mode !== 'student') return escapeText(item.name);
+  if (STUDENT_TITLE_HIRAGANA[item.name]) return escapeText(STUDENT_TITLE_HIRAGANA[item.name]);
+  return addRuby(item.name, STUDENT_TITLE_RUBY[item.name]);
+}
+
+function studentSubjectLabel(subjectName) {
+  if (mode !== 'student') return escapeText(subjectName);
+  const readings = {
+    '国語': 'こくご',
+    '算数': 'さんすう',
+    '理科': 'りか',
+    '社会': 'しゃかい',
+    '家庭科': 'かていか',
+    '体育': 'たいいく',
+    '英語': 'えいご',
+    '図工': 'ずこう',
+    'その他': 'そのほか'
+  };
+  return readings[subjectName]
+    ? `<ruby>${escapeText(subjectName)}<rt>${readings[subjectName]}</rt></ruby>`
+    : escapeText(subjectName);
+}
 
 function orderIndex(order, value) {
   const index = order.indexOf(value);
@@ -316,6 +375,7 @@ function setMode(nextMode) {
   document.querySelectorAll('.teacher-only').forEach(el => { el.hidden = mode !== 'teacher'; });
   document.querySelector('#catalogEyebrow').textContent = mode === 'student' ? 'LEARNING SITES' : 'PUBLISHED SITES';
   document.querySelector('#catalogTitle').innerHTML = mode === 'student' ? '<ruby>学習<rt>がくしゅう</rt></ruby>サイトをえらぶ' : '教材・ツール・素材';
+  renderSubjectLabels();
   if (mode === 'student') {
     setRandomHeroLearningScene();
     category = 'all';
@@ -328,6 +388,23 @@ function scrollToCatalog() {
   const catalog = document.querySelector('#catalog');
   if (!catalog) return;
   catalog.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderSubjectLabels() {
+  document.querySelectorAll('#subjectFilters .subject').forEach(button => {
+    const value = button.dataset.subject;
+    button.innerHTML = value === 'all' ? 'すべて' : studentSubjectLabel(value);
+  });
+  document.querySelectorAll('.scene-filter').forEach(button => {
+    const value = button.dataset.sceneSubject;
+    const label = button.querySelector('span b');
+    if (label) label.innerHTML = studentSubjectLabel(value);
+  });
+  document.querySelectorAll('.filter-label').forEach(label => {
+    if (label.closest('.toolbar')) {
+      label.innerHTML = mode === 'student' ? '<ruby>教科<rt>きょうか</rt></ruby>' : '教科';
+    }
+  });
 }
 
 function activateSceneFilters() {
