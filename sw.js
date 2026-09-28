@@ -1,4 +1,4 @@
-const CACHE_NAME = 'learning-portal-v8-20260923';
+const CACHE_NAME = 'learning-portal-v9-20260928';
 const APP_SHELL = [
   './',
   './index.html',
