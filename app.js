@@ -394,6 +394,24 @@ function scrollToCatalog() {
   catalog.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+function studentSubjectLabel(subjectName) {
+  if (mode !== 'student') return escapeText(subjectName);
+  const readings = {
+    '国語': 'こくご',
+    '算数': 'さんすう',
+    '理科': 'りか',
+    '社会': 'しゃかい',
+    '家庭科': 'かていか',
+    '体育': 'たいいく',
+    '英語': 'えいご',
+    '図工': 'ずこう',
+    'その他': 'そのほか'
+  };
+  return readings[subjectName]
+    ? `<ruby>${escapeText(subjectName)}<rt>${readings[subjectName]}</rt></ruby>`
+    : escapeText(subjectName);
+}
+
 function renderSubjectLabels() {
   document.querySelectorAll('#subjectFilters .subject').forEach(button => {
     const value = button.dataset.subject;
