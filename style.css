@@ -427,3 +427,20 @@ body[data-mode="student"] .catalog-head #resultText {
   body[data-mode="student"] .scene-filter span { min-height: 50px; padding-inline: 12px; }
   body[data-mode="student"] .scene-filter img { height: 92px; }
 }
+
+
+/* 子ども向けの見出しルビ */
+body[data-mode="student"] ruby {
+  ruby-position: over;
+}
+body[data-mode="student"] ruby rt {
+  font-size: 0.42em;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+body[data-mode="student"] h1 ruby,
+body[data-mode="student"] h2 ruby,
+body[data-mode="student"] h3 ruby {
+  white-space: nowrap;
+}
