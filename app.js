@@ -29,6 +29,7 @@ const items = [
   { name: 'EDU KIT', repo: 'edu-kit', category: '素材', subject: 'その他', grade: '共通基盤', desc: 'AIと人が教材制作の共通素材を選ぶための統合ハブ。', foundation: true },
   { name: 'かなどっち？', repo: 'kanadocchi-', category: '教材', subject: '国語', grade: '年長〜1年生', desc: 'は・を・へ、小さいゃゅょ・っ、のばす音を2択で学ぶ教材。' },
   { name: 'こそあど！', repo: 'kosoado', category: '教材', subject: '国語', grade: '3〜4年生', desc: '場面にいる話し手・聞き手・ものや場所の関係から、「これ・それ・あれ・どれ」などの指示語を考える。', new: true },
+  { name: '熟語の組み立て', repo: 'jyukugo-sort', category: '教材', subject: '国語', grade: '6年生', desc: '熟語を見て、漢字や語の関係から成り立ちを考え、分類する学習ゲーム。', new: true },
   { name: 'NAVIキャラクター素材サイト', repo: 'navi-character-', category: '素材', subject: 'その他', grade: '先生向け・共通素材', desc: '6人のナビキャラの通常・日常・学習・ファンタジー画像と、モンスター素材を確認できる素材サイト。', foundation: true, site: true },
   { name: 'ことラボ', repo: 'kotorabo', category: '教材', subject: '国語', grade: '1〜6年生', desc: 'ことば→文→文と文→文章の4LABで、語彙・文づくり・つながり・文章表現を段階的に学ぶ。' },
   { name: 'ことのは ― 敬語のたしなみ ―', repo: 'keigo-kotonoha', category: '教材', subject: '国語', grade: '5〜6年生', desc: '学校生活の場面で、相手に応じた敬語を選び、敬語の使い方をジャッジしながら学ぶ。' },
@@ -123,6 +124,7 @@ const items = [
 const SUBJECT_ORDER = ['国語', '算数', '理科', '社会', '家庭科', '体育', '英語', '図工', 'その他'];
 const CATEGORY_ORDER_FOR_TEACHERS = ['素材', 'ツール', '教材'];
 const STUDENT_TITLE_RUBY = {
+  '熟語の組み立て': { '熟語': 'じゅくご', '組み立て': 'くみたて' },
   'NAVIキャラクター素材サイト': { '素材': 'そざい' },
   'ローマ字ファンタジー': { '字': 'じ' },
   'ことのは ― 敬語のたしなみ ―': { '敬語': 'けいご' },
