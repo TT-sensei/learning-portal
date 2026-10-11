@@ -31,6 +31,7 @@ const items = [
   { name: 'こそあど！', repo: 'kosoado', category: '教材', subject: '国語', grade: '3〜4年生', desc: '場面にいる話し手・聞き手・ものや場所の関係から、「これ・それ・あれ・どれ」などの指示語を考える。', new: true },
   { name: '熟語の組み立て', repo: 'jyukugo-sort', category: '教材', subject: '国語', grade: '6年生', desc: '熟語を見て、漢字や語の関係から成り立ちを考え、分類する学習ゲーム。', new: true },
   { name: 'NAVIキャラクター素材サイト', repo: 'navi-character-', category: '素材', subject: 'その他', grade: '先生向け・共通素材', desc: '6人のナビキャラの通常・日常・学習・ファンタジー画像と、モンスター素材を確認できる素材サイト。', foundation: true, site: true },
+  { name: 'ことばのつらなり', repo: 'bunnotsukuri', category: '教材', subject: '国語', grade: '小学生', desc: '主語・述語・修飾語に目を向け、言葉を並べて文を組み立てる学習教材。10ステージ・111問で、ヒントや別解判定にも対応。', new: true },
   { name: 'ことラボ', repo: 'kotorabo', category: '教材', subject: '国語', grade: '1〜6年生', desc: 'ことば→文→文と文→文章の4LABで、語彙・文づくり・つながり・文章表現を段階的に学ぶ。' },
   { name: 'ことのは ― 敬語のたしなみ ―', repo: 'keigo-kotonoha', category: '教材', subject: '国語', grade: '5〜6年生', desc: '学校生活の場面で、相手に応じた敬語を選び、敬語の使い方をジャッジしながら学ぶ。' },
   { name: 'じしょマスター', repo: 'kokugojiten', category: '教材', subject: '国語', grade: '3〜4年生中心', desc: 'つめ・行・はしらを手がかりに国語辞典を引き、五十音順や60秒チャレンジで言葉を調べる力を育てる。' },
