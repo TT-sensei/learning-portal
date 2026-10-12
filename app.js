@@ -423,6 +423,10 @@ function setMode(nextMode) {
     setRandomHeroLearningScene();
     category = 'all';
     activateButtons('.filter', 'category', category);
+    if (grade === 'teacher') {
+      grade = 'all';
+      activateButtons('.grade-filter', 'grade', grade);
+    }
   }
   render();
 }
