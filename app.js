@@ -317,7 +317,8 @@ function toggleFavorite(repo) {
     localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
   } catch (error) {}
   updateFavoriteButtons(repo, favorites.has(repo));
-  sortFavorites();
+  if (favoritesOnly) render();
+  else sortFavorites();
 }
 
 function updateFavoriteButtons(repo, active) {
