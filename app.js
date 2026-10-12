@@ -376,7 +376,7 @@ function updateSceneCounts(visibleItems) {
     const subjectName = button.dataset.sceneSubject;
     const countElement = button.querySelector('.scene-count');
     if (!countElement) return;
-    const count = visibleItems.filter(item => item.subject === subjectName).length;
+    const count = visibleItems.filter(item => item.subject === subjectName && gradeMatches(item, grade)).length;
     countElement.textContent = `${count}つ`;
   });
 }
