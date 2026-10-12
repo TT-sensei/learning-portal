@@ -68,7 +68,7 @@ const items = [
   { name: '約分クラッシュ', repo: 'yakubuncrash', category: '教材', subject: '算数', grade: '5年生中心', desc: '分数の約分をすばやく判断するゲーム。' },
   { name: '約分スラッシュ', repo: 'yakubunslash', category: '教材', subject: '算数', grade: '6年生（発展）', desc: '約分をゲーム形式で練習するバトル教材。' },
   { name: '分数のかけ算・わり算', repo: '-bunkakebunwari', category: '教材', subject: '算数', grade: '6年生', desc: '分数同士のかけ算とわり算を学ぶWeb教材。' },
-  { name: '分数・小数計算', repo: 'bunsuuseisuukeisan', category: '教材', subject: '算数', grade: '5年生中心', desc: '分数×整数・分数÷整数の計算と、途中で約分する考え方を練習。' },
+  { name: '分数・小数計算', repo: 'bunsuuseisuukeisan', category: '教材', subject: '算数', grade: '6年生', desc: '分数と小数の計算を練習する算数教材。' },
   { name: '百マス計算', repo: 'hyakumasu', category: '教材', subject: '算数', grade: '1〜6年生', desc: 'たし算・ひき算・かけ算を、100・50・30マスで練習。タイム、正答率、ミス復習、プリント作成にも対応。' },
   { name: '時計べんきょう', repo: 'tokeibenkyo', category: '教材', subject: '算数', grade: '1〜2年生', desc: '時計の針を見て時刻を読み、「時刻と時間」の基礎を練習する。' },
   { name: 'ことばの森・立式の旅', repo: 'bunsyo-dai', category: '教材', subject: '算数', grade: '1〜3年生', desc: '文章を読んで数量の関係をつかみ、自分で式をたてる教材。1回7問、式をたてる→答えを出す二段階で立式を練習し、旅のお宝バッジも集める。' },
