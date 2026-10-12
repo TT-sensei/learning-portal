@@ -285,6 +285,7 @@ const saved = storage.load('filters', {});
 let mode = storage.load('mode', 'student');
 let category = saved.category || 'all';
 let subject = saved.subject || 'all';
+let grade = saved.grade || 'all';
 
 search.value = saved.query || '';
 count.textContent = items.filter(item => item.site !== false).length;
@@ -355,7 +356,20 @@ function card(item) {
 }
 
 function saveFilters() {
-  storage.save('filters', { category, subject, query: search.value.trim() });
+  storage.save('filters', { category, subject, grade, query: search.value.trim() });
+}
+
+function gradeMatches(item, selectedGrade) {
+  if (selectedGrade === 'all') return true;
+  const label = String(item.grade || '');
+  if (selectedGrade === 'teacher') return /先生|教員/.test(label);
+  if (selectedGrade === 'common') return /小学生/.test(label) || /1\\s*[〜～-]\\s*6年生/.test(label);
+  if (/小学生/.test(label) && !/先生向け・共通素材/.test(label)) return true;
+  const range = label.match(/(\\d+)\\s*[〜～-]\\s*(\\d+)\\s*年生/);
+  if (range) return Number(selectedGrade) >= Number(range[1]) && Number(selectedGrade) <= Number(range[2]);
+  const listedGrades = label.match(/((?:\\d+\\s*[・,、]\\s*)*\\d+)\\s*年生/);
+  if (listedGrades) return listedGrades[1].split(/[・,、]/).some(value => Number(value.trim()) === Number(selectedGrade));
+  return new RegExp(`(?:^|\\\\D)${selectedGrade}\\\\s*年生`).test(label) || label.includes(`${selectedGrade}年生`);
 }
 
 function updateSceneCounts(visibleItems) {
@@ -377,6 +391,7 @@ function render() {
   const filtered = orderedItems.filter(item =>
     (mode === 'student' || category === 'all' || item.category === category) &&
     (subject === 'all' || item.subject === subject) &&
+    gradeMatches(item, grade) &&
     (!query || [item.name, item.desc, item.subject, item.grade, item.category].join(' ').toLowerCase().includes(query))
   );
 
@@ -385,7 +400,7 @@ function render() {
   updateSceneCounts(visibleItems);
   resultText.textContent = mode === 'student' ? `${filtered.length}つの学びのサイト` : `${filtered.length}件 / 全${visibleItems.length}件`;
   empty.hidden = filtered.length !== 0;
-  resetButton.hidden = category === 'all' && subject === 'all' && !query;
+  resetButton.hidden = category === 'all' && subject === 'all' && grade === 'all' && !query;
   activateSceneFilters();
   saveFilters();
 }
@@ -472,6 +487,7 @@ function activateButtons(selector, dataName, value) {
 
 activateButtons('.filter', 'category', category);
 activateButtons('.subject', 'subject', subject);
+activateButtons('.grade-filter', 'grade', grade);
 
 grid.addEventListener('click', event => {
   const button = event.target.closest('.portal-favorite');
@@ -484,6 +500,12 @@ grid.addEventListener('click', event => {
 document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
   category = button.dataset.category;
   activateButtons('.filter', 'category', category);
+  render();
+}));
+
+document.querySelectorAll('.grade-filter').forEach(button => button.addEventListener('click', () => {
+  grade = button.dataset.grade;
+  activateButtons('.grade-filter', 'grade', grade);
   render();
 }));
 
@@ -507,9 +529,11 @@ search.addEventListener('input', render);
 resetButton.addEventListener('click', () => {
   category = 'all';
   subject = 'all';
+  grade = 'all';
   search.value = '';
   activateButtons('.filter', 'category', category);
   activateButtons('.subject', 'subject', subject);
+  activateButtons('.grade-filter', 'grade', grade);
   search.focus();
   render();
 });
