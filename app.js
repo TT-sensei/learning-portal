@@ -444,7 +444,7 @@ function setMode(nextMode) {
     category = 'all';
     purpose = 'all';
     activateButtons('.filter', 'category', category);
-    activateButtons('.purpose-filter', 'purpose', purpose);
+    activateButtons('.purpose-filter, .teacher-purpose-card', 'purpose', purpose);
     if (grade === 'teacher') {
       grade = 'all';
       activateButtons('.grade-filter', 'grade', grade);
@@ -513,7 +513,7 @@ function activateButtons(selector, dataName, value) {
 activateButtons('.filter', 'category', category);
 activateButtons('.subject', 'subject', subject);
 activateButtons('.grade-filter', 'grade', grade);
-activateButtons('.purpose-filter', 'purpose', purpose);
+activateButtons('.purpose-filter, .teacher-purpose-card', 'purpose', purpose);
 syncQuickFilterButtons();
 
 function syncQuickFilterButtons() {
@@ -551,10 +551,11 @@ document.querySelectorAll('.quick-filter').forEach(button => button.addEventList
   render();
 }));
 
-document.querySelectorAll('.purpose-filter').forEach(button => button.addEventListener('click', () => {
+document.querySelectorAll('.purpose-filter, .teacher-purpose-card').forEach(button => button.addEventListener('click', () => {
   purpose = button.dataset.purpose;
-  activateButtons('.purpose-filter', 'purpose', purpose);
+  activateButtons('.purpose-filter, .teacher-purpose-card', 'purpose', purpose);
   render();
+  if (button.classList.contains('teacher-purpose-card')) scrollToCatalog();
 }));
 
 document.querySelectorAll('.subject').forEach(button => button.addEventListener('click', () => {
@@ -585,7 +586,7 @@ resetButton.addEventListener('click', () => {
   activateButtons('.filter', 'category', category);
   activateButtons('.subject', 'subject', subject);
   activateButtons('.grade-filter', 'grade', grade);
-  activateButtons('.purpose-filter', 'purpose', purpose);
+  activateButtons('.purpose-filter, .teacher-purpose-card', 'purpose', purpose);
   syncQuickFilterButtons();
   search.focus();
   render();
