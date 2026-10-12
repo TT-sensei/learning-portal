@@ -1,4 +1,19 @@
-import { StorageManager } from 'https://tt-sensei.github.io/edu-components/index.js';
+// 外部の共通基盤が読み込めない場合も、教材一覧そのものは表示できるようにする。
+const StorageManager = await import('https://tt-sensei.github.io/edu-components/index.js')
+  .then(module => module.StorageManager)
+  .catch(() => class LocalStorageFallback {
+    constructor(namespace) { this.prefix = `edu:${namespace}:`; }
+    load(key, defaultValue = null) {
+      try {
+        const raw = localStorage.getItem(this.prefix + key);
+        return raw === null ? defaultValue : JSON.parse(raw);
+      } catch { return defaultValue; }
+    }
+    save(key, value) {
+      try { localStorage.setItem(this.prefix + key, JSON.stringify(value)); return true; }
+      catch { return false; }
+    }
+  });
 
 const NAVI_LEARNING_SCENE_BASE = 'https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/';
 const HERO_LEARNING_SCENES = [
