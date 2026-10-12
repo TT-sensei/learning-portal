@@ -363,15 +363,14 @@ function gradeMatches(item, selectedGrade) {
   if (selectedGrade === 'all') return true;
   const label = String(item.grade || '');
   if (selectedGrade === 'teacher') return /先生|教員/.test(label);
-  if (selectedGrade === 'common') return /小学生/.test(label) || /1\\s*[〜～-]\\s*6年生/.test(label);
+  if (selectedGrade === 'common') return /小学生/.test(label) || /1\s*[〜～-]\s*6年生/.test(label);
   if (/小学生/.test(label) && !/先生向け・共通素材/.test(label)) return true;
-  const range = label.match(/(\\d+)\\s*[〜～-]\\s*(\\d+)\\s*年生/);
+  const range = label.match(/(\d+)\s*[〜～-]\s*(\d+)\s*年生/);
   if (range) return Number(selectedGrade) >= Number(range[1]) && Number(selectedGrade) <= Number(range[2]);
-  const listedGrades = label.match(/((?:\\d+\\s*[・,、]\\s*)*\\d+)\\s*年生/);
+  const listedGrades = label.match(/((?:\d+\s*[・,、]\s*)*\d+)\s*年生/);
   if (listedGrades) return listedGrades[1].split(/[・,、]/).some(value => Number(value.trim()) === Number(selectedGrade));
-  return new RegExp(`(?:^|\\\\D)${selectedGrade}\\\\s*年生`).test(label) || label.includes(`${selectedGrade}年生`);
+  return label.includes(String(selectedGrade) + '年生');
 }
-
 function updateSceneCounts(visibleItems) {
   document.querySelectorAll('.scene-filter').forEach(button => {
     const subjectName = button.dataset.sceneSubject;
