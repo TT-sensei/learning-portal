@@ -458,3 +458,46 @@ body[data-mode="student"] h2 ruby,
 body[data-mode="student"] h3 ruby {
   white-space: nowrap;
 }
+
+
+/* Teacher home: clear task-first entry points without replacing the full filters. */
+.teacher-purpose-entry { margin-bottom: 44px; }
+.teacher-purpose-entry .section-head { margin-bottom: 16px; }
+.teacher-purpose-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.teacher-purpose-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 154px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
+  border-radius: 8px;
+  color: var(--ink);
+  background: #fff;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.teacher-purpose-card:hover { transform: translateY(-2px); border-color: var(--blue); box-shadow: 0 5px 16px rgb(20 57 86 / 8%); }
+.teacher-purpose-card:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.teacher-purpose-card.active { border-color: var(--blue); background: var(--info-bg); box-shadow: inset 0 0 0 1px var(--blue); }
+.purpose-number { color: var(--blue); font-size: 11px; font-weight: 900; letter-spacing: .1em; }
+.purpose-title { margin-top: 9px; font-size: 17px; font-weight: 900; line-height: 1.35; }
+.purpose-description { margin-top: 5px; padding-right: 12px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.purpose-arrow { position: absolute; right: 15px; bottom: 12px; color: var(--blue); font-size: 18px; font-weight: 800; }
+@media (max-width: 920px) {
+  .teacher-purpose-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .teacher-purpose-entry { margin-bottom: 36px; }
+  .teacher-purpose-grid { gap: 10px; }
+  .teacher-purpose-card { min-height: 142px; padding: 14px; }
+  .purpose-title { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .teacher-purpose-card { transition: none; }
+}
