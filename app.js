@@ -110,7 +110,7 @@ const items = [
   { name: 'わくわく指名メーカー', repo: 'wakuwaku-shimei', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'ルーレット・あみだくじ・カード・ビンゴ・グループ分けなど、教室で使える指名・抽選ツール。' },
   { name: 'プリントメーカー', repo: 'print-maker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '授業や学習で使うプリントを作成するためのツール。', new: true },
   { name: '自学サポート', repo: 'jigaku-supports', category: 'ツール', subject: 'その他', grade: '3〜6年生（自学支援）', desc: '教科・時間・目的から自学メニューを選び、紙のノートで進める家庭学習を支える。', new: true, student: true, featured: true },
-  { name: '計算バトル・ファンタジー', repo: 'keisan-fantasy', category: 'ツール', subject: '算数', grade: '1〜6年生（収録教材による）', desc: 'たんじゅんな計算とひっ算バトルを、ひとつの入口から選べる計算学習ランチャー。', new: true },
+  { name: '計算バトル・ファンタジー', repo: 'keisan-fantasy', category: 'ツール', subject: '算数', grade: '1〜6年生（収録教材による）', desc: 'たんじゅんな計算とひっ算バトルを、ひとつの入口から選べる計算学習ランチャー。', new: true, student: true, featured: true },
   { name: 'つないでアート', repo: 'tsunaide-art', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '点と点を線でつなぎ、お手本の再現やアレンジ、自由な形・模様づくりを楽しむ図工教材。', new: true },
   { name: 'ピクセルアートメーカー', repo: 'pixel-art-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: 'マス目・色・構図を工夫し、ピクセルアートを制作・修正して作品にする図工ツール。', new: true },
 
@@ -298,6 +298,40 @@ function siteUrl(item) {
   return `https://tt-sensei.github.io/${item.repo}/`;
 }
 
+const CARD_IMAGES = {
+  'keisan-fantasy': {
+    src: './assets/keisan-fantasy.jpg',
+    alt: '計算バトル・ファンタジーの教材画面'
+  },
+  typing: {
+    src: './assets/typing.jpg',
+    alt: 'ローマ字タイピングバトルの教材画面'
+  },
+  jisukakuninkun: {
+    src: './assets/jisukakuninkun.jpg',
+    alt: '週案メーカーの教材画面'
+  }
+};
+
+const KOKUGO_CARD_REPOS = new Set([
+  'kanadocchi-', 'kosoado', 'jyukugo-sort', 'bunnotsukuri', 'kotorabo',
+  'keigo-kotonoha', 'kokugojiten', 'kanjiapp', 'kanjirensyu', 'typing',
+  'hiraganakatakana', 'kotobanosirabe', 'interviews-', 'wordpuzzles-', 'ondoku'
+]);
+
+const MATH_CARD_REPOS = new Set([
+  '1nensasuuworld', 'magical-kakezan', 'tashi-hiki', 'kuku-battle-', 'warizanbattle',
+  'warizanland', 'syousuumaster', 'yakubuncrash', 'yakubunslash', '-bunkakebunwari',
+  'bunsuuseisuukeisan', 'hyakumasu', 'tokeibenkyo', 'bunsyo-dai', 'kazunosikumi',
+  'mojisiki', 'omosa-hakari', 'enmenseki', 'taiseki', 'tanilabo', 'ratiopark',
+  'rittaikihon', 'sententaisyo', 'narabikumiawase', 'detakatuyou', 'keisan-fantasy',
+  'tashizan-hissan', 'hikizan-hissan', 'kakudo-hunter', 'core-numberbattle',
+  'kousiki-siwake', 'bai-yaku-maze', 'nagasa-hunter'
+]);
+
+const SCIENCE_CARD_REPOS = new Set(['rika3nen', 'rika4nen', 'rika5nen', 'rika6nen']);
+const SCREENSHOT_CARD_REPOS = new Set(items.map(item => item.repo));
+
 const FAVORITES_KEY = 'tt-sensei-learning-portal-favorites-v2';
 
 function getFavorites() {
@@ -342,13 +376,19 @@ function sortFavorites() {
 function card(item) {
   const isFavorite = getFavorites().has(item.repo);
   const favoriteLabel = isFavorite ? 'お気に入りから外す' : 'お気に入りに登録';
+  const categoryLabel = mode === 'student' ? '学習サイト' : item.category;
+  const cardImage = CARD_IMAGES[item.repo] || (SCREENSHOT_CARD_REPOS.has(item.repo) ? {
+    src: `./assets/${item.repo}.jpg`,
+    alt: `${item.name}の教材画面`
+  } : null);
   const siteAction = `<a class="edu-btn edu-btn-primary card-link" href="${siteUrl(item)}" target="_blank" rel="noopener">サイトを開く <span aria-hidden="true">↗</span></a>`;
   const repoAction = `<a class="edu-btn edu-btn-secondary card-link" href="https://github.com/TT-sensei/${encodeURIComponent(item.repo)}" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>`;
   return `<article class="card edu-card edu-card-hover" data-subject="${item.subject}" data-repo="${item.repo}">
     <div class="card-top">
-      <span class="edu-badge category-badge category-${item.category}">${item.category}</span>
+      <span class="edu-badge category-badge category-${item.category}">${categoryLabel}</span>
       <span class="card-labels"><span class="subject-label">${item.subject}</span>${item.new ? '<span class="new-label">NEW</span>' : ''}<button class="portal-favorite${isFavorite ? ' is-favorite' : ''}" type="button" data-repo="${item.repo}" aria-pressed="${isFavorite}" aria-label="${favoriteLabel}" title="${favoriteLabel}">${isFavorite ? '★' : '☆'}</button></span>
     </div>
+    ${cardImage ? `<div class="card-thumb"><img src="${cardImage.src}" alt="${cardImage.alt}"></div>` : ''}
     <h3>${studentTitle(item)}</h3>
     <p>${item.desc}</p>
     <div class="card-meta"><span class="grade">対象：${item.grade}</span></div>
