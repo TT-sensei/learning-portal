@@ -338,6 +338,7 @@ function card(item) {
   const isFavorite = getFavorites().has(item.repo);
   const favoriteLabel = isFavorite ? 'お気に入りから外す' : 'お気に入りに登録';
   const siteAction = `<a class="edu-btn edu-btn-primary card-link" href="${siteUrl(item)}" target="_blank" rel="noopener">サイトを開く <span aria-hidden="true">↗</span></a>`;
+  const repoAction = `<a class="edu-btn edu-btn-secondary card-link" href="https://github.com/TT-sensei/${encodeURIComponent(item.repo)}" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>`;
   return `<article class="card edu-card edu-card-hover" data-subject="${item.subject}" data-repo="${item.repo}">
     <div class="card-top">
       <span class="edu-badge category-badge category-${item.category}">${item.category}</span>
@@ -348,6 +349,7 @@ function card(item) {
     <div class="card-meta"><span class="grade">対象：${item.grade}</span></div>
     <div class="card-actions${mode === 'student' ? ' card-actions-student' : ''}">
       ${siteAction}
+      ${mode === 'teacher' ? repoAction : ''}
     </div>
   </article>`;
 }
