@@ -83,8 +83,8 @@ const items = [
   { name: 'しわけくんEX', repo: 'sententaisyo', category: '教材', subject: '算数', grade: '6年生', desc: '線対称・点対称を見分け、対称の軸の本数など図形の性質をゲーム感覚で学ぶ。' },
   { name: 'ならべる？えらぶ？', repo: 'narabikumiawase', category: '教材', subject: '算数', grade: '6年生（発展的な考え方）', desc: '順列と組み合わせの考え方を、場面を比べながら学ぶ。' },
   { name: '町のデータ探偵団', repo: 'detakatuyou', category: '教材', subject: '算数', grade: '6年生', desc: '5つの事件を解決しながら、散らばり・平均値・中央値・最頻値・度数分布表・ヒストグラムを学ぶ。' },
-  { name: 'P.E. kit', repo: 'P.E.-kit', category: '教材', subject: '体育', grade: '先生向け（体育授業）', desc: '得点板・対戦表・作戦ボード・記録・遅延カメラなど、体育授業で使う道具をまとめたキット。', new: true }
-  { name: '持久走チャレンジ', repo: 'jikyusou', category: '教材', subject: '体育', grade: '1〜6年生（学年・目標に応じて）', desc: '周回数と距離を記録し、個人の目標やクラスの累計を見える化する持久走記録アプリ。', new: true }
+  { name: 'P.E. kit', repo: 'P.E.-kit', category: '教材', subject: '体育', grade: '先生向け（体育授業）', desc: '得点板・対戦表・作戦ボード・記録・遅延カメラなど、体育授業で使う道具をまとめたキット。', new: true },
+  { name: '持久走チャレンジ', repo: 'jikyusou', category: '教材', subject: '体育', grade: '1〜6年生（学年・目標に応じて）', desc: '周回数と距離を記録し、個人の目標やクラスの累計を見える化する持久走記録アプリ。', new: true },
 
   { name: '理科ラボ 3年', repo: 'rika3nen', category: '教材', subject: '理科', grade: '3年生', desc: '生き物・植物・昆虫・風とゴム・音・光・電気・磁石などを、くらべて気づき、予想してためす。' },
   { name: '理科ラボ 4年', repo: 'rika4nen', category: '教材', subject: '理科', grade: '4年生', desc: '季節・体の動き・天気・雨水・月と星・電気・空気と水・温度を、関係を見つけて考える。' },
@@ -100,19 +100,19 @@ const items = [
   { name: '室町しらべ', repo: 'muromachi-shirabe', category: '教材', subject: '社会', grade: '6年生', desc: '室町時代に生まれたり広まったりした文化の中から、今に残るものを選んで調べ、ノートにまとめる社会科の調べ学習サイト。', new: true },
 
   { name: '炒める調理', repo: 'itammeru', category: '教材', subject: '家庭科', grade: '5〜6年生', desc: '炒める調理の手順やポイントを学ぶWeb教材。' },
-  { name: '英検5級チャレンジ', repo: 'eiken5', category: '教材', subject: '英語', grade: '小学生（英検5級相当）', desc: '語彙・会話・文のルール・短い英文を、短い問題と間違い復習で練習する。' }
-  { name: 'くるま図鑑', repo: 'kuruma', category: '教材', subject: 'その他', grade: '1〜4年生中心', desc: '車を題材に、算数・ことば・タイピングのミッションに取り組み、学習しながら車を集める。' }
+  { name: '英検5級チャレンジ', repo: 'eiken5', category: '教材', subject: '英語', grade: '小学生（英検5級相当）', desc: '語彙・会話・文のルール・短い英文を、短い問題と間違い復習で練習する。' },
+  { name: 'くるま図鑑', repo: 'kuruma', category: '教材', subject: 'その他', grade: '1〜4年生中心', desc: '車を題材に、算数・ことば・タイピングのミッションに取り組み、学習しながら車を集める。' },
 
-  { name: '学習の振り返り', repo: 'furikaeri', category: 'ツール', subject: 'その他', grade: '小学生・先生向け', desc: '「わかる・できる・かかわる」の視点で、児童の学習の振り返りを記録する。' }
-  { name: '学級活動の話し合い', repo: 'gakkatu', category: 'ツール', subject: 'その他', grade: '小学生・先生向け', desc: '学級活動の話し合いを、教員と児童が進めるためのWebツール。' }
-  { name: 'チェック・確認ツール', repo: 'checker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '宿題・プリント・作品などの提出状況を、日々の提出物と締め切り型に分けて管理する。' }
+  { name: '学習の振り返り', repo: 'furikaeri', category: 'ツール', subject: 'その他', grade: '小学生・先生向け', desc: '「わかる・できる・かかわる」の視点で、児童の学習の振り返りを記録する。' },
+  { name: '学級活動の話し合い', repo: 'gakkatu', category: 'ツール', subject: 'その他', grade: '小学生・先生向け', desc: '学級活動の話し合いを、教員と児童が進めるためのWebツール。' },
+  { name: 'チェック・確認ツール', repo: 'checker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '宿題・プリント・作品などの提出状況を、日々の提出物と締め切り型に分けて管理する。' },
   { name: '週案作成', repo: 'jisukakuninkun', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '時間割・授業時数・お知らせなどをまとめて管理できる週案作成ツール。' },
   { name: 'わくわく指名メーカー', repo: 'wakuwaku-shimei', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'ルーレット・あみだくじ・カード・ビンゴ・グループ分けなど、教室で使える指名・抽選ツール。' },
   { name: 'プリントメーカー', repo: 'print-maker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '授業や学習で使うプリントを作成するためのツール。', new: true },
   { name: '自学サポート', repo: 'jigaku-supports', category: 'ツール', subject: 'その他', grade: '先生・小学生', desc: '自学のテーマ探しや学びを支えるためのサポートツール。', new: true, student: true, featured: true },
   { name: '計算バトル・ファンタジー', repo: 'keisan-fantasy', category: 'ツール', subject: '算数', grade: '1〜6年生（収録教材による）', desc: 'たんじゅんな計算とひっ算バトルを、ひとつの入口から選べる計算学習ランチャー。', new: true },
-  { name: 'つないでアート', repo: 'tsunaide-art', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '点と点を線でつなぎ、お手本の再現やアレンジ、自由な形・模様づくりを楽しむ図工教材。', new: true }
-  { name: 'ピクセルアートメーカー', repo: 'pixel-art-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: 'マス目・色・構図を工夫し、ピクセルアートを制作・修正して作品にする図工ツール。', new: true }
+  { name: 'つないでアート', repo: 'tsunaide-art', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '点と点を線でつなぎ、お手本の再現やアレンジ、自由な形・模様づくりを楽しむ図工教材。', new: true },
+  { name: 'ピクセルアートメーカー', repo: 'pixel-art-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: 'マス目・色・構図を工夫し、ピクセルアートを制作・修正して作品にする図工ツール。', new: true },
 
   { name: 'edu-components', repo: 'edu-components', category: '素材', subject: 'その他', grade: '共通基盤', desc: '画面遷移、出題、判定、得点、保存、進捗を担うロジック部品集。', foundation: true },
   { name: 'edu-effects', repo: 'edu-effects', category: '素材', subject: 'その他', grade: '共通基盤', desc: '教材UI、CSS、正誤・達成・バッジ演出のカタログ。', foundation: true },
@@ -125,10 +125,10 @@ const items = [
 { name: 'WORLD QUEST', repo: 'world-quest', category: '教材', subject: '社会', grade: '5〜6年生', desc: '国旗・地域・文化・食・自然など、いろいろな入口から世界の国を知る学習クイズ。', new: true },
 { name: '角度ハンター ― ナビアンをつかまえろ', repo: 'kakudo-hunter', category: '教材', subject: '算数', grade: '4年生中心（復習5〜6年生）', desc: '0°の線との開きから角度を見つけるハンターモードと、分度器を使うモードで角度の大きさを身につける。', new: true },
 { name: 'コアバトル', repo: 'core-numberbattle', category: '教材', subject: '算数', grade: '3〜6年生（計算力に応じて）', desc: '4つの数字から足し算・引き算をして、コアの数字にピッタリをねらうゲーム風の計算。', new: true },
-{ name: '読書レコード', repo: 'dokusho-record', category: '教材', subject: 'その他', grade: '1〜6年生（読書記録）', desc: '読んだ本を本棚に記録し、感想や読書目標、月・年ごとの積み重ねを振り返る。', new: true }
+{ name: '読書レコード', repo: 'dokusho-record', category: '教材', subject: 'その他', grade: '1〜6年生（読書記録）', desc: '読んだ本を本棚に記録し、感想や読書目標、月・年ごとの積み重ねを振り返る。', new: true },
 { name: 'キャリア探究ナビ', repo: 'careergakuahu', category: '教材', subject: 'その他', grade: '6年生', desc: '「自分らしく社会とかかわるために」を軸に、15時間のキャリア探究を進める学習ガイド。', new: true },
-{ name: '1問1答', repo: '1mon-1tou', category: '教材', subject: 'その他', grade: '1〜2年生（現収録問題）', desc: '現収録の国語・算数・生活の一問一答に取り組み、誤答記録・特訓・再挑戦をつなぐ学習アプリ。', new: true }
-{ name: '給食タイマー', repo: 'kyushoku-timer', category: 'ツール', subject: 'その他', grade: '学年共通（教室用）', desc: '給食準備・食事・時計・歯みがきの時間を切り替えて使える教室向けタイマー。', new: true }
+{ name: '1問1答', repo: '1mon-1tou', category: '教材', subject: 'その他', grade: '1〜2年生（現収録問題）', desc: '現収録の国語・算数・生活の一問一答に取り組み、誤答記録・特訓・再挑戦をつなぐ学習アプリ。', new: true },
+{ name: '給食タイマー', repo: 'kyushoku-timer', category: 'ツール', subject: 'その他', grade: '学年共通（教室用）', desc: '給食準備・食事・時計・歯みがきの時間を切り替えて使える教室向けタイマー。', new: true },
 { name: 'ファイル工房', repo: 'pdf-kit', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'PDF・画像の分割・結合・変換など、授業で使うファイル作業をまとめて行えるツール。', new: true },
 { name: '公式の使い分け', repo: 'kousiki-siwake', category: '教材', subject: '算数', grade: '5〜6年生', desc: '図形の問題場面から、面積や体積など、どの公式を使えばよいかを考える力を育てる算数教材。', new: true },
 { name: '倍・約数メイズ', repo: 'bai-yaku-maze', category: '教材', subject: '算数', grade: '5年生中心（復習6年生）', desc: '倍数・約数の見方を、迷路や選択問題で繰り返し練習する算数教材。', new: true },
