@@ -65,7 +65,11 @@ a { color: var(--blue); text-underline-offset: 3px; }
 .filter-label { padding-top: 8px; color: var(--muted); font-size: 12px; font-weight: 800; }
 .filters, .subjects { display: flex; flex-wrap: wrap; gap: 8px; }
 .filter, .subject { min-height: 40px; padding: 7px 14px; border: 1px solid var(--line); color: var(--ink); background: #fff; cursor: pointer; font: 700 14px inherit; }
-.grades { display: flex; flex-wrap: wrap; gap: 8px; }
+.grades, .purposes { display: flex; flex-wrap: wrap; gap: 8px; }
+.purpose-filter { min-height: 40px; padding: 7px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: #fff; cursor: pointer; font: inherit; font-size: 14px; font-weight: 700; }
+.purpose-filter:hover { border-color: var(--blue); background: var(--info-bg); }
+.purpose-filter.active { border-color: var(--blue); color: #fff; background: var(--blue); }
+.purpose-filter:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .grade-filter { min-height: 40px; padding: 7px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: #fff; cursor: pointer; font: inherit; font-size: 14px; font-weight: 700; }
 .grade-filter:hover { border-color: var(--blue); background: var(--info-bg); }
 .grade-filter.active { border-color: var(--blue); color: #fff; background: var(--blue); }
@@ -117,7 +121,7 @@ a { color: var(--blue); text-underline-offset: 3px; }
   .toolbar { padding: 18px; }
   .filter-row { grid-template-columns: 1fr; gap: 6px; }
   .filter-label { padding-top: 0; }
-  .filter, .subject, .grade-filter { min-height: 44px; }
+  .filter, .subject, .grade-filter, .purpose-filter { min-height: 44px; }
   .card { min-height: 0; }
   .footer { flex-direction: column; }
 }

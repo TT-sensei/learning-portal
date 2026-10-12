@@ -286,6 +286,7 @@ let mode = storage.load('mode', 'student');
 let category = saved.category || 'all';
 let subject = saved.subject || 'all';
 let grade = saved.grade || 'all';
+let purpose = saved.purpose || 'all';
 
 search.value = saved.query || '';
 count.textContent = items.filter(item => item.site !== false).length;
@@ -356,7 +357,7 @@ function card(item) {
 }
 
 function saveFilters() {
-  storage.save('filters', { category, subject, grade, query: search.value.trim() });
+  storage.save('filters', { category, subject, grade, purpose, query: search.value.trim() });
 }
 
 function gradeMatches(item, selectedGrade) {
@@ -371,6 +372,19 @@ function gradeMatches(item, selectedGrade) {
   if (listedGrades) return listedGrades[1].split(/[・,、]/).some(value => Number(value.trim()) === Number(selectedGrade));
   return label.includes(String(selectedGrade) + '年生');
 }
+function purposeMatches(item, selectedPurpose) {
+  if (selectedPurpose === 'all') return true;
+  if (selectedPurpose === 'lesson') return item.category === '教材' && !item.foundation;
+  if (selectedPurpose === 'classroom') {
+    return item.category === 'ツール' && !/(作成|メーカー|生成|プリント|問題づくり|ことば探し)/.test(item.name + item.desc);
+  }
+  if (selectedPurpose === 'create') {
+    return item.category === 'ツール' && /(作成|メーカー|生成|プリント|問題づくり|ことば探し|作る|つくる)/.test(item.name + item.desc);
+  }
+  if (selectedPurpose === 'assets') return item.category === '素材' || Boolean(item.foundation);
+  return true;
+}
+
 function updateSceneCounts(visibleItems) {
   document.querySelectorAll('.scene-filter').forEach(button => {
     const subjectName = button.dataset.sceneSubject;
@@ -389,6 +403,7 @@ function render() {
   const orderedItems = [...visibleItems].sort(compareItems);
   const filtered = orderedItems.filter(item =>
     (mode === 'student' || category === 'all' || item.category === category) &&
+    (mode === 'student' || purposeMatches(item, purpose)) &&
     (subject === 'all' || item.subject === subject) &&
     gradeMatches(item, grade) &&
     (!query || [item.name, item.desc, item.subject, item.grade, item.category].join(' ').toLowerCase().includes(query))
@@ -399,7 +414,7 @@ function render() {
   updateSceneCounts(visibleItems);
   resultText.textContent = mode === 'student' ? `${filtered.length}つの学びのサイト` : `${filtered.length}件 / 全${visibleItems.length}件`;
   empty.hidden = filtered.length !== 0;
-  resetButton.hidden = category === 'all' && subject === 'all' && grade === 'all' && !query;
+  resetButton.hidden = category === 'all' && subject === 'all' && grade === 'all' && (mode === 'student' || purpose === 'all') && !query;
   activateSceneFilters();
   saveFilters();
 }
@@ -422,7 +437,9 @@ function setMode(nextMode) {
   if (mode === 'student') {
     setRandomHeroLearningScene();
     category = 'all';
+    purpose = 'all';
     activateButtons('.filter', 'category', category);
+    activateButtons('.purpose-filter', 'purpose', purpose);
     if (grade === 'teacher') {
       grade = 'all';
       activateButtons('.grade-filter', 'grade', grade);
@@ -491,6 +508,7 @@ function activateButtons(selector, dataName, value) {
 activateButtons('.filter', 'category', category);
 activateButtons('.subject', 'subject', subject);
 activateButtons('.grade-filter', 'grade', grade);
+activateButtons('.purpose-filter', 'purpose', purpose);
 
 grid.addEventListener('click', event => {
   const button = event.target.closest('.portal-favorite');
@@ -509,6 +527,12 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
 document.querySelectorAll('.grade-filter').forEach(button => button.addEventListener('click', () => {
   grade = button.dataset.grade;
   activateButtons('.grade-filter', 'grade', grade);
+  render();
+}));
+
+document.querySelectorAll('.purpose-filter').forEach(button => button.addEventListener('click', () => {
+  purpose = button.dataset.purpose;
+  activateButtons('.purpose-filter', 'purpose', purpose);
   render();
 }));
 
@@ -533,10 +557,12 @@ resetButton.addEventListener('click', () => {
   category = 'all';
   subject = 'all';
   grade = 'all';
+  purpose = 'all';
   search.value = '';
   activateButtons('.filter', 'category', category);
   activateButtons('.subject', 'subject', subject);
   activateButtons('.grade-filter', 'grade', grade);
+  activateButtons('.purpose-filter', 'purpose', purpose);
   search.focus();
   render();
 });
