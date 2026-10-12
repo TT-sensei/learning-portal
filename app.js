@@ -287,6 +287,8 @@ let category = saved.category || 'all';
 let subject = saved.subject || 'all';
 let grade = saved.grade || 'all';
 let purpose = saved.purpose || 'all';
+let newOnly = saved.newOnly === true;
+let favoritesOnly = saved.favoritesOnly === true;
 
 search.value = saved.query || '';
 count.textContent = items.filter(item => item.site !== false).length;
@@ -315,7 +317,8 @@ function toggleFavorite(repo) {
     localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
   } catch (error) {}
   updateFavoriteButtons(repo, favorites.has(repo));
-  sortFavorites();
+  if (favoritesOnly) render();
+  else sortFavorites();
 }
 
 function updateFavoriteButtons(repo, active) {
@@ -357,7 +360,7 @@ function card(item) {
 }
 
 function saveFilters() {
-  storage.save('filters', { category, subject, grade, purpose, query: search.value.trim() });
+  storage.save('filters', { category, subject, grade, purpose, newOnly, favoritesOnly, query: search.value.trim() });
 }
 
 function gradeMatches(item, selectedGrade) {
@@ -406,6 +409,8 @@ function render() {
     (mode === 'student' || purposeMatches(item, purpose)) &&
     (subject === 'all' || item.subject === subject) &&
     gradeMatches(item, grade) &&
+    (!newOnly || Boolean(item.new)) &&
+    (!favoritesOnly || getFavorites().has(item.repo)) &&
     (!query || [item.name, item.desc, item.subject, item.grade, item.category].join(' ').toLowerCase().includes(query))
   );
 
@@ -414,7 +419,7 @@ function render() {
   updateSceneCounts(visibleItems);
   resultText.textContent = mode === 'student' ? `${filtered.length}つの学びのサイト` : `${filtered.length}件 / 全${visibleItems.length}件`;
   empty.hidden = filtered.length !== 0;
-  resetButton.hidden = category === 'all' && subject === 'all' && grade === 'all' && (mode === 'student' || purpose === 'all') && !query;
+  resetButton.hidden = category === 'all' && subject === 'all' && grade === 'all' && (mode === 'student' || purpose === 'all') && !newOnly && !favoritesOnly && !query;
   activateSceneFilters();
   saveFilters();
 }
@@ -509,6 +514,15 @@ activateButtons('.filter', 'category', category);
 activateButtons('.subject', 'subject', subject);
 activateButtons('.grade-filter', 'grade', grade);
 activateButtons('.purpose-filter', 'purpose', purpose);
+syncQuickFilterButtons();
+
+function syncQuickFilterButtons() {
+  document.querySelectorAll('.quick-filter').forEach(button => {
+    const active = button.dataset.quickFilter === 'new' ? newOnly : favoritesOnly;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+}
 
 grid.addEventListener('click', event => {
   const button = event.target.closest('.portal-favorite');
@@ -527,6 +541,13 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
 document.querySelectorAll('.grade-filter').forEach(button => button.addEventListener('click', () => {
   grade = button.dataset.grade;
   activateButtons('.grade-filter', 'grade', grade);
+  render();
+}));
+
+document.querySelectorAll('.quick-filter').forEach(button => button.addEventListener('click', () => {
+  if (button.dataset.quickFilter === 'new') newOnly = !newOnly;
+  if (button.dataset.quickFilter === 'favorites') favoritesOnly = !favoritesOnly;
+  syncQuickFilterButtons();
   render();
 }));
 
@@ -558,11 +579,14 @@ resetButton.addEventListener('click', () => {
   subject = 'all';
   grade = 'all';
   purpose = 'all';
+  newOnly = false;
+  favoritesOnly = false;
   search.value = '';
   activateButtons('.filter', 'category', category);
   activateButtons('.subject', 'subject', subject);
   activateButtons('.grade-filter', 'grade', grade);
   activateButtons('.purpose-filter', 'purpose', purpose);
+  syncQuickFilterButtons();
   search.focus();
   render();
 });
