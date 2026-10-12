@@ -96,6 +96,7 @@ const items = [
   { name: 'プリントメーカー', repo: 'print-maker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '授業や学習で使うプリントを作成するためのツール。', new: true },
   { name: '自学サポート', repo: 'jigaku-supports', category: 'ツール', subject: 'その他', grade: '先生・小学生', desc: '自学のテーマ探しや学びを支えるためのサポートツール。', new: true, student: true, featured: true },
   { name: '計算バトル・ファンタジー', repo: 'keisan-fantasy', category: 'ツール', subject: '算数', grade: '小学生', desc: 'たんじゅんな計算とひっ算バトルを、ひとつの入口から選べる計算学習ランチャー。', new: true },
+  { name: 'つないでアート', repo: 'tsunaide-art', category: '教材', subject: '図工', grade: '小学生', desc: '点と点を線でつないで絵を描く図工教材。線の色や太さを使い分け、お手本を見ながら表現を楽しめる。', new: true },
   { name: 'ピクセルアートメーカー', repo: 'pixel-art-maker', category: '教材', subject: '図工', grade: '小学生', desc: 'タブレットでマスを選びながら、ピクセルアートをつくって表現する学習サイト。', new: true },
 
   { name: 'edu-components', repo: 'edu-components', category: '素材', subject: 'その他', grade: '共通基盤', desc: '画面遷移、出題、判定、得点、保存、進捗を担うロジック部品集。', foundation: true },
