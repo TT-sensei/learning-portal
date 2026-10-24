@@ -102,7 +102,7 @@ const items = [
   { name: '炒める調理', repo: 'itammeru', category: '教材', subject: '家庭科', grade: '5〜6年生', desc: '炒める調理の手順やポイントを学ぶWeb教材。' },
   { name: '英検5級チャレンジ', repo: 'eiken5', category: '教材', subject: '英語', grade: '小学生（英検5級相当）', desc: '語彙・会話・文のルール・短い英文を、短い問題と間違い復習で練習する。' },
   { name: 'くるま図鑑', repo: 'kuruma', category: '教材', subject: 'その他', grade: '1〜4年生中心', desc: '車を題材に、算数・ことば・タイピングのミッションに取り組み、学習しながら車を集める。' },
-  { name: 'LIAR EYE（ライアーアイ）', repo: 'LIAR-EYE', category: '教材', subject: 'その他', grade: '小学生（論理的思考・推理）', desc: '学校生活の小さな謎を、6人の発言から論理的に解き明かす推理パズル。全30問。', new: true },
+  { name: 'LIAR EYE（ライアーアイ）', repo: 'LIAR-EYE', category: '教材', subject: '国語', grade: '小学生（論理的思考・推理）', desc: '学校生活の小さな謎を、6人の発言から論理的に解き明かす推理パズル。全30問。', new: true },
 
   { name: '学習の振り返り', repo: 'furikaeri', category: 'ツール', subject: 'その他', grade: '小学生・先生向け', desc: '「わかる・できる・かかわる」の視点で、児童の学習の振り返りを記録する。' },
   { name: '学級活動の話し合い', repo: 'gakkatu', category: 'ツール', subject: 'その他', grade: '小学生・先生向け', desc: '学級活動の話し合いを、教員と児童が進めるためのWebツール。' },
