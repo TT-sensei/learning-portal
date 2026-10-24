@@ -300,6 +300,10 @@ function siteUrl(item) {
 }
 
 const CARD_IMAGES = {
+  'LIAR-EYE': {
+    src: './assets/LIAR-EYE.png',
+    alt: 'LIAR EYEの推理パズル画面'
+  },
   'keisan-fantasy': {
     src: './assets/keisan-fantasy.jpg',
     alt: '計算バトル・ファンタジーの教材画面'
