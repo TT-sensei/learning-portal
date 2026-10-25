@@ -1,19 +1,25 @@
-// 外部の共通基盤が読み込めない場合も、教材一覧そのものは表示できるようにする。
-const StorageManager = await import('https://tt-sensei.github.io/edu-components/index.js')
-  .then(module => module.StorageManager)
-  .catch(() => class LocalStorageFallback {
-    constructor(namespace) { this.prefix = `edu:${namespace}:`; }
-    load(key, defaultValue = null) {
-      try {
-        const raw = localStorage.getItem(this.prefix + key);
-        return raw === null ? defaultValue : JSON.parse(raw);
-      } catch { return defaultValue; }
-    }
-    save(key, value) {
-      try { localStorage.setItem(this.prefix + key, JSON.stringify(value)); return true; }
-      catch { return false; }
-    }
-  });
+// 外部の共通基盤の読み込みが遅い・失敗した場合も、教材一覧そのものは表示できるようにする。
+// 共通基盤の応答を最大1.2秒だけ待ち、間に合わなければ互換形式（同じ保存キー・形式）の
+// ローカル保存に切り替えて先に表示する。
+class LocalStorageFallback {
+  constructor(namespace) { this.prefix = `edu:${namespace}:`; }
+  load(key, defaultValue = null) {
+    try {
+      const raw = localStorage.getItem(this.prefix + key);
+      return raw === null ? defaultValue : JSON.parse(raw);
+    } catch { return defaultValue; }
+  }
+  save(key, value) {
+    try { localStorage.setItem(this.prefix + key, JSON.stringify(value)); return true; }
+    catch { return false; }
+  }
+}
+const StorageManager = await Promise.race([
+  import('https://tt-sensei.github.io/edu-components/index.js')
+    .then(module => module.StorageManager)
+    .catch(() => null),
+  new Promise(resolve => setTimeout(() => resolve(null), 1200)),
+]).then(manager => manager || LocalStorageFallback);
 
 const NAVI_LEARNING_SCENE_BASE = 'https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/';
 const HERO_LEARNING_SCENES = [

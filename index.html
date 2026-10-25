@@ -34,7 +34,7 @@
         <p class="lead">学習教材、教室ツール、NAVIキャラ素材を、目的や教科からすぐに見つけられます。</p>
       </div>
       <dl class="hero-stats" aria-label="掲載数">
-        <div><dt>掲載サイト</dt><dd><b id="siteCount">0</b>件</dd></div>
+        <div><dt>掲載サイト</dt><dd><b id="siteCount">…</b>件</dd></div>
         <div><dt>共通基盤</dt><dd><b>6</b>種類</dd></div>
       </dl>
       </div>
@@ -87,10 +87,10 @@
         <p>気になる教科をえらぶと、教材をしぼりこめます。</p>
       </div>
       <div class="learning-scene-grid">
-        <button class="scene-filter" type="button" data-scene-subject="国語" aria-label="国語の教材を表示" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-japanese-discussion.webp" alt=""><span><b>国語</b><small class="scene-count">0つ</small></span></button>
-        <button class="scene-filter" type="button" data-scene-subject="算数" aria-label="算数の教材を表示" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-math-diagram.webp" alt=""><span><b>算数</b><small class="scene-count">0つ</small></span></button>
-        <button class="scene-filter" type="button" data-scene-subject="理科" aria-label="理科の教材を表示" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-science-experiment.webp" alt=""><span><b>理科</b><small class="scene-count">0つ</small></span></button>
-        <button class="scene-filter" type="button" data-scene-subject="社会" aria-label="社会の教材を表示" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-social-map.webp" alt=""><span><b>社会</b><small class="scene-count">0つ</small></span></button>
+        <button class="scene-filter" type="button" data-scene-subject="国語" aria-label="国語の教材を表示" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-japanese-discussion.webp" alt=""><span><b>国語</b><small class="scene-count">…</small></span></button>
+        <button class="scene-filter" type="button" data-scene-subject="算数" aria-label="算数の教材を表示" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-math-diagram.webp" alt=""><span><b>算数</b><small class="scene-count">…</small></span></button>
+        <button class="scene-filter" type="button" data-scene-subject="理科" aria-label="理科の教材を表示" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-science-experiment.webp" alt=""><span><b>理科</b><small class="scene-count">…</small></span></button>
+        <button class="scene-filter" type="button" data-scene-subject="社会" aria-label="社会の教材を表示" aria-pressed="false"><img src="https://raw.githubusercontent.com/TT-sensei/navi-character-/main/assets/web/groups/learning/group-learning-social-map.webp" alt=""><span><b>社会</b><small class="scene-count">…</small></span></button>
       </div>
     </section>
 
@@ -160,7 +160,7 @@
         <button id="resetFilters" class="reset-button" type="button" hidden>絞り込みをクリア</button>
       </section>
 
-      <section id="grid" class="grid" aria-live="polite"></section>
+      <section id="grid" class="grid" aria-live="polite"><p class="loading-note">教材を読み込んでいます…</p></section>
       <div id="empty" class="empty edu-empty edu-card" hidden><strong>条件に合うものが見つかりませんでした。</strong><p>検索語や絞り込みを変えてみてください。</p></div>
     </section>
 
@@ -169,7 +169,7 @@
       <div><strong>このポータルについて</strong><p>各カードから公開サイトとGitHubサイトの両方を開けます。デザインは<a href="https://design.digital.go.jp/" target="_blank" rel="noopener">デジタル庁デザインシステム</a>を参考にし、UIにはedu-effects、絞り込み保存にはedu-componentsを利用しています。</p></div>
     </section>
   </main>
-  <footer class="footer wrap"><span>© TT-sensei</span><span><b id="count">0</b> sites listed</span></footer>
+  <footer class="footer wrap"><span>© TT-sensei</span><span><b id="count">…</b> sites listed</span></footer>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
