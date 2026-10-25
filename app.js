@@ -91,6 +91,8 @@ const items = [
   { name: '理科ラボ 5年', repo: 'rika5nen', category: '教材', subject: '理科', grade: '5年生', desc: '植物、メダカ・人、天気、流れる水、物のとけ方、電磁石、ふりこを、実験準備と考察まで学ぶ。' },
   { name: '理科ラボ 6年', repo: 'rika6nen', category: '教材', subject: '理科', grade: '6年生', desc: '燃え方、体のはたらき、生物と環境、月と太陽、大地、てこ、電気、水溶液を知識・準備・考察で学ぶ。' },
   { name: 'れきし探偵団', repo: 'rekisijinbutu', category: '教材', subject: '社会', grade: '6年生中心', desc: '歴史人物と、縄文から戦後までのくらし・文化・遺跡を4択クイズで学ぶ。' },
+  { name: '歴史結び', repo: 'rekisijinbutu', path: 'history-match/', category: '教材', subject: '社会', grade: '6年生', desc: '歴史上の人物やできごとを結びつけて、関係や特徴を確かめながら学ぶ。', new: true, noScreenshot: true },
+  { name: '歴史順番', repo: 'rekisijinbutu', path: 'history-order/', category: '教材', subject: '社会', grade: '6年生', desc: '歴史上のできごとを順番に並べ、時代の流れや前後関係を学ぶ。', new: true, noScreenshot: true },
   { name: '3年生 社会', repo: '3nensyakai', category: '教材', subject: '社会', grade: '3年生', desc: '身近な地域や社会の仕組みを学ぶWeb教材。', site: false },
   { name: '地図探検', repo: 'chizu-tanken', category: '教材', subject: '社会', grade: '3年生', desc: '地図を見ながら、地図記号や周りの施設を見つけ、場所・距離・方位を確かめて地域の様子を探る学習教材。', new: true },
   { name: '都道府県マスター', repo: 'todoufuken', category: '教材', subject: '社会', grade: '4年生中心（復習・発展5〜6年生）', desc: '47都道府県の位置・県庁所在地・地域の特色を、地図パズルとクイズで学ぶ。', new: true },
@@ -175,6 +177,8 @@ const STUDENT_TITLE_RUBY = {
   '理科ラボ 5年': { '理科': 'りか', '年': 'ねん' },
   '理科ラボ 6年': { '理科': 'りか', '年': 'ねん' },
   'れきし探偵団': { '探偵団': 'たんていだん' },
+  '歴史結び': { '歴史': 'れきし', '結び': 'むすび' },
+  '歴史順番': { '歴史': 'れきし', '順番': 'じゅんばん' },
   '3年生 社会': { '年生': 'ねんせい', '社会': 'しゃかい' },
   '都道府県マスター': { '都道府県': 'とどうふけん' },
   '地図探検': { '地図': 'ちず', '探検': 'たんけん' },
@@ -296,7 +300,8 @@ count.textContent = items.filter(item => item.site !== false).length;
 document.querySelector('#siteCount').textContent = items.filter(item => item.site !== false).length;
 
 function siteUrl(item) {
-  return `https://tt-sensei.github.io/${item.repo}/`;
+  const base = `https://tt-sensei.github.io/${item.repo}/`;
+  return item.path ? base + item.path : base;
 }
 
 const CARD_IMAGES = {
@@ -382,10 +387,10 @@ function card(item) {
   const isFavorite = getFavorites().has(item.repo);
   const favoriteLabel = isFavorite ? 'お気に入りから外す' : 'お気に入りに登録';
   const categoryLabel = mode === 'student' ? '学習サイト' : item.category;
-  const cardImage = CARD_IMAGES[item.repo] || (SCREENSHOT_CARD_REPOS.has(item.repo) ? {
+  const cardImage = item.noScreenshot ? null : (CARD_IMAGES[item.repo] || (SCREENSHOT_CARD_REPOS.has(item.repo) ? {
     src: `./assets/${item.repo}.jpg`,
     alt: `${item.name}の教材画面`
-  } : null);
+  } : null));
   const siteAction = `<a class="edu-btn edu-btn-primary card-link" href="${siteUrl(item)}" target="_blank" rel="noopener">サイトを開く <span aria-hidden="true">↗</span></a>`;
   const repoAction = `<a class="edu-btn edu-btn-secondary card-link" href="https://github.com/TT-sensei/${encodeURIComponent(item.repo)}" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>`;
   return `<article class="card edu-card edu-card-hover" data-subject="${item.subject}" data-repo="${item.repo}">
