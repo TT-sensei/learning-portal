@@ -91,8 +91,8 @@ const items = [
   { name: '理科ラボ 5年', repo: 'rika5nen', category: '教材', subject: '理科', grade: '5年生', desc: '植物、メダカ・人、天気、流れる水、物のとけ方、電磁石、ふりこを、実験準備と考察まで学ぶ。' },
   { name: '理科ラボ 6年', repo: 'rika6nen', category: '教材', subject: '理科', grade: '6年生', desc: '燃え方、体のはたらき、生物と環境、月と太陽、大地、てこ、電気、水溶液を知識・準備・考察で学ぶ。' },
   { name: 'れきし探偵団', repo: 'rekisijinbutu', category: '教材', subject: '社会', grade: '6年生中心', desc: '歴史人物と、縄文から戦後までのくらし・文化・遺跡を4択クイズで学ぶ。' },
-  { name: '歴史結び', repo: 'rekisijinbutu', path: 'history-match/', category: '教材', subject: '社会', grade: '6年生', desc: '歴史上の人物やできごとを結びつけて、関係や特徴を確かめながら学ぶ。', new: true, noScreenshot: true },
-  { name: '歴史順番', repo: 'rekisijinbutu', path: 'history-order/', category: '教材', subject: '社会', grade: '6年生', desc: '歴史上のできごとを順番に並べ、時代の流れや前後関係を学ぶ。', new: true, noScreenshot: true },
+  { name: '歴史結び', repo: 'rekisijinbutu', path: 'history-match/', category: '教材', subject: '社会', grade: '6年生', desc: '歴史上の人物やできごとを結びつけて、関係や特徴を確かめながら学ぶ。', new: true },
+  { name: '歴史順番', repo: 'rekisijinbutu', path: 'history-order/', category: '教材', subject: '社会', grade: '6年生', desc: '歴史上のできごとを順番に並べ、時代の流れや前後関係を学ぶ。', new: true },
   { name: '3年生 社会', repo: '3nensyakai', category: '教材', subject: '社会', grade: '3年生', desc: '身近な地域や社会の仕組みを学ぶWeb教材。', site: false },
   { name: '地図探検', repo: 'chizu-tanken', category: '教材', subject: '社会', grade: '3年生', desc: '地図を見ながら、地図記号や周りの施設を見つけ、場所・距離・方位を確かめて地域の様子を探る学習教材。', new: true },
   { name: '都道府県マスター', repo: 'todoufuken', category: '教材', subject: '社会', grade: '4年生中心（復習・発展5〜6年生）', desc: '47都道府県の位置・県庁所在地・地域の特色を、地図パズルとクイズで学ぶ。', new: true },
@@ -320,6 +320,14 @@ const CARD_IMAGES = {
   jisukakuninkun: {
     src: './assets/jisukakuninkun.jpg',
     alt: '週案メーカーの教材画面'
+  },
+  'rekisijinbutu:history-match/': {
+    src: './assets/IMG_4137.jpeg',
+    alt: '歴史結びの教材画面'
+  },
+  'rekisijinbutu:history-order/': {
+    src: './assets/IMG_4138.jpeg',
+    alt: '歴史順番の教材画面'
   }
 };
 
@@ -387,7 +395,7 @@ function card(item) {
   const isFavorite = getFavorites().has(item.repo);
   const favoriteLabel = isFavorite ? 'お気に入りから外す' : 'お気に入りに登録';
   const categoryLabel = mode === 'student' ? '学習サイト' : item.category;
-  const cardImage = item.noScreenshot ? null : (CARD_IMAGES[item.repo] || (SCREENSHOT_CARD_REPOS.has(item.repo) ? {
+  const cardImage = item.noScreenshot ? null : (CARD_IMAGES[`${item.repo}:${item.path || ''}`] || CARD_IMAGES[item.repo] || (SCREENSHOT_CARD_REPOS.has(item.repo) ? {
     src: `./assets/${item.repo}.jpg`,
     alt: `${item.name}の教材画面`
   } : null));
