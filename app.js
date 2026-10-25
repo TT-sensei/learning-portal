@@ -122,6 +122,7 @@ const items = [
   { name: '計算バトル・ファンタジー', repo: 'keisan-fantasy', category: 'ツール', subject: '算数', grade: '1〜6年生（収録教材による）', desc: 'たんじゅんな計算とひっ算バトルを、ひとつの入口から選べる計算学習ランチャー。', student: true, featured: true },
   { name: 'つないでアート', repo: 'tsunaide-art', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '点と点を線でつなぎ、お手本の再現やアレンジ、自由な形・模様づくりを楽しむ図工教材。' },
   { name: 'ピクセルアートメーカー', repo: 'pixel-art-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: 'マス目・色・構図を工夫し、ピクセルアートを制作・修正して作品にする図工ツール。' },
+  { name: 'もよう工房', repo: 'moyo-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '図形を並べたり、回したり、色を変えたりして、自由に模様をつくる図工ツール。敷き詰めや対称コピーのアシストつき。', new: true },
 
   { name: 'edu-components', repo: 'edu-components', category: '素材', subject: 'その他', grade: '共通基盤', desc: '画面遷移、出題、判定、得点、保存、進捗を担うロジック部品集。', foundation: true },
   { name: 'edu-effects', repo: 'edu-effects', category: '素材', subject: 'その他', grade: '共通基盤', desc: '教材UI、CSS、正誤・達成・バッジ演出のカタログ。', foundation: true },
@@ -144,6 +145,7 @@ const items = [
 { name: '看護目標メーカー', repo: 'kangomokuhyo', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '看護目標を作成・整理するための先生向けツール。' },
 { name: '音読スナップ', repo: 'ondoku', category: '教材', subject: '国語', grade: '1〜6年生（音読支援）', desc: '音読するページを端末に登録し、写真を見ながら録音・記録できる音読支援アプリ。' },
 { name: 'ものさしハンター', repo: 'nagasa-hunter', category: '教材', subject: '算数', grade: '2〜3年生中心', desc: 'ものさしを使わず、長さを目で見て当てながら、1cm・1mmの長さの感覚を身につける学習アプリ。' },
+{ name: 'タングラム', repo: 'moyo-maker', path: 'tangram.html', category: '教材', subject: '算数', grade: '1〜6年生', desc: '7つのピースを回したり裏返したりして、お題の形をつくる図形パズル。お題19種類、ヒントと完成判定つき。', new: true },
 { name: '勤務管理', repo: 'kinmukanri', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '出勤・退勤、勤務時間、時間外、早出、月別集計などを端末内で管理する学校向けツール。' },
 { name: 'デジタル教科書ランチャー', repo: 'digital-textbook-launcher', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '教科を入口に、登録したデジタル教科書の公式ログイン先をすぐ開けるランチャー。' }
 ];
@@ -211,6 +213,7 @@ const STUDENT_TITLE_RUBY = {
   '1問1答': { '1問1答': 'いちもんいっとう' },
   '給食タイマー': { '給食': 'きゅうしょく' },
   'ファイル工房': { '工房': 'こうぼう' },
+  'もよう工房': { '工房': 'こうぼう' },
   '公式の使い分け': { '公式': 'こうしき' },
   '倍・約数メイズ': { '倍': 'ばい', '約数': 'やくすう' },
   '看護目標メーカー': { '看護': 'かんご', '目標': 'もくひょう' },
@@ -313,6 +316,14 @@ const CARD_IMAGES = {
   'LIAR-EYE': {
     src: './assets/LIAR-EYE.png',
     alt: 'LIAR EYEの推理パズル画面'
+  },
+  'moyo-maker': {
+    src: './assets/IMG_4143.jpeg',
+    alt: 'もよう工房の教材画面'
+  },
+  'moyo-maker:tangram.html': {
+    src: './assets/IMG_4144.jpeg',
+    alt: 'タングラムの教材画面'
   },
   'keisan-fantasy': {
     src: './assets/keisan-fantasy.jpg',
