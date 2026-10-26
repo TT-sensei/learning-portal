@@ -122,7 +122,7 @@ const items = [
   { name: '計算バトル・ファンタジー', repo: 'keisan-fantasy', category: 'ツール', subject: '算数', grade: '1〜6年生（収録教材による）', desc: 'たんじゅんな計算とひっ算バトルを、ひとつの入口から選べる計算学習ランチャー。', student: true, featured: true },
   { name: 'つないでアート', repo: 'tsunaide-art', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '点と点を線でつなぎ、お手本の再現やアレンジ、自由な形・模様づくりを楽しむ図工教材。' },
   { name: 'ピクセルアートメーカー', repo: 'pixel-art-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: 'マス目・色・構図を工夫し、ピクセルアートを制作・修正して作品にする図工ツール。' },
-  { name: 'もよう工房', repo: 'moyo-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '図形を並べたり、回したり、色を変えたりして、自由に模様をつくる図工ツール。敷き詰めや対称コピーのアシストつき。', new: true },
+  { name: 'もよう工房', repo: 'moyo-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '辺の長さがそろったパターンブロック5種（＋飾り3種）で、ドットにぴたっと吸着させながら模様をつくる図工ツール。30度回転、左右・回転コピー、タブレット最適化レイアウトつき。', new: true },
 
   { name: 'edu-components', repo: 'edu-components', category: '素材', subject: 'その他', grade: '共通基盤', desc: '画面遷移、出題、判定、得点、保存、進捗を担うロジック部品集。', foundation: true },
   { name: 'edu-effects', repo: 'edu-effects', category: '素材', subject: 'その他', grade: '共通基盤', desc: '教材UI、CSS、正誤・達成・バッジ演出のカタログ。', foundation: true },
