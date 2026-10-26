@@ -318,7 +318,7 @@ const CARD_IMAGES = {
     alt: 'LIAR EYEの推理パズル画面'
   },
   'moyo-maker': {
-    src: './assets/IMG_4143.jpeg',
+    src: './assets/IMG_4145.png',
     alt: 'もよう工房の教材画面'
   },
   'moyo-maker:tangram.html': {
