@@ -1,6 +1,6 @@
 # note記事管理メモ
 
-最終確認日：2026-10-21  
+最終確認日：2026-10-27  
 noteアカウント：https://note.com/traitesluekoi  
 ラーニングポータル：https://tt-sensei.github.io/learning-portal/
 
@@ -16,6 +16,8 @@ noteアカウント：https://note.com/traitesluekoi
 | 2026-10-03 | [小学生が『地図を見て探す』教材をつくりました ― OpenPOI APIと地図探検](https://note.com/traitesluekoi/n/n552dc336214b) | 地図探検、公開APIを教材に活用する工夫 | 公開済み |
 | 2026-10-10 | [新しいローマ字表に対応！ 子どもが夢中になる「ローマ字タイピングバトル」をつくりました](https://note.com/traitesluekoi/n/ndd4965afb942) | 新しいローマ字表、学校で学ぶ表記とタイピング表示の整合性 | 公開済み |
 | 2026-10-17 | [九九を冒険しながらに付ける！「九九ファンタジーバトル」を紹介します](https://note.com/traitesluekoi/n/nf43ed67cd2f7) | 九九練習、冒険、ボス、バッジなどのゲーム要素 | 公開済み |
+| 2026-10-24 | [文章題、答えを出す前に「式を立てる」練習を。『ことばの森・立式の旅』を作りました!](https://note.com/traitesluekoi/n/n064fd8ebe1a3) | 文章題、答えを出す前に式を立てる練習、立式の旅 | 公開済み |
+| 2026-10-27 | [文の「つながり」を見つける学習アプリ「ことばのつらなり」をつくりました](https://note.com/traitesluekoi/n/n490c33a67b2e) | 主語・述語・修飾語、文の組み立て、10ステージ・111問 | 公開済み |
 
 ## 次の記事候補
 
