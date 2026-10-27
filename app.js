@@ -119,7 +119,7 @@ const items = [
   { name: 'わくわく指名メーカー', repo: 'wakuwaku-shimei', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'ルーレット・あみだくじ・カード・ビンゴ・グループ分けなど、教室で使える指名・抽選ツール。' },
   { name: 'プリントメーカー', repo: 'print-maker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '授業や学習で使うプリントを作成するためのツール。' },
   { name: '自学サポート', repo: 'jigaku-supports', category: 'ツール', subject: 'その他', grade: '1〜6年生（自学支援）', desc: '教科・時間・目的から自学メニューを選び、紙のノートで進める家庭学習を支える。', student: true, featured: true },
-  { name: '計算バトル・ファンタジー', repo: 'keisan-fantasy', category: 'ツール', subject: '算数', grade: '1〜6年生（収録教材による）', desc: 'たんじゅんな計算とひっ算バトルを、ひとつの入口から選べる計算学習ランチャー。', student: true, featured: true },
+  { name: '計算バトル・ファンタジー', repo: 'keisan-fantasy', category: 'ツール', subject: '算数', grade: '1〜6年生（収録教材による）', desc: 'きほんの計算・ひっ算バトル・文章題を、ひとつの入口から選べる計算学習ランチャー。', student: true, featured: true },
   { name: 'つないでアート', repo: 'tsunaide-art', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '点と点を線でつなぎ、お手本の再現やアレンジ、自由な形・模様づくりを楽しむ図工教材。' },
   { name: 'ピクセルアートメーカー', repo: 'pixel-art-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: 'マス目・色・構図を工夫し、ピクセルアートを制作・修正して作品にする図工ツール。' },
   { name: 'もよう工房', repo: 'moyo-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '辺の長さがそろったパターンブロック5種（＋飾り3種）で、ドットにぴたっと吸着させながら模様をつくる図工ツール。30度回転、左右・回転コピー、タブレット最適化レイアウトつき。', new: true },
