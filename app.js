@@ -96,6 +96,7 @@ const items = [
   { name: '理科ラボ 4年', repo: 'rika4nen', category: '教材', subject: '理科', grade: '4年生', desc: '季節・体の動き・天気・雨水・月と星・電気・空気と水・温度を、関係を見つけて考える。' },
   { name: '理科ラボ 5年', repo: 'rika5nen', category: '教材', subject: '理科', grade: '5年生', desc: '植物、メダカ・人、天気、流れる水、物のとけ方、電磁石、ふりこを、実験準備と考察まで学ぶ。' },
   { name: '理科ラボ 6年', repo: 'rika6nen', category: '教材', subject: '理科', grade: '6年生', desc: '燃え方、体のはたらき、生物と環境、月と太陽、大地、てこ、電気、水溶液を知識・準備・考察で学ぶ。' },
+  { name: 'けんびきょうラボ', repo: 'kenbikyo', category: '教材', subject: '理科', grade: '5年生', desc: '3Dの顕微鏡を回しながら12部位の名前とはたらきを学び、反射鏡からかたづけまで全10ステップの手順を体験する理科ツール。40倍・100倍・400倍の見え方も連動。', new: true },
   { name: 'れきし探偵団', repo: 'rekisijinbutu', category: '教材', subject: '社会', grade: '6年生中心', desc: '歴史人物と、縄文から戦後までのくらし・文化・遺跡を4択クイズで学ぶ。' },
   { name: '歴史結び', repo: 'rekisijinbutu', path: 'history-match/', category: '教材', subject: '社会', grade: '6年生', desc: '歴史上の人物やできごとを結びつけて、関係や特徴を確かめながら学ぶ。', new: true },
   { name: '歴史順番', repo: 'rekisijinbutu', path: 'history-order/', category: '教材', subject: '社会', grade: '6年生', desc: '歴史上のできごとを順番に並べ、時代の流れや前後関係を学ぶ。', new: true },
@@ -324,6 +325,10 @@ const CARD_IMAGES = {
   'moyo-maker:tangram.html': {
     src: './assets/IMG_4144.jpeg',
     alt: 'タングラムの教材画面'
+  },
+  'kenbikyo': {
+    src: './assets/kenbikyo.png',
+    alt: 'けんびきょうラボの教材画面'
   },
   'keisan-fantasy': {
     src: './assets/keisan-fantasy.jpg',
