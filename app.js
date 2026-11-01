@@ -91,6 +91,7 @@ const items = [
   { name: '町のデータ探偵団', repo: 'detakatuyou', category: '教材', subject: '算数', grade: '6年生', desc: '5つの事件を解決しながら、散らばり・平均値・中央値・最頻値・度数分布表・ヒストグラムを学ぶ。' },
   { name: 'がい数クエスト', repo: 'gaisu', category: '教材', subject: '算数', grade: '4年生', desc: '四捨五入、切り上げ・切り捨て、上から何けたの概数を、5つのエリアを旅しながら学ぶ。まちがえた問題は記録されて復習でき、買い物の見積もりミッションにも挑戦する。', new: true },
   { name: '拡大図と縮図ラボ', repo: 'kakudai-syukusyo', category: '教材', subject: '算数', grade: '6年生', desc: '形のきまり、拡大図・縮図の見分け、方眼での作図、地図や間取り図の縮尺（12場面）を、4つのミッションで学ぶ。', new: true },
+  { name: 'ことむすび', repo: 'setsuzokushi', category: '教材', subject: '国語', grade: '4〜6年生', desc: '順接・逆接など接続詞の6つのはたらきを学び、文と文のつながりを考える教材。全180問（基本＋応用）で、選ばなかった選択肢との比べ読みや、間違えた問題の特訓もできる。', new: true },
   { name: 'P.E. kit', repo: 'P.E.-kit', category: '教材', subject: '体育', grade: '先生向け（体育授業）', desc: '得点板・対戦表・作戦ボード・記録・遅延カメラなど、体育授業で使う道具をまとめたキット。' },
   { name: '持久走チャレンジ', repo: 'jikyusou', category: '教材', subject: '体育', grade: '1〜6年生（学年・目標に応じて）', desc: '周回数と距離を記録し、個人の目標やクラスの累計を見える化する持久走記録アプリ。' },
 
