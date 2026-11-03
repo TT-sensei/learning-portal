@@ -85,6 +85,7 @@ const items = [
   { name: 'めんせき・たいせきラボ', repo: 'taiseki', category: '教材', subject: '算数', grade: '5〜6年生', desc: '面積から体積へ、公式図鑑・底面×高さ・複合図形パズル・立体ドリルで学ぶ。' },
   { name: '単位研究所', repo: 'tanilabo', category: '教材', subject: '算数', grade: '3〜6年生', desc: '長さ・水のかさ・重さ・時間・面積・体積を、数と単位をセットで考えながら6つのラボで研究する。' },
   { name: '比のパーク', repo: 'ratiopark', category: '教材', subject: '算数', grade: '6年生', desc: '「比とその利用」を8つのゲームで練習。同じ比、比の値、穴あき比、比チェーンなどを学ぶ。' },
+  { name: '比例・反比例パーク', repo: 'hirei-hanpirei', category: '教材', subject: '算数', grade: '6年生', desc: '6年生の比例・反比例を、見分け・表・式・グラフ・文章題の全72問で練習。1回10問、まちがえた問題は再挑戦して克服。', new: true },
   { name: '立体のきほん', repo: 'rittaikihon', category: '教材', subject: '算数', grade: '4年生中心', desc: '立体の見方や特徴を学ぶWeb教材。' },
   { name: 'しわけくんEX', repo: 'sententaisyo', category: '教材', subject: '算数', grade: '6年生', desc: '線対称・点対称を見分け、対称の軸の本数など図形の性質をゲーム感覚で学ぶ。' },
   { name: 'ならべる？えらぶ？', repo: 'narabikumiawase', category: '教材', subject: '算数', grade: '6年生（発展的な考え方）', desc: '順列と組み合わせの考え方を、場面を比べながら学ぶ。' },
@@ -370,7 +371,7 @@ const MATH_CARD_REPOS = new Set([
   '1nensasuuworld', 'magical-kakezan', 'tashi-hiki', 'kuku-battle-', 'warizanbattle',
   'warizanland', 'syousuumaster', 'yakubuncrash', 'yakubunslash', '-bunkakebunwari',
   'bunsuuseisuukeisan', 'hyakumasu', 'tokeibenkyo', 'bunsyo-dai', 'kazunosikumi',
-  'mojisiki', 'omosa-hakari', 'enmenseki', 'taiseki', 'tanilabo', 'ratiopark',
+  'mojisiki', 'omosa-hakari', 'enmenseki', 'taiseki', 'tanilabo', 'ratiopark', 'hirei-hanpirei',
   'rittaikihon', 'sententaisyo', 'narabikumiawase', 'detakatuyou', 'keisan-fantasy',
   'tashizan-hissan', 'hikizan-hissan', 'kakudo-hunter', 'core-numberbattle',
   'kousiki-siwake', 'bai-yaku-maze', 'nagasa-hunter'
