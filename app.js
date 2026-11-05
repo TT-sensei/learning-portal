@@ -97,7 +97,7 @@ const items = [
   { name: '持久走チャレンジ', repo: 'jikyusou', category: '教材', subject: '体育', grade: '1〜6年生（学年・目標に応じて）', desc: '周回数と距離を記録し、個人の目標やクラスの累計を見える化する持久走記録アプリ。' },
 
   { name: '理科ラボ 3年', repo: 'rika3nen', category: '教材', subject: '理科', grade: '3年生', desc: '生き物・植物・昆虫・風とゴム・音・光・電気・磁石などを、くらべて気づき、予想してためす。' },
-  { name: '理科ラボ 4年', repo: 'rika4nen', category: '教材', subject: '理科', grade: '4年生', desc: '季節・体の動き・天気・雨水・月と星・電気・空気と水・温度を、関係を見つけて考える。' },
+  { name: '理科ラボ 4年', repo: 'rika4nen', category: '教材', subject: '理科', grade: '4年生', desc: '季節・体の動き・天気・雨水・月と星・電気・空気と水・温度・もののあたたまり方・水のすがたと温度を、関係を見つけて考える。' },
   { name: '理科ラボ 5年', repo: 'rika5nen', category: '教材', subject: '理科', grade: '5年生', desc: '植物、メダカ・人、天気、流れる水、物のとけ方、電磁石、ふりこを、実験準備と考察まで学ぶ。' },
   { name: '理科ラボ 6年', repo: 'rika6nen', category: '教材', subject: '理科', grade: '6年生', desc: '燃え方、体のはたらき、生物と環境、月と太陽、大地、てこ、電気、水溶液を知識・準備・考察で学ぶ。' },
   { name: 'けんびきょうラボ', repo: 'kenbikyo', category: '教材', subject: '理科', grade: '5年生', desc: '3Dの顕微鏡を回しながら12部位の名前とはたらきを学び、反射鏡からかたづけまで全10ステップの手順を体験する理科ツール。40倍・100倍・400倍の見え方も連動。', new: true },
@@ -108,11 +108,11 @@ const items = [
   { name: '地図探検', repo: 'chizu-tanken', category: '教材', subject: '社会', grade: '3年生', desc: '地図を見ながら、地図記号や周りの施設を見つけ、場所・距離・方位を確かめて地域の様子を探る学習教材。' },
   { name: '都道府県マスター', repo: 'todoufuken', category: '教材', subject: '社会', grade: '4年生中心（復習・発展5〜6年生）', desc: '47都道府県の位置・県庁所在地・地域の特色を、地図パズルとクイズで学ぶ。' },
   { name: '公民くん', repo: 'kouminkun', category: '教材', subject: '社会', grade: '6年生', desc: '日本国憲法、基本的人権、三権分立、選挙、地方自治、税金を解説・問題・活用ゲームで学ぶ。' },
-  { name: '三権分立・公民学習', repo: 'sankenbunritu', category: '教材', subject: '社会', grade: '6年生', desc: '現代社会や三権分立を調べ、マイノートに整理する学習サイト。' },
+  { name: '社会の問題しらべノート', repo: 'sankenbunritu', category: '教材', subject: '社会', grade: '6年生', desc: '身近な社会の問題をテーマから選んで調べ、事実・気づき・行動をマイノートに整理する学習サイト。' },
   { name: '日光 修学旅行事前学習', repo: 'jizen', category: '教材', subject: '社会', grade: '6年生', desc: '日光の歴史や文化を調べる修学旅行前の社会科教材。' },
   { name: '室町しらべ', repo: 'muromachi-shirabe', category: '教材', subject: '社会', grade: '6年生', desc: '室町時代に生まれたり広まったりした文化の中から、今に残るものを選んで調べ、ノートにまとめる社会科の調べ学習サイト。' },
 
-  { name: '炒める調理', repo: 'itammeru', category: '教材', subject: '家庭科', grade: '5〜6年生', desc: '炒める調理の手順やポイントを学ぶWeb教材。' },
+  { name: '炒める調理', repo: 'itammeru', category: '教材', subject: '家庭科', grade: '5〜6年生', desc: 'いためる調理のよさを、食感・水分・時間・おいしさと見た目・栄養・安全と衛生の6つの視点で学ぶWeb教材。' },
   { name: '英検5級チャレンジ', repo: 'eiken5', category: '教材', subject: '英語', grade: '小学生（英検5級相当）', desc: '語彙・会話・文のルール・短い英文を、短い問題と間違い復習で練習する。' },
   { name: 'くるまスタディ・サーキット', repo: 'kuruma', category: '教材', subject: 'その他', grade: '1〜6年生', desc: 'GTマシンでレースしながら、国語・算数・理科・社会の2択問題（全321問）に挑戦。ポイントをためてマシンをカスタムできる。' },
   { name: 'LIAR EYE（ライアーアイ）', repo: 'LIAR-EYE', category: '教材', subject: '国語', grade: '小学生（論理的思考・推理）', desc: '学校生活の小さな謎を、6人の発言から論理的に解き明かす推理パズル。全30問。', new: true },
