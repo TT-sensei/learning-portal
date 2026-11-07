@@ -512,7 +512,23 @@ function render() {
   saveFilters();
 }
 
+function resetFilters() {
+  category = 'all';
+  subject = 'all';
+  grade = 'all';
+  purpose = 'all';
+  newOnly = false;
+  favoritesOnly = false;
+  search.value = '';
+  activateButtons('.filter', 'category', category);
+  activateButtons('.subject', 'subject', subject);
+  activateButtons('.grade-filter', 'grade', grade);
+  activateButtons('.purpose-filter, .teacher-purpose-card', 'purpose', purpose);
+  syncQuickFilterButtons();
+}
+
 function setMode(nextMode) {
+  const modeChanged = nextMode !== mode;
   mode = nextMode;
   storage.save('mode', mode);
   document.body.dataset.mode = mode;
@@ -527,16 +543,9 @@ function setMode(nextMode) {
   document.querySelector('#catalogEyebrow').textContent = mode === 'student' ? 'LEARNING SITES' : 'PUBLISHED SITES';
   document.querySelector('#catalogTitle').innerHTML = mode === 'student' ? '<ruby>学習<rt>がくしゅう</rt></ruby>サイトをえらぶ' : '教材・ツール・素材';
   renderSubjectLabels();
+  if (modeChanged) resetFilters();
   if (mode === 'student') {
     setRandomHeroLearningScene();
-    category = 'all';
-    purpose = 'all';
-    activateButtons('.filter', 'category', category);
-    activateButtons('.purpose-filter, .teacher-purpose-card', 'purpose', purpose);
-    if (grade === 'teacher') {
-      grade = 'all';
-      activateButtons('.grade-filter', 'grade', grade);
-    }
   }
   render();
 }
@@ -664,18 +673,7 @@ document.querySelectorAll('.mode-tab').forEach(button => button.addEventListener
 
 search.addEventListener('input', render);
 resetButton.addEventListener('click', () => {
-  category = 'all';
-  subject = 'all';
-  grade = 'all';
-  purpose = 'all';
-  newOnly = false;
-  favoritesOnly = false;
-  search.value = '';
-  activateButtons('.filter', 'category', category);
-  activateButtons('.subject', 'subject', subject);
-  activateButtons('.grade-filter', 'grade', grade);
-  activateButtons('.purpose-filter, .teacher-purpose-card', 'purpose', purpose);
-  syncQuickFilterButtons();
+  resetFilters();
   search.focus();
   render();
 });
