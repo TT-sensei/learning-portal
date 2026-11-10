@@ -70,7 +70,7 @@ const items = [
   { name: '九九ファンタジーバトル', repo: 'kuku-battle-', category: '教材', subject: '算数', grade: '2年生中心', desc: '九九1〜9の段を、のぼり・くだり・ランダムで練習。誤答記録、九九マップ、特訓、モンスター図鑑で定着を目指す。' },
   { name: '割り算筆算バトル', repo: 'warizanbattle', category: '教材', subject: '算数', grade: '4年生中心（復習5〜6年生）', desc: 'ファンタジー世界でモンスターと戦いながら、割り算の筆算を「たてる・かける・ひく・おろす」の順番で練習する。' },
   { name: '割り算ファンタジーバトル', repo: 'warizanland', category: '教材', subject: '算数', grade: '3年生中心', desc: 'ファンタジー世界の冒険とバトルを楽しみながら、あまりのない割り算・あまりのある割り算を練習する。' },
-  { name: '小数マスター', repo: 'syousuumaster', category: '教材', subject: '算数', grade: '2〜3年生中心', desc: '小数の表し方と、L↔dL・cm↔mmの単位換算を練習。' },
+  { name: '小数マスター PARK', repo: 'syousuumaster', category: '教材', subject: '算数', grade: '3年生', desc: '0.1と1/10の関係を、分数小数マッチや数直線レースなど5つのアトラクションで学ぶゲームパーク。単位換算のおさらいも収録。間違えた問題の弱点特訓つき。', new: true },
   { name: '約分クラッシュ', repo: 'yakubuncrash', category: '教材', subject: '算数', grade: '5年生中心', desc: '分数の約分をすばやく判断するゲーム。' },
   { name: '約分スラッシュ', repo: 'yakubunslash', category: '教材', subject: '算数', grade: '5〜6年生（発展）', desc: '約分をゲーム形式で練習するバトル教材。' },
   { name: '分数のかけ算・わり算', repo: '-bunkakebunwari', category: '教材', subject: '算数', grade: '6年生', desc: '分数同士のかけ算とわり算を学ぶWeb教材。' },
