@@ -73,7 +73,7 @@ const items = [
   { name: '小数マスター PARK', repo: 'syousuumaster', category: '教材', subject: '算数', grade: '3年生', desc: '0.1と1/10の関係を、分数小数マッチや数直線レースなど5つのアトラクションで学ぶゲームパーク。単位換算のおさらいも収録。間違えた問題の弱点特訓つき。', new: true },
   { name: '約分クラッシュ', repo: 'yakubuncrash', category: '教材', subject: '算数', grade: '5年生中心', desc: '分数の約分をすばやく判断するゲーム。' },
   { name: '約分スラッシュ', repo: 'yakubunslash', category: '教材', subject: '算数', grade: '5〜6年生（発展）', desc: '約分をゲーム形式で練習するバトル教材。' },
-  { name: '分数のかけ算・わり算', repo: '-bunkakebunwari', category: '教材', subject: '算数', grade: '6年生', desc: '分数同士のかけ算とわり算を学ぶWeb教材。' },
+  { name: '分数のかけ算・わり算', repo: '-bunkakebunwari', category: '教材', subject: '算数', grade: '6年生', desc: '分数×分数・÷分数をステップで考えながら解く冒険型教材。XPとバッジ集め、間違えた問題のとっくん付き。' },
   { name: '分数×÷整数 しくみ図鑑', repo: 'bunsuuseisuukeisan', category: '教材', subject: '算数', grade: '5〜6年生', desc: '分数×整数・分数÷整数のしくみを、図で確かめながら学ぶ算数教材。' },
   { name: '分数の計算練習', repo: 'bunsu4nen', category: '教材', subject: '算数', grade: '4年生', desc: '同分母分数のたし算・ひき算を、分母はそのまま→分子の計算→帯分数に直す、のスモールステップで解く。例題ガイドと、間違えた問題をくり返す「とっくん」付き。', new: true },
   { name: '小数のたし算・ひき算', repo: 'shosu4nen', category: '教材', subject: '算数', grade: '4年生', desc: '小数点をそろえた筆算を、位ごとに1桁ずつ解くスモールステップ練習。小数×整数・÷整数は「5年生につながる内容」として折りたたみに収録。間違えた問題をくり返す「とっくん」付き。', new: true },
