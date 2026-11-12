@@ -148,6 +148,7 @@ const items = [
 { name: '給食タイマー', repo: 'kyushoku-timer', category: 'ツール', subject: 'その他', grade: '学年共通（教室用）', desc: '給食準備・食事・時計・歯みがきの時間を切り替えて使える教室向けタイマー。' },
 { name: 'ファイル工房', repo: 'pdf-kit', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'PDF・画像の分割・結合・変換など、授業で使うファイル作業をまとめて行えるツール。' },
 { name: 'ナビアン先生シールメーカー', repo: 'navi-sticker-maker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'ナビキャラやモンスターの画像に先生のひとことを添えて、A4全面シール用紙に印刷できるシール作成ツール。形・背景・シールの大きさも調整できる。', new: true },
+{ name: 'THINK LAB', repo: 'THINK-LAB', category: 'ツール', subject: 'その他', grade: '1〜6年生', desc: 'ベン図・フィッシュボーン・マインドマップなど30種の思考ツールを選んで、図を見ながら考えを書き込める。入力は端末に自動保存され、印刷もできる。', student: true, new: true },
 { name: '公式の使い分け', repo: 'kousiki-siwake', category: '教材', subject: '算数', grade: '5〜6年生', desc: '図形の問題場面から、面積や体積など、どの公式を使えばよいかを考える力を育てる算数教材。' },
 { name: '倍・約数メイズ', repo: 'bai-yaku-maze', category: '教材', subject: '算数', grade: '5年生中心（復習6年生）', desc: '倍数・約数の見方を、迷路や選択問題で繰り返し練習する算数教材。' },
 { name: '看護目標メーカー', repo: 'kangomokuhyo', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '看護目標を作成・整理するための先生向けツール。' },
