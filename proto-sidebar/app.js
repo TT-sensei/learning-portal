@@ -682,3 +682,45 @@ resetButton.addEventListener('click', () => {
 });
 
 setMode(mode === 'teacher' ? 'teacher' : 'student');
+
+
+/* === PROTOTYPE: recently used materials (localStorage only) === */
+const RECENT_KEY = 'learningPortal.recent.v1';
+function recentKeys() { try { return JSON.parse(localStorage.getItem(RECENT_KEY)) || []; } catch (e) { return []; } }
+function itemKey(item) { return item.repo + '|' + (item.path || ''); }
+function recentImage(item) {
+  if (item.noScreenshot) return null;
+  return CARD_IMAGES[item.repo + ':' + (item.path || '')] || CARD_IMAGES[item.repo] ||
+    (SCREENSHOT_CARD_REPOS.has(item.repo) ? { src: '../assets/' + item.repo + '.jpg', alt: item.name + 'の教材画面' } : null);
+}
+function renderRecents() {
+  const sec = document.getElementById('recentSection'), row = document.getElementById('recentRow');
+  if (!sec || !row) return;
+  const inStudent = (typeof mode !== 'undefined' && mode === 'student');
+  const list = recentKeys().map(k => items.find(it => itemKey(it) === k)).filter(Boolean)
+    .filter(it => !inStudent || ((it.category === '教材' || it.student) && !it.foundation && it.site !== false));
+  if (!list.length) { sec.hidden = true; return; }
+  sec.hidden = false;
+  row.innerHTML = list.map(it => {
+    const img = recentImage(it);
+    return '<a class="recent-card" href="' + siteUrl(it) + '" target="_blank" rel="noopener">' +
+      (img ? '<span class="recent-thumb"><img src="' + img.src + '" alt=""></span>' : '') +
+      '<span class="recent-name">' + it.name + '</span></a>';
+  }).join('');
+}
+function recordRecent(item) {
+  const k = itemKey(item);
+  let arr = recentKeys().filter(x => x !== k);
+  arr.unshift(k);
+  arr = arr.slice(0, 8);
+  try { localStorage.setItem(RECENT_KEY, JSON.stringify(arr)); } catch (e) {}
+  renderRecents();
+}
+document.addEventListener('click', e => {
+  const a = e.target.closest('a.card-link');
+  if (a) { const item = items.find(it => siteUrl(it) === a.href); if (item) recordRecent(item); }
+});
+const recentClearBtn = document.getElementById('recentClear');
+if (recentClearBtn) recentClearBtn.addEventListener('click', () => { try { localStorage.removeItem(RECENT_KEY); } catch (e) {} renderRecents(); });
+document.querySelectorAll('.mode-tab').forEach(t => t.addEventListener('click', () => setTimeout(renderRecents, 60)));
+renderRecents();

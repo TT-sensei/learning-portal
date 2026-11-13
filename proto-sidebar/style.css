@@ -534,13 +534,40 @@ body[data-mode="student"] h3 ruby {
 
 /* === PROTOTYPE: sidebar catalog layout (proto-sidebar only) === */
 .proto-banner { margin: 0 0 18px; padding: 10px 14px; border: 1.5px dashed #b3543f; border-radius: 10px; background: #fdf3ec; color: #8a3b26; font-size: 13px; font-weight: 700; }
-@media (min-width: 1080px) {
+@media (min-width: 1000px) {
   .catalog-layout { display: grid; grid-template-columns: 252px minmax(0, 1fr); gap: 20px; align-items: start; }
   .catalog-layout .side-col { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
   .catalog-layout .toolbar { margin-bottom: 0; }
   .catalog-layout .filter-row { grid-template-columns: 1fr; gap: 6px; margin-top: 16px; }
   .catalog-layout .search { margin-bottom: 8px; }
+  .catalog-layout .subjects, .catalog-layout .grades, .catalog-layout .purposes, .catalog-layout .filters, .catalog-layout .quick-filters { gap: 6px; }
+}
+@media (min-width: 1000px) and (max-width: 1279px) {
+  .catalog-layout .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (min-width: 1280px) {
   .wrap { width: min(1340px, calc(100% - 48px)); }
 }
+/* compact top: foundation cards + learning map band */
+.foundation-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.foundation-card { padding: 14px; }
+.foundation-card h3 { font-size: 15px; margin: 6px 0 4px; }
+.foundation-card p { min-height: 0; font-size: 12px; margin: 0 0 10px; }
+.foundation-actions { padding-top: 8px; }
+@media (max-width: 920px) { .foundation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .foundation-grid { grid-template-columns: 1fr; } }
+@media (min-width: 621px) {
+  .learning-map-entry { padding: 16px 20px; margin-bottom: 28px; gap: 16px; }
+  .learning-map-shortcuts a { min-height: 44px; padding: 8px 12px; }
+}
+/* recently used strip */
+.recent { margin: 0 0 18px; }
+.recent[hidden] { display: none; }
+.recent-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.recent-head h3 { font-size: 15px; margin: 0; color: #18577e; }
+.recent-clear { margin-left: auto; border: 1px solid var(--line); background: #fff; border-radius: 99px; padding: 5px 12px; font-size: 11.5px; font-weight: 700; color: #657287; cursor: pointer; min-height: 32px; }
+.recent-row { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; }
+.recent-card { flex: 0 0 168px; text-decoration: none; color: var(--ink); background: #fff; border: 1.5px solid var(--line); border-radius: 12px; overflow: hidden; }
+.recent-thumb { display: block; aspect-ratio: 16 / 9; background: #eef2f5; }
+.recent-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.recent-name { display: block; font-size: 12.5px; font-weight: 800; padding: 7px 9px; line-height: 1.4; }

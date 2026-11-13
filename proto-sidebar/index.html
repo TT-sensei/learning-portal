@@ -69,7 +69,7 @@
     <section class="foundation teacher-only" aria-labelledby="foundationTitle">
       <div class="section-head foundation-head">
         <div><p class="eyebrow">COMMON FOUNDATION</p><h2 id="foundationTitle">先生のための共通素材と設計基盤</h2></div>
-        <p>教材制作や授業に必要なものを、目的に合わせて使えます。</p>
+        <p>教材づくりのための制作環境への入口です。授業で使う教材・ツールは、下の一覧からも開けます。</p>
       </div>
       <div class="foundation-grid">
         <article class="foundation-card edu-card edu-card-pad"><span class="foundation-kind">HUB</span><h3>edu-kit</h3><p>AIと人が共通素材を選ぶための統合ガイド</p><div class="foundation-actions"><a href="https://tt-sensei.github.io/edu-kit/" target="_blank" rel="noopener">カタログ</a></div></article>
@@ -115,7 +115,7 @@
         <p id="resultText" aria-live="polite"></p>
       </div>
 
-      <div class="proto-banner">これはレイアウト試作（サイドバー版）です。本番ポータルとは別に置いた確認用ページで、内容は本番と同じです。</div>
+      <div class="proto-banner">これはレイアウト試作（サイドバー版）です。本番ポータルとは別に置いた確認用ページです。</div>
     <div class="catalog-layout"><aside class="side-col"><section class="toolbar edu-card" aria-label="検索と絞り込み">
         <label class="search" for="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="サイト名・内容で検索…" autocomplete="off"></label>
         <div class="filter-row teacher-only"><span class="filter-label">種類</span><div class="filters" id="categoryFilters">
@@ -159,7 +159,8 @@
           <button class="quick-filter" type="button" data-quick-filter="favorites" aria-pressed="false">★ お気に入りのみ</button>
         </div></div>
         <button id="resetFilters" class="reset-button" type="button" hidden>絞り込みをクリア</button>
-      </section></aside><div class="catalog-main"><section id="grid" class="grid" aria-live="polite"><p class="loading-note">教材を読み込んでいます…</p></section></div></div>
+      </section></aside><div class="catalog-main"><section class="recent" id="recentSection" hidden aria-label="最近使った教材"><div class="recent-head"><h3>最近使った教材</h3><button class="recent-clear" id="recentClear" type="button">履歴を消す</button></div><div class="recent-row" id="recentRow"></div></section>
+    <section id="grid" class="grid" aria-live="polite"><p class="loading-note">教材を読み込んでいます…</p></section></div></div>
       <div id="empty" class="empty edu-empty edu-card" hidden><strong>条件に合うものが見つかりませんでした。</strong><p>検索語や絞り込みを変えてみてください。</p></div>
     </section>
 
