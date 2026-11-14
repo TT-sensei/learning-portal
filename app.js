@@ -157,7 +157,8 @@ const items = [
 { name: 'タングラム', repo: 'moyo-maker', path: 'tangram.html', category: '教材', subject: '算数', grade: '1〜6年生', desc: '7つのピースを回したり裏返したりして、お題の形をつくる図形パズル。お題19種類、ヒントと完成判定つき。', new: true },
 { name: '勤務管理', repo: 'kinmukanri', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '出勤・退勤、勤務時間、時間外、早出、月別集計などを端末内で管理する学校向けツール。' },
 { name: 'デジタル教科書ランチャー', repo: 'digital-textbook-launcher', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '教科を入口に、登録したデジタル教科書の公式ログイン先をすぐ開けるランチャー。' },
-{ name: '割合ステップ', repo: 'wariai-park', category: '教材', subject: '算数', grade: '5年生', desc: '二重数直線で「1（もとにする量）」から矢印を引っ張る見方を身につけながら、割合・比べる量・もとにする量の求め方と、小数・％・歩合の読み替えを練習する。間違いの記録と特訓つき。', student: true, new: true }
+{ name: '割合ステップ', repo: 'wariai-park', category: '教材', subject: '算数', grade: '5年生', desc: '二重数直線で「1（もとにする量）」から矢印を引っ張る見方を身につけながら、割合・比べる量・もとにする量の求め方と、小数・％・歩合の読み替えを練習する。間違いの記録と特訓つき。', student: true, new: true },
+{ name: 'よむたんけん', repo: 'yomu-tanken', category: '教材', subject: '国語', grade: '1〜2年生', desc: '短い物語と説明文を読んで、答えが書いてある文を本文からタップで探す練習。文の順番を並べ替える問題もあり、つまずいた問題は記録されて特訓で出し直せる。文章は全28本・200問。', student: true, new: true }
 ];
 
 const SUBJECT_ORDER = ['国語', '算数', '理科', '社会', '家庭科', '体育', '英語', '図工', 'その他'];
