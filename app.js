@@ -144,7 +144,7 @@ const items = [
 { name: 'コアバトル', repo: 'core-numberbattle', category: '教材', subject: '算数', grade: '3〜6年生（計算力に応じて）', desc: '4つの数字から足し算・引き算をして、コアの数字にピッタリをねらうゲーム風の計算。' },
 { name: '読書レコード', repo: 'dokusho-record', category: '教材', subject: 'その他', grade: '1〜6年生（読書記録）', desc: '読んだ本を本棚に記録し、感想や読書目標、月・年ごとの積み重ねを振り返る。' },
 { name: 'キャリア探究ナビ', repo: 'careergakuahu', category: '教材', subject: 'その他', grade: '6年生', desc: '「自分らしく社会とかかわるために」を軸に、15時間のキャリア探究を進める学習ガイド。' },
-{ name: 'ナビアン・クエスト', repo: '1mon-1tou', category: '教材', subject: 'その他', grade: '全学年', desc: '問題を解いてナビアンのカードを集め、育てながら冒険する一問一答RPG。全学年・全教科から出題し、分野も選べる。まちがえた問題は特訓で克服できる。' },
+{ name: 'ナビアン・クエスト', repo: '1mon-1tou', category: '教材', subject: 'その他', grade: '1〜6年生', desc: '問題を解いてナビアンのカードを集め、育てながら冒険する一問一答RPG。全学年・全教科から出題し、分野も選べる。まちがえた問題は特訓で克服できる。' },
 { name: '給食タイマー', repo: 'kyushoku-timer', category: 'ツール', subject: 'その他', grade: '学年共通（教室用）', desc: '給食準備・食事・時計・歯みがきの時間を切り替えて使える教室向けタイマー。' },
 { name: 'ファイル工房', repo: 'pdf-kit', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'PDF・画像の分割・結合・変換など、授業で使うファイル作業をまとめて行えるツール。' },
 { name: 'ナビアン先生シールメーカー', repo: 'navi-sticker-maker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'ナビキャラやモンスターの画像に先生のひとことを添えて、A4全面シール用紙に印刷できるシール作成ツール。形・背景・シールの大きさも調整できる。', new: true },
