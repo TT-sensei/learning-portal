@@ -123,7 +123,7 @@ const items = [
   { name: '学級活動の話し合い', repo: 'gakkatu', category: 'ツール', subject: 'その他', grade: '小学生・先生向け', desc: '学級活動の話し合いを、教員と児童が進めるためのWebツール。' },
   { name: 'チェック・確認ツール', repo: 'checker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '宿題・プリント・作品などの提出状況を、日々の提出物と締め切り型に分けて管理する。' },
   { name: '週案作成', repo: 'jisukakuninkun', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '時間割・授業時数・お知らせなどをまとめて管理できる週案作成ツール。' },
-  { name: 'わくわく指名メーカー', repo: 'wakuwaku-shimei', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'ルーレット・あみだくじ・カード・ビンゴ・グループ分けなど、教室で使える指名・抽選ツール。' },
+  { name: 'わくわく指名メーカー', repo: 'wakuwaku-shimei', category: 'ツール', subject: 'その他', grade: '先生向け', desc: 'ルーレット・カードめくり・くじびき・ビンゴボール・グループ分けなど、教室で使える指名・抽選ツール。' },
   { name: 'プリントメーカー', repo: 'print-maker', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '授業や学習で使うプリントを作成するためのツール。' },
   { name: '自学サポート', repo: 'jigaku-supports', category: 'ツール', subject: 'その他', grade: '1〜6年生（自学支援）', desc: '教科・時間・目的から自学メニューを選び、紙のノートで進める家庭学習を支える。', student: true, featured: true },
   { name: '計算バトル・ファンタジー', repo: 'keisan-fantasy', category: 'ツール', subject: '算数', grade: '1〜6年生（収録教材による）', desc: 'きほんの計算・ひっ算バトル・文章題を、ひとつの入口から選べる計算学習ランチャー。', student: true, featured: true },
