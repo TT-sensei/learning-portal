@@ -138,7 +138,12 @@ const items = [
 
 { name: 'たし算の筆算', repo: 'tashizan-hissan', category: '教材', subject: '算数', grade: '2〜3年生', desc: 'たし算の筆算を、くり上がりの判断とくらいごとの操作に分けて練習する算数教材。' },
 { name: 'ひき算の筆算', repo: 'hikizan-hissan', category: '教材', subject: '算数', grade: '2〜3年生', desc: 'ひき算の筆算を、くり下がりの判断とくらいごとの操作に分けて練習する算数教材。' },
-{ name: '社会科ゲームブック', repo: 'shakai-gamebook', category: '教材', subject: '社会', grade: '5年生中心', desc: '読む・考える・選ぶ・結果を見る流れで、米づくりや自動車づくりを体験的に学ぶ社会科ゲームブック。' },
+{ name: '米づくりゲームブック', repo: 'shakai-gamebook', path: 'kome-zukuri.html', category: '教材', subject: '社会', grade: '5年生中心', desc: '春の準備から収穫・出荷まで、米づくりの一年を判断しながら体験するゲームブック。水管理や稲の育ちなどの状態が選択で変化し、クリアでバッジがもらえる。' },
+{ name: '自動車づくりゲームブック', repo: 'shakai-gamebook', path: 'jidosha-zukuri.html', category: '教材', subject: '社会', grade: '5年生中心', desc: '企画からプレス・溶接・塗装・組立・検査・出荷まで、一台の車ができる工程と工夫を判断しながら体験するゲームブック。クリアでバッジがもらえる。' },
+{ name: 'ニュースづくりゲームブック', repo: 'shakai-gamebook', path: 'news-zukuri.html', category: '教材', subject: '社会', grade: '5年生中心', desc: '取材して、確かめて、選んで、伝える。ニュースができるまでの判断を体験するゲームブック。正確さや信頼の状態が選択で変化し、クリアでバッジがもらえる。' },
+{ name: '運輸・物流ゲームブック', repo: 'shakai-gamebook', path: 'unyu-zukuri.html', category: '教材', subject: '社会', grade: '5年生中心', desc: '何を、どこから、どう運ぶか。輸送方法や物流拠点をつなぎ、ものが届くまでを考えるゲームブック。クリアでバッジがもらえる。' },
+{ name: '防災ゲームブック', repo: 'shakai-gamebook', path: 'bosai.html', category: '教材', subject: '社会', grade: '5年生中心', desc: '大雨・地震・津波・火山・大雪から一つを選び、その災害に合った備えと行動を考えるゲームブック。クリアでバッジがもらえる。' },
+{ name: '水産業ゲームブック', repo: 'shakai-gamebook', path: 'suisan.html', category: '教材', subject: '社会', grade: '5年生中心', desc: '魚をとる・育てる・届ける。海の環境や魚の量、新鮮さや安全を考えながら水産業のしくみを体験するゲームブック。クリアでバッジがもらえる。' },
 { name: 'WORLD QUEST', repo: 'world-quest', category: '教材', subject: '社会', grade: '5〜6年生', desc: '国旗・地域・文化・食・自然など、いろいろな入口から世界の国を知る学習クイズ。' },
 { name: '角度ハンター ― ナビアンをつかまえろ', repo: 'kakudo-hunter', category: '教材', subject: '算数', grade: '4年生中心（復習5〜6年生）', desc: '0°の線との開きから角度を見つけるハンターモードと、分度器を使うモードで角度の大きさを身につける。' },
 { name: 'コアバトル', repo: 'core-numberbattle', category: '教材', subject: '算数', grade: '3〜6年生（計算力に応じて）', desc: '4つの数字から足し算・引き算をして、コアの数字にピッタリをねらうゲーム風の計算。' },
@@ -342,6 +347,30 @@ const CARD_IMAGES = {
   'kenbikyo': {
     src: './assets/kenbikyo.png',
     alt: 'けんびきょうラボの教材画面'
+  },
+  'shakai-gamebook:kome-zukuri.html': {
+    src: './assets/shakai-gamebook-kome.jpg',
+    alt: '米づくりゲームブックのタイトル画面'
+  },
+  'shakai-gamebook:jidosha-zukuri.html': {
+    src: './assets/shakai-gamebook-jidosha.jpg',
+    alt: '自動車づくりゲームブックのタイトル画面'
+  },
+  'shakai-gamebook:news-zukuri.html': {
+    src: './assets/shakai-gamebook-news.jpg',
+    alt: 'ニュースづくりゲームブックのタイトル画面'
+  },
+  'shakai-gamebook:unyu-zukuri.html': {
+    src: './assets/shakai-gamebook-unyu.jpg',
+    alt: '運輸・物流ゲームブックのタイトル画面'
+  },
+  'shakai-gamebook:bosai.html': {
+    src: './assets/shakai-gamebook-bosai.jpg',
+    alt: '防災ゲームブックのタイトル画面'
+  },
+  'shakai-gamebook:suisan.html': {
+    src: './assets/shakai-gamebook-suisan.jpg',
+    alt: '水産業ゲームブックのタイトル画面'
   },
   'keisan-fantasy': {
     src: './assets/keisan-fantasy.jpg',
