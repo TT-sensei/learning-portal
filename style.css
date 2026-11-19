@@ -236,6 +236,7 @@ body[data-mode="student"] .character-chip { border: 0; border-radius: 16px; back
 .card[data-subject="その他"] { --subject-color: #998bd0; --subject-soft: #f3f0ff; --subject-ink: #65559d; }
 .card[data-subject="図工"] { --subject-color: #cf6a45; --subject-soft: #fdf0e9; --subject-ink: #9c4a26; }
 .card[data-subject="体育"] { --subject-color: #93b83f; --subject-soft: #f3f8e4; --subject-ink: #5c741f; }
+.card[data-subject="音楽"] { --subject-color: #7c63c7; --subject-soft: #f1edfd; --subject-ink: #553f96; }
 
 .card[data-subject] { border-top-color: var(--subject-color); }
 .card[data-subject]:hover { border-top-color: var(--subject-color); }
