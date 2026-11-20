@@ -145,7 +145,7 @@ const items = [
 { name: '防災ゲームブック', repo: 'shakai-gamebook', path: 'bosai.html', category: '教材', subject: '社会', grade: '5年生中心', desc: '大雨・地震・津波・火山・大雪から一つを選び、その災害に合った備えと行動を考えるゲームブック。クリアでバッジがもらえる。' },
 { name: '水産業ゲームブック', repo: 'shakai-gamebook', path: 'suisan.html', category: '教材', subject: '社会', grade: '5年生中心', desc: '魚をとる・育てる・届ける。海の環境や魚の量、新鮮さや安全を考えながら水産業のしくみを体験するゲームブック。クリアでバッジがもらえる。' },
 { name: 'WORLD QUEST', repo: 'world-quest', category: '教材', subject: '社会', grade: '5〜6年生', desc: '国旗・地域・文化・食・自然など、いろいろな入口から世界の国を知る学習クイズ。' },
-{ name: '角度ハンター ― ナビアンをつかまえろ', repo: 'kakudo-hunter', category: '教材', subject: '算数', grade: '4年生中心（復習5〜6年生）', desc: '0°の線との開きから角度を見つけるハンターモードと、分度器を使うモードで角度の大きさを身につける。' },
+{ name: '角度ハンター ― ナビアンをつかまえろ', repo: 'kakudo-hunter', category: '教材', subject: '算数', grade: '4年生中心（復習5〜6年生）', desc: '0°の線との開きから角度を見つけるハンターモードと、分度器を自分で当てて読むモードで角度の大きさを身につける。' },
 { name: 'コアバトル', repo: 'core-numberbattle', category: '教材', subject: '算数', grade: '3〜6年生（計算力に応じて）', desc: '4つの数字から足し算・引き算をして、コアの数字にピッタリをねらうゲーム風の計算。' },
 { name: '読書レコード', repo: 'dokusho-record', category: '教材', subject: 'その他', grade: '1〜6年生（読書記録）', desc: '読んだ本を本棚に記録し、感想や読書目標、月・年ごとの積み重ねを振り返る。' },
 { name: 'キャリア探究ナビ', repo: 'careergakuahu', category: '教材', subject: 'その他', grade: '6年生', desc: '「自分らしく社会とかかわるために」を軸に、15時間のキャリア探究を進める学習ガイド。' },
