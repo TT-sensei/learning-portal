@@ -153,7 +153,7 @@ const items = [
 { name: '倍・約数メイズ', repo: 'bai-yaku-maze', category: '教材', subject: '算数', grade: '5年生中心（復習6年生）', desc: '倍数・約数の見方を、迷路や選択問題で繰り返し練習する算数教材。' },
 { name: '看護目標メーカー', repo: 'kangomokuhyo', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '看護目標を作成・整理するための先生向けツール。' },
 { name: '音読スナップ', repo: 'ondoku', category: '教材', subject: '国語', grade: '1〜6年生（音読支援）', desc: '音読するページを端末に登録し、写真を見ながら録音・記録できる音読支援アプリ。' },
-{ name: 'ものさしハンター', repo: 'nagasa-hunter', category: '教材', subject: '算数', grade: '2〜3年生中心', desc: 'ものさしを使わず、長さを目で見て当てながら、1cm・1mmの長さの感覚を身につける学習アプリ。' },
+{ name: 'ものさしハンター', repo: 'nagasa-hunter', category: '教材', subject: '算数', grade: '2〜3年生中心', desc: 'ものさしを動かして0に合わせ、長さを読んで逃げたナビアンをつかまえる学習アプリ。' },
 { name: 'タングラム', repo: 'moyo-maker', path: 'tangram.html', category: '教材', subject: '算数', grade: '1〜6年生', desc: '7つのピースを回したり裏返したりして、お題の形をつくる図形パズル。お題19種類、ヒントと完成判定つき。', new: true },
 { name: '勤務管理', repo: 'kinmukanri', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '出勤・退勤、勤務時間、時間外、早出、月別集計などを端末内で管理する学校向けツール。' },
 { name: 'デジタル教科書ランチャー', repo: 'digital-textbook-launcher', category: 'ツール', subject: 'その他', grade: '先生向け', desc: '教科を入口に、登録したデジタル教科書の公式ログイン先をすぐ開けるランチャー。' }
