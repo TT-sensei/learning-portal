@@ -77,6 +77,8 @@ const items = [
   { name: '分数×÷整数 しくみ図鑑', repo: 'bunsuuseisuukeisan', category: '教材', subject: '算数', grade: '5〜6年生', desc: '分数×整数・分数÷整数のしくみを、図で確かめながら学ぶ算数教材。' },
   { name: '分数の計算練習', repo: 'bunsu4nen', category: '教材', subject: '算数', grade: '4年生', desc: '同分母分数のたし算・ひき算を、分母はそのまま→分子の計算→帯分数に直す、のスモールステップで解く。例題ガイドと、間違えた問題をくり返す「とっくん」付き。', new: true },
   { name: '小数のたし算・ひき算', repo: 'shosu4nen', category: '教材', subject: '算数', grade: '4年生', desc: '小数点をそろえた筆算を、位ごとに1桁ずつ解くスモールステップ練習。小数×整数・÷整数は「5年生につながる内容」として折りたたみに収録。間違えた問題をくり返す「とっくん」付き。', new: true },
+  { name: '小数のかけ算', repo: 'shosu-kakezan', category: '教材', subject: '算数', grade: '5年生', desc: '見当→筆算→小数点の位置確認の3ステップで解く、小数×小数の計算練習。筆算は整数として位ごとに計算し、小数点は2つの数の小数点以下のけた数を自分で数えて打つ。間違えた問題を段階別に記録し、くり返す「とっくん」付き。', new: true },
+  { name: '小数のわり算', repo: 'shosu-warizan', category: '教材', subject: '算数', grade: '5年生', desc: '見当→筆算→小数点の位置確認の3ステップで解く、小数÷小数の計算練習。何倍して整数に直してから、商を位ごとに立てる筆算を「たてる・かける・ひく・おろす」の表示と役割の色分けで進める。間違えた問題を段階別に記録し、くり返す「とっくん」付き。', new: true },
   { name: '百マス計算', repo: 'hyakumasu', category: '教材', subject: '算数', grade: '1〜6年生', desc: 'たし算・ひき算・かけ算を、100・50・30マスで練習。タイム、正答率、ミス復習、プリント作成にも対応。' },
   { name: '時計べんきょう', repo: 'tokeibenkyo', category: '教材', subject: '算数', grade: '1〜2年生', desc: '時計の針を見て時刻を読み、「時刻と時間」の基礎を練習する。' },
   { name: 'ことばの森・立式の旅', repo: 'bunsyo-dai', category: '教材', subject: '算数', grade: '1〜3年生', desc: '文章を読んで数量の関係をつかみ、自分で式をたてる教材。1回7問、式をたてる→答えを出す二段階で立式を練習し、旅のお宝バッジも集める。' },
@@ -377,7 +379,7 @@ const MATH_CARD_REPOS = new Set([
   'mojisiki', 'omosa-hakari', 'enmenseki', 'taiseki', 'tanilabo', 'ratiopark', 'hirei-hanpirei',
   'rittaikihon', 'sententaisyo', 'narabikumiawase', 'detakatuyou', 'keisan-fantasy',
   'tashizan-hissan', 'hikizan-hissan', 'kakudo-hunter', 'core-numberbattle',
-  'kousiki-siwake', 'bai-yaku-maze', 'nagasa-hunter', 'bunsu4nen', 'shosu4nen'
+  'kousiki-siwake', 'bai-yaku-maze', 'nagasa-hunter', 'bunsu4nen', 'shosu4nen', 'shosu-kakezan', 'shosu-warizan'
 ]);
 
 const SCIENCE_CARD_REPOS = new Set(['rika3nen', 'rika4nen', 'rika5nen', 'rika6nen']);
