@@ -132,6 +132,7 @@ const items = [
   { name: 'つないでアート', repo: 'tsunaide-art', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '点と点を線でつなぎ、お手本の再現やアレンジ、自由な形・模様づくりを楽しむ図工教材。' },
   { name: 'ピクセルアートメーカー', repo: 'pixel-art-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: 'マス目・色・構図を工夫し、ピクセルアートを制作・修正して作品にする図工ツール。' },
   { name: 'もよう工房', repo: 'moyo-maker', category: '教材', subject: '図工', grade: '1〜6年生（表現活動）', desc: '辺の長さがそろったパターンブロック5種（＋飾り3種）で、ドットにぴたっと吸着させながら模様をつくる図工ツール。30度回転、左右・回転コピー、タブレット最適化レイアウトつき。', new: true },
+  { name: 'リズムうちランド', repo: 'rhythm-uchi-land', category: '教材', subject: '音楽', grade: '1〜6年生', desc: 'タン・タタ・ンタ・タウなどのリズムことばでリズムを作って演奏する音楽アプリ。自分でリズムの楽譜を作る「ためす・つくる」、お手本を聞いてまねする「まねする」、曲に合わせてたたく「あわせる」の3つのモードがあり、カスタネットやタンバリンなど5つの音で演奏できる。', student: true, new: true },
 
   { name: 'edu-components', repo: 'edu-components', category: '素材', subject: 'その他', grade: '共通基盤', desc: '画面遷移、出題、判定、得点、保存、進捗を担うロジック部品集。', foundation: true },
   { name: 'edu-effects', repo: 'edu-effects', category: '素材', subject: 'その他', grade: '共通基盤', desc: '教材UI、CSS、正誤・達成・バッジ演出のカタログ。', foundation: true },
